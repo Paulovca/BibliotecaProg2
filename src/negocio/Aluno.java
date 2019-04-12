@@ -1,7 +1,7 @@
 package negocio;
 
 public class Aluno {
-	
+	//teste de commit
 	private String cpf;
 	private String nome;
 	
