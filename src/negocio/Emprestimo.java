@@ -1,9 +1,11 @@
 package negocio;
 
+import java.sql.Date;
+
 public class Emprestimo {
 	
 	private Aluno aluno;
-	private Item[] itens;
+	private Item itens[] = new Item[5];
 	private Funcionario funcionario;
 	private Date dataEmpretimo;
 	private Date dataDevolucao;
@@ -56,17 +58,17 @@ public class Emprestimo {
 		this.dataDevolucao = dataDevolucao;
 	}
 	
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Emprestimo Consultar() {
+	public Emprestimo consultar() {
 		Emprestimo emprestimo = null;
 		return emprestimo;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	

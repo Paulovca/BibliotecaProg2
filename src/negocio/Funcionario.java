@@ -26,21 +26,21 @@ public class Funcionario {
 		this.senha = senha;
 	}
 	
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Funcionario Consultar() {
+	public Funcionario consultar() {
 		Funcionario funcionario = null;
 		return funcionario;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	
-	public void Atualizar() {
+	public void atualizar() {
 		//será modificado
 	}
 }

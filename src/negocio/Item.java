@@ -26,26 +26,24 @@ public class Item {
 		this.quantidade = quantidade;
 	}
 	
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Item Consultar() {
+	public Item consultar() {
 		Item item = null;
 		return item;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	
-	public void Atualizar() {
+	public void atualizar() {
 		//será modificado
 	}
 }
-
-
 
 
 

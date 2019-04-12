@@ -1,7 +1,7 @@
 package negocio;
 
 public class Aluno {
-	//teste de commit
+	
 	private String cpf;
 	private String nome;
 	
@@ -26,21 +26,21 @@ public class Aluno {
 		this.nome = nome;
 	}
  
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Aluno Consultar() {
+	public Aluno consultar() {
 		Aluno aluno = null;
 		return aluno;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	
-	public void Atualizar() {
+	public void atualizar() {
 		//será modificado
 	}
 }

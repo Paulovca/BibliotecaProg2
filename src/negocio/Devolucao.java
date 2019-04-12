@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.Date;
+
 public class Devolucao {
 	
 	private Aluno aluno;
@@ -24,11 +26,11 @@ public class Devolucao {
 		this.aluno = aluno;
 	}
 
-	public Item getItens() {
+	public Item[] getItens() {
 		return itens;
 	}
 
-	public void setItens(Item itens) {
+	public void setItens(Item[] itens) {
 		this.itens = itens;
 	}
 
@@ -56,17 +58,17 @@ public class Devolucao {
 		this.multa = multa;
 	}
 	
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Devolucao Consultar() {
+	public Devolucao consultar() {
 		Devolucao devolucao = null;
 		return devolucao;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	

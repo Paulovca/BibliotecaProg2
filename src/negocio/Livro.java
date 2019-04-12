@@ -2,16 +2,16 @@ package negocio;
 
 public class Livro {
 	
-	private int id;
+	private static int id=0;
 	private String titulo;
 	private String autor;
-	private int exemplar;
+	private int estoque;
 	
-	Livro(int id, String titulo, String autor, int exemplar){
-		this.id = id;
+	public Livro(String titulo, String autor, int estoque){
+		this.id = id++;
 		this.titulo = titulo;
 		this.autor = autor;
-		this.exemplar = exemplar;
+		this.estoque = estoque;
 	}
 	
 	public int getId() {
@@ -38,42 +38,36 @@ public class Livro {
 		this.autor = autor;
 	}
 
-	public int getExemplar() {
-		return exemplar;
+	public int getestoque() {
+		return estoque;
 	}
 
-	public void setExemplar(int exemplar) {
-		this.exemplar = exemplar;
+	public void setestoque(int estoque) {
+		this.estoque = estoque;
 	}
 	
-	public void Cadastrar() {
+	public void cadastrar() {
 		//será modificado
 	}
 	
-	public Livro Consultar() {
+	public Livro consultar() {
 		Livro livro = null;
 		return livro;
 		//será modificado
 	}
 	
-	public void Remover() {
+	public void remover() {
 		//será modificado
 	}
 	
-	public void Atualizar() {
+	public void atualizar() {
 		//será modificado
 	}
 	
-	public void AtualizarExemplar() {
+	public void atualizar_estoque() {
 		//recebe um parâmetro
 		//será modificado
 	}
 }
-
-
-
-
-
-
 
 
