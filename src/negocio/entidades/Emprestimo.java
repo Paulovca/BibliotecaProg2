@@ -1,4 +1,4 @@
-package negocio;
+package negocio.entidades;
 
 import java.sql.Date;
 

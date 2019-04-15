@@ -1,10 +1,10 @@
 package teste;
 
-import negocio.Aluno;
-import negocio.Emprestimo;
-import negocio.Funcionario;
-import negocio.Item;
-import negocio.Livro;
+import negocio.entidades.Aluno;
+import negocio.entidades.Emprestimo;
+import negocio.entidades.Funcionario;
+import negocio.entidades.Item;
+import negocio.entidades.Livro;
 
 public class classeTeste {
 
