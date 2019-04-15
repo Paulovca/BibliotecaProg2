@@ -6,10 +6,10 @@ import negocio.entidades.Turma;
 
 public interface RepositorioDevolucoes {
 
-	public void inserir(Avaliacao avaliacao);
-	public void alterar(Avaliacao avaliacao);
-	public Avaliacao procurar(Aluno aluno, Turma turma);
-	public int[] buscarTurmasDoAluno(int idAluno);
-	public int[] buscarAlunosDaTurma(Turma turma);
+	public void cadastrar( );
+	public Devolucao consultar();
+	public Devolucao remover();
+	public int[] buscarTurmasDoAluno();
+	public int[] buscarAlunosDaTurma();
 
 }
