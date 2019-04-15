@@ -16,7 +16,7 @@ public class classeTeste {
 		//deve-se criar um array de itens para passar em empréstimo, porém onde esse array será criado?
 		//deve-se criar uma data de emprestimo e devolucao para passar em empréstimo, porém onde esse objeto data será criada?
 		Emprestimo emp1 = new Emprestimo(aluno1, null, fun1, null, null);
-		
+		//
 	}
 	
 }
