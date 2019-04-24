@@ -2,24 +2,22 @@ package negocio.entidades;
 
 public class Livro {
 	
-	private static int id=0;
+	private int id = 0;
 	private String titulo;
 	private String autor;
 	private int estoque;
+	private static int contador = 0;
 	
 	public Livro(String titulo, String autor, int estoque){
-		this.id = id++;
+		Livro.contador++;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.estoque = estoque;
+		this.id = contador;
 	}
 	
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getTitulo() {

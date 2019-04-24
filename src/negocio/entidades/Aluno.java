@@ -1,6 +1,6 @@
 package negocio.entidades;
 
-public class Aluno {
+public class Aluno extends Pessoa{
 	
 	private String cpf;
 	private String nome;
