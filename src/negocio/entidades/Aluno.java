@@ -3,11 +3,10 @@ package negocio.entidades;
 public class Aluno extends Pessoa{
 	
 	private String cpf;
-	private String nome;
 	
 	public Aluno(String cpf, String nome) {
+		super(nome);
 		this.cpf = cpf;
-		this.nome = nome;
 	}
 	
 	public String getCpf() {
@@ -19,11 +18,11 @@ public class Aluno extends Pessoa{
 	}
 
 	public String getNome() {
-		return nome;
+		return super.getNome();
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		super.setNome(nome);
 	}
  
 	public void cadastrar() {

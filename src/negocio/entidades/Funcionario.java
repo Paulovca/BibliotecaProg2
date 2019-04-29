@@ -2,12 +2,11 @@ package negocio.entidades;
 
 public class Funcionario extends Pessoa{
 	
-	private String nome;
 	private String login;
 	private String senha;
 	
 	public Funcionario(String nome, String login, String senha) {
-		this.nome = nome;
+		super (nome);
 		this.login = login;
 		this.senha = senha;
 	}
@@ -17,11 +16,11 @@ public class Funcionario extends Pessoa{
 	}
 
 	public String getNome() {
-		return nome;
+		return super.getNome();
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		super.setNome(nome);
 	}
 
 	public void setLogin(String login) {

@@ -3,6 +3,10 @@ package negocio.entidades;
 public abstract class Pessoa {
 	//Classe criada apenas para Noções didáticas, pois não é necessário para o funcionamento do programa. ;)
 	private String nome;
+	
+	public Pessoa(String nome) {
+		this.nome = nome;
+	}
 
 	public String getNome() {
 		return nome;
