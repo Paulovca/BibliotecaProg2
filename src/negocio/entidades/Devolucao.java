@@ -58,18 +58,4 @@ public class Devolucao {
 		this.multa = multa;
 	}
 	
-	public void cadastrar() {
-		//será modificado
-	}
-	
-	public Devolucao consultar() {
-		Devolucao devolucao = null;
-		return devolucao;
-		//será modificado
-	}
-	
-	public void remover() {
-		//será modificado
-	}
-	
 }

@@ -24,22 +24,4 @@ public class Aluno extends Pessoa{
 	public void setNome(String nome) {
 		super.setNome(nome);
 	}
- 
-	public void cadastrar() {
-		//será modificado
-	}
-	
-	public Aluno consultar() {
-		Aluno aluno = null;
-		return aluno;
-		//será modificado
-	}
-	
-	public void remover() {
-		//será modificado
-	}
-	
-	public void atualizar() {
-		//será modificado
-	}
 }
