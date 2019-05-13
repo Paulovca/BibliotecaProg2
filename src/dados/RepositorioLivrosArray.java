@@ -29,6 +29,25 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 	}
 
 	@Override
+	public void remover(int id) {
+		for(int i = 0; i < indice ; i++) {
+			if(livros[i].getId() == id) {
+				livros[i] = livros[indice];
+				livros[indice] = null;
+			}
+		}
+	}
+	
+	@Override
+	public void atualizar(Livro livro) {
+		for(int i = 0; i < indice ; i++) {
+			if(livros[i].getId() == livro.getId()) {
+				livros[i] = livro;
+			}
+		}
+	}
+	
+	@Override
 	public Livro consultar(int id) {
 		Livro livro = null;
 		for(int i = 0; i< indice ; i++) {
@@ -39,24 +58,4 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 		return livro;
 	}
 
-	@Override
-	public void remover(int id) {
-		for(int i = 0; i < indice ; i++) {
-			if(livros[i].getId() == id) {
-				livros[i] = livros[indice];
-				livros[indice] = null;
-			}
-		}
-	}
-
-	@Override
-	public void atualizar(Livro livro) {
-		for(int i = 0; i < indice ; i++) {
-			if(livros[i].getId() == livro.getId()) {
-				livros[i] = livro;
-			}
-		}
-	}
-
-	
 }

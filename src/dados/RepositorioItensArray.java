@@ -30,6 +30,16 @@ public class RepositorioItensArray implements RepositorioItens {
 	}
 
 	@Override
+	public void remover(int id) {
+		for(int i = 0; i < indice ; i++) {
+			if(itens[i].getId() == id) {
+				itens[i] = itens[indice];
+				itens[indice] = null;
+			}
+		}
+	}
+	
+	@Override
 	public Item consultar(int id) {
 		Item item = null;
 		for(int i = 0; i< indice ; i++) {
@@ -38,16 +48,6 @@ public class RepositorioItensArray implements RepositorioItens {
 			}
 		}
 		return item;
-	}
-
-	@Override
-	public void remover(int id) {
-		for(int i = 0; i < indice ; i++) {
-			if(itens[i].getId() == id) {
-				itens[i] = itens[indice];
-				itens[indice] = null;
-			}
-		}
 	}
 
 }

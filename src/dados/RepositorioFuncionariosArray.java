@@ -29,17 +29,6 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	}
 
 	@Override
-	public Funcionario consultar(String cpf) {
-		Funcionario funcionario = null;
-		for(int i = 0; i< indice ; i++) {
-			if(funcionarios[i].getCpf().equals(cpf)) {
-				funcionario = funcionarios[i];
-			}
-		}
-		return funcionario;
-	}
-
-	@Override
 	public void remover(String cpf) {
 		for(int i = 0; i < indice ; i++) {
 			if(funcionarios[i].getCpf().equals(cpf)) {
@@ -48,7 +37,7 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 			}
 		}
 	}
-
+	
 	@Override
 	public void atualizar(Funcionario funcionario) {
 		for(int i = 0; i < indice ; i++) {
@@ -56,6 +45,17 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 				funcionarios[i] = funcionario;
 			}
 		}
+	}
+	
+	@Override
+	public Funcionario consultar(String cpf) {
+		Funcionario funcionario = null;
+		for(int i = 0; i< indice ; i++) {
+			if(funcionarios[i].getCpf().equals(cpf)) {
+				funcionario = funcionarios[i];
+			}
+		}
+		return funcionario;
 	}
 	
 }
