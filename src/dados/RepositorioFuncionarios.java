@@ -1,12 +1,12 @@
 package dados;
 
-import negocio.entidades.Gestor;
+import negocio.entidades.Funcionario;
 
 public interface RepositorioFuncionarios {
 
-	public void inserir(Gestor gestor);
-	public Gestor procurarCpf(String cpf);
+	public void cadastrar(Funcionario funcionario);
+	public Funcionario consultar(String cpf);
 	public void remover(String cpf);
-	public void alterar(Gestor gestor);
+	public void atualizar(Funcionario funcionario);
 
 }
