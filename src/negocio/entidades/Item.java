@@ -29,24 +29,17 @@ public class Item {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	public void cadastrar() {
-		//será modificado
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
-	public Item consultar() {
-		Item item = null;
-		return item;
-		//será modificado
-	}
 	
-	public void remover() {
-		//será modificado
-	}
 	
-	public void atualizar() {
-		//será modificado
-	}
 }
 
 

@@ -1,15 +1,11 @@
 package dados;
 
-import negocio.entidades.Professor;
+import negocio.entidades.Item;
 
 public interface RepositorioItens {
 
-	public void inserir(Professor professor);
-	public Professor procurar(int professorId);
-	public Professor procurar(String cpf);
-	public void remover(int professorId);
-	public void remover(String cpf);
-	public void alterar(Professor professor);
-	public String[] listar();
+	public void cadastrar(Item item);
+	public Item consultar(int id);
+	public void remover(int id);
 	
 }
