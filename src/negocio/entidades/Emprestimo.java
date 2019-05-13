@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class Emprestimo {
 	
+	private int id = 0;
+	private static int contador = 0;
 	private Aluno aluno;
 	private Item itens[] = new Item[5];
 	private Funcionario funcionario;
@@ -11,11 +13,13 @@ public class Emprestimo {
 	private Date dataDevolucao;
 	
 	public Emprestimo(Aluno aluno, Item[] itens, Funcionario funcionario, Date dataEmpretimo, Date dataDevolucao) {
+		Emprestimo.contador++;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
 		this.dataEmpretimo = dataEmpretimo;
 		this.dataDevolucao = dataDevolucao;
+		this.id = contador;
 	}
 
 	public Aluno getAluno() {
@@ -57,19 +61,9 @@ public class Emprestimo {
 	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
-	
-	public void cadastrar() {
-		//será modificado
+
+	public int getId() {
+		return id;
 	}
-	
-	public Emprestimo consultar() {
-		Emprestimo emprestimo = null;
-		return emprestimo;
-		//será modificado
-	}
-	
-	public void remover() {
-		//será modificado
-	}
-	
+
 }

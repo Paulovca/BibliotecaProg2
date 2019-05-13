@@ -1,15 +1,52 @@
 package dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import negocio.entidades.Emprestimo;
 
-import negocio.entidades.Disciplina;
+public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 
-public class RepositorioEmprestimosArray implements RepositorioEmprestimos, Serializable {
+	private static RepositorioEmprestimosArray instance;
+	private Emprestimo[] emprestimos;
+	private int indice;
+	
+	private final static int TAMANHO = 200;
+	
+	private RepositorioEmprestimosArray() {
+		this.emprestimos = new Emprestimo[TAMANHO];
+		this.indice = 0;
+	}
+	
+	public static RepositorioEmprestimosArray getInstance() {
+		if(instance == null) {
+			instance = new RepositorioEmprestimosArray();
+		}
+		return instance;
+	}
+	
+	@Override
+	public void cadastrar(Emprestimo emprestimo) {
+		emprestimos[indice] = emprestimo;
+		indice++;
+	}
+
+	@Override
+	public void remover(int id) {
+		for(int i = 0; i < indice ; i++) {
+			if(emprestimos[i].getId() == id) {
+				emprestimos[i] = emprestimos[indice];
+				emprestimos[indice] = null;
+			}
+		}
+	}
+	
+	@Override
+	public Emprestimo consultar(int id) {
+		Emprestimo emprestimo = null;
+		for(int i = 0; i< indice ; i++) {
+			if(emprestimos[i].getId() == id) {
+				emprestimo = emprestimos[i];
+			}
+		}
+		return emprestimo;
+	}
 	
 }
