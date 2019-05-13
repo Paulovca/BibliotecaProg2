@@ -1,15 +1,14 @@
 package dados;
 
-import negocio.entidades.Aluno;
-import negocio.entidades.Avaliacao;
-import negocio.entidades.Turma;
+import java.util.Date;
+
+import negocio.entidades.Devolucao;
+
 
 public interface RepositorioDevolucoes {
 
-	public void cadastrar( );
-	public Devolucao consultar();
-	public Devolucao remover();
-	public int[] buscarTurmasDoAluno();
-	public int[] buscarAlunosDaTurma();
+	public void cadastrar(Devolucao devolucoes);
+	public Devolucao consultar(Date dataDevolucao);
+	public Devolucao remover(Date dataDevolucao);
 
 }

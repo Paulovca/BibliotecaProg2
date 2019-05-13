@@ -1,17 +1,47 @@
 package dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.util.Date;
 
-import negocio.entidades.Aluno;
-import negocio.entidades.Avaliacao;
-import negocio.entidades.Turma;
+import negocio.entidades.Devolucao;
 
-public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable {
+public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
+	
+	private static RepositorioDevolucoesArray instance;
+	private Devolucao[] devolucoes;
+	private int indice;
+	
+	private final static int TAMANHO = 200;
+	
+	private RepositorioDevolucoesArray() {
+		this.devolucoes = new Devolucao[TAMANHO];
+		this.indice = 0;
+	}
+	
+	public static RepositorioDevolucoesArray getInstance() {
+		if(instance == null) {
+			instance = new RepositorioDevolucoesArray();
+		}
+		return instance;
+	}
+
+	@Override
+	public void cadastrar(Devolucao devolucao) {
+		devolucoes[indice] = devolucao;
+		indice++;
+	}
+
+	@Override
+	public Devolucao consultar(Date dataDevolucao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Devolucao remover(Date dataDevolucao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 	
 }

@@ -1,11 +1,21 @@
 package negocio.entidades;
 
 public abstract class Pessoa {
-	//Classe criada apenas para Noções didáticas, pois não é necessário para o funcionamento do programa. ;)
-	private String nome;
 	
-	public Pessoa(String nome) {
+	private String nome;
+	private String cpf;
+	
+	public Pessoa(String nome, String cpf) {
 		this.nome = nome;
+		this.cpf = cpf;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getNome() {

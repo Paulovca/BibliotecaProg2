@@ -2,29 +2,27 @@ package negocio.entidades;
 
 public class Funcionario extends Pessoa{
 	
-	private String login;
 	private String senha;
 	
-	public Funcionario(String nome, String login, String senha) {
-		super (nome);
-		this.login = login;
+	public Funcionario(String nome, String cpf, String senha) {
+		super (nome,cpf);
 		this.senha = senha;
 	}
-
-	public String getLogin() {
-		return login;
+    
+	public String getCpf() {
+		return super.getCpf();
 	}
-
+	
+	public void setCpf(String cpf) {
+		super.setCpf(cpf);;
+	}
+	
 	public String getNome() {
 		return super.getNome();
 	}
-
+	
 	public void setNome(String nome) {
 		super.setNome(nome);
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getSenha() {
@@ -35,21 +33,4 @@ public class Funcionario extends Pessoa{
 		this.senha = senha;
 	}
 	
-	public void cadastrar() {
-		//será modificado
-	}
-	
-	public Funcionario consultar() {
-		Funcionario funcionario = null;
-		return funcionario;
-		//será modificado
-	}
-	
-	public void remover() {
-		//será modificado
-	}
-	
-	public void atualizar() {
-		//será modificado
-	}
 }

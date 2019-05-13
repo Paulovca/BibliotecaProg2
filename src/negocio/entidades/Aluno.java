@@ -2,21 +2,18 @@ package negocio.entidades;
 
 public class Aluno extends Pessoa{
 	
-	private String cpf;
-	
-	public Aluno(String cpf, String nome) {
-		super(nome);
-		this.cpf = cpf;
+	public Aluno(String nome, String cpf) {
+		super(nome,cpf);
 	}
 	
 	public String getCpf() {
-		return cpf;
+		return super.getCpf();
 	}
-
+	
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		super.setCpf(cpf);
 	}
-
+	
 	public String getNome() {
 		return super.getNome();
 	}
