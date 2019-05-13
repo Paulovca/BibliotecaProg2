@@ -46,4 +46,7 @@ public class ControleAlunos {
 		return aluno;
 	}
 	
+	public String[] listar() {
+		return alunos.listar();
+	}
 }
