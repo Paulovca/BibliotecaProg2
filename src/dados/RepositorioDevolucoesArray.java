@@ -3,6 +3,7 @@ package dados;
 import java.util.Date;
 
 import negocio.entidades.Devolucao;
+import negocio.entidades.Emprestimo;
 
 public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 	
@@ -29,19 +30,26 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 		devolucoes[indice] = devolucao;
 		indice++;
 	}
-
+	
 	@Override
-	public Devolucao consultar(Date dataDevolucao) {
-		// TODO Auto-generated method stub
-		return null;
+	public void remover(int id) {
+		for(int i = 0; i < indice ; i++) {
+			if(devolucoes[i].getId() == id) {
+				devolucoes[i] = devolucoes[indice];
+				devolucoes[indice] = null;
+			}
+		}
 	}
 
 	@Override
-	public Devolucao remover(Date dataDevolucao) {
-		// TODO Auto-generated method stub
-		return null;
+	public Devolucao consultar(int id) {
+		Devolucao devolucao = null;
+		for(int i = 0; i< indice ; i++) {
+			if(devolucoes[i].getId() == id) {
+				devolucao = devolucoes[i];
+			}
+		}
+		return devolucao;
 	}
-	
-	
 	
 }

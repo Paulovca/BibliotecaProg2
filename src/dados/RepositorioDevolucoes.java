@@ -7,8 +7,7 @@ import negocio.entidades.Devolucao;
 
 public interface RepositorioDevolucoes {
 
-	public void cadastrar(Devolucao devolucoes);
-	public Devolucao consultar(Date dataDevolucao);
-	public Devolucao remover(Date dataDevolucao);
-
+	public void cadastrar(Devolucao devolucao);
+	public void remover(int id);
+	public Devolucao consultar(int id);
 }

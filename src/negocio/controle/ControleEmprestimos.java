@@ -9,7 +9,7 @@ public class ControleEmprestimos {
 	private RepositorioEmprestimos emprestimos = RepositorioEmprestimosArray.getInstance();
 	
 	public void cadastrar(Emprestimo emprestimo) {
-		if(emprestimo.getAluno() != null && emprestimo.getFuncionario() != null) {
+		if(emprestimo.getAluno() != null && emprestimo.getFuncionario() != null && emprestimo.getItens() != null) {
 			if(emprestimos.consultar(emprestimo.getId()) == null) {
 				emprestimos.cadastrar(emprestimo);
 			}else {
