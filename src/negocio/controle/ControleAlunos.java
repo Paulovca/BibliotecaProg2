@@ -6,7 +6,11 @@ import negocio.entidades.Aluno;
 
 public class ControleAlunos {
 	
-	private RepositorioAlunos alunos = RepositorioAlunosArray.getInstance();
+	private RepositorioAlunos alunos;
+	
+	public ControleAlunos() {
+		alunos = RepositorioAlunosArray.getInstance();
+	}
 	
 	public void cadastrar(Aluno aluno) {
 		if(aluno.getNome() != null && aluno.getCpf().length() == 11) {

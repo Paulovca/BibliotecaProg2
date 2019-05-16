@@ -6,7 +6,11 @@ import negocio.entidades.Livro;
 
 public class ControleLivros {
 		
-	private RepositorioLivros livros = RepositorioLivrosArray.getInstance();
+	private RepositorioLivros livros;
+	
+	public ControleLivros() {
+		livros = RepositorioLivrosArray.getInstance();
+	}
 	
 	public void cadastrar(Livro livro) {
 		if(livro.getTitulo() != null && livro.getAutor() != null) {

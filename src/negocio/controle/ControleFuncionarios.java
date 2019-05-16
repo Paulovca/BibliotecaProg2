@@ -6,7 +6,11 @@ import negocio.entidades.Funcionario;
 
 public class ControleFuncionarios {
 	
-	private RepositorioFuncionarios funcionarios = RepositorioFuncionariosArray.getInstance();
+	private RepositorioFuncionarios funcionarios;
+	
+	public ControleFuncionarios() {
+		funcionarios = RepositorioFuncionariosArray.getInstance();
+	}
 	
 	public void cadastrar(Funcionario funcionario) {
 		if(funcionario.getNome() != null && funcionario.getCpf().length() == 11 && funcionario.getSenha() != null ) {

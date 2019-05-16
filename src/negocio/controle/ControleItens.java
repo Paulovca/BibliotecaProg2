@@ -6,7 +6,11 @@ import negocio.entidades.Item;
 
 public class ControleItens {
 	
-	private RepositorioItens itens = RepositorioItensArray.getInstance();
+	private RepositorioItens itens;
+	
+	public ControleItens() {
+		itens = RepositorioItensArray.getInstance();
+	}
 	
 	public void cadastrar(Item item) {
 		if(item.getLivro() != null && item.getQuantidade() >= 1) {

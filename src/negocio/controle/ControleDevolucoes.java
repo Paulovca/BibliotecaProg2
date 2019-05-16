@@ -8,7 +8,11 @@ import negocio.entidades.Emprestimo;
 
 public class ControleDevolucoes {
 	
-	private RepositorioDevolucoes devolucoes = RepositorioDevolucoesArray.getInstance();
+	private RepositorioDevolucoes devolucoes;
+	
+	public ControleDevolucoes () {
+		devolucoes = RepositorioDevolucoesArray.getInstance();
+	}
 	
 	public void cadastrar(Devolucao devolucao) {
 		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null) {
@@ -20,6 +24,10 @@ public class ControleDevolucoes {
 		}else {
 			//exception campos nulos
 		}
+	}
+	
+	public float devolver(Emprestimo emprestimo) {
+		return (float) 0.0;
 	}
 	
 	public void remover(int id) {

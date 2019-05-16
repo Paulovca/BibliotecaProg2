@@ -6,7 +6,11 @@ import negocio.entidades.Emprestimo;
 
 public class ControleEmprestimos {
 
-	private RepositorioEmprestimos emprestimos = RepositorioEmprestimosArray.getInstance();
+	private RepositorioEmprestimos emprestimos;
+	
+	public ControleEmprestimos() {
+		emprestimos = RepositorioEmprestimosArray.getInstance();
+	}
 	
 	public void cadastrar(Emprestimo emprestimo) {
 		if(emprestimo.getAluno() != null && emprestimo.getFuncionario() != null && emprestimo.getItens() != null) {
