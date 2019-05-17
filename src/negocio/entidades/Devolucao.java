@@ -1,7 +1,6 @@
 package negocio.entidades;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class Devolucao {
 	
@@ -72,7 +71,13 @@ public class Devolucao {
 		this.multa = multa;
 	}
 	
-	public void CalcularMulta(Calendar dataDevolucao) {
-		
+	public float devolver(Calendar dataDevolucao, Emprestimo emprestimo) {
+		float multa = 0;
+		long noOfDaysBetween = DAYS.between(emprestimo.getDataEmpretimo().getTime(), dataDevolucao.getTime());
+		if(noOfDaysBetween > 15 ) {
+			//dias = noOfDaysBetween-15;
+			//multa = dias * 5reais;
+		}
+		return multa;
 	}
 }

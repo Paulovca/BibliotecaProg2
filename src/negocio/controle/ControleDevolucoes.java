@@ -15,7 +15,7 @@ public class ControleDevolucoes {
 	}
 	
 	public void cadastrar(Devolucao devolucao) {
-		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null) {
+		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null && devolucao.getDataDevolucao() != null) {
 			if(devolucoes.consultar(devolucao.getId()) == null) {
 				devolucoes.cadastrar(devolucao);
 			}else {
@@ -27,6 +27,7 @@ public class ControleDevolucoes {
 	}
 	
 	public float devolver(Emprestimo emprestimo) {
+		
 		return (float) 0.0;
 	}
 	

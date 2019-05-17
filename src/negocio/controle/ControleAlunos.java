@@ -3,6 +3,9 @@ package negocio.controle;
 import dados.RepositorioAlunos;
 import dados.RepositorioAlunosArray;
 import negocio.entidades.Aluno;
+import negocio.exception.AlunoNaoEncontradoException;
+import negocio.exception.CampoNuloException;
+import negocio.exception.CpfJaExisteException;
 
 public class ControleAlunos {
 	
@@ -12,40 +15,45 @@ public class ControleAlunos {
 		alunos = RepositorioAlunosArray.getInstance();
 	}
 	
-	public void cadastrar(Aluno aluno) {
+	public void cadastrar(Aluno aluno) throws CpfJaExisteException, CampoNuloException{
 		if(aluno.getNome() != null && aluno.getCpf().length() == 11) {
 			if(alunos.consultar(aluno.getCpf()) == null) {
 				alunos.cadastrar(aluno);
 			}else {
-				//Exception ja existe
+				CpfJaExisteException e = new CpfJaExisteException(aluno.getCpf());
+				throw e;
 			}
 		}else {
-			//exception campos nulos
+			CampoNuloException e = new CampoNuloException(aluno.getNome(),aluno.getCpf());
+			throw e;
 		}
 	}
 	
-	public void remover(String cpf) {
+	public void remover(String cpf) throws AlunoNaoEncontradoException{
 		Aluno aluno = alunos.consultar(cpf);
 		if(aluno == null) {
-			//exception de nao encontrado
+			AlunoNaoEncontradoException e = new AlunoNaoEncontradoException(cpf);
+			throw e;
 		} else {
 			alunos.remover(cpf);
 		}
 	}
 	
-	public void atualizar(Aluno aluno) {
+	public void atualizar(Aluno aluno) throws AlunoNaoEncontradoException{
 		Aluno alunoAux = alunos.consultar(aluno.getCpf());
 		if(aluno == null || alunoAux == null) {
-			//exception de não encontrado
+			AlunoNaoEncontradoException e = new AlunoNaoEncontradoException(aluno.getCpf());
+			throw e;
 		} else {
 			alunos.atualizar(aluno);
 		}
 	}
 	
-	public Aluno consultar(String cpf) {
+	public Aluno consultar(String cpf) throws AlunoNaoEncontradoException{
 		Aluno aluno = alunos.consultar(cpf);
 		if( aluno == null) {
-			//exception aluno nao encontrado
+			AlunoNaoEncontradoException e = new AlunoNaoEncontradoException(cpf);
+			throw e;
 		}
 		return aluno;
 	}

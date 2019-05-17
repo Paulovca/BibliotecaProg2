@@ -12,6 +12,9 @@ import negocio.entidades.Emprestimo;
 import negocio.entidades.Funcionario;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
+import negocio.exception.AlunoNaoEncontradoException;
+import negocio.exception.CampoNuloException;
+import negocio.exception.CpfJaExisteException;
 
 public class Fachada {
 
@@ -42,19 +45,19 @@ public class Fachada {
 	
 	//Alunos--------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Aluno aluno) {
+	public void cadastrar(Aluno aluno) throws CpfJaExisteException, CampoNuloException{
 		alunos.cadastrar(aluno);
 	}
 	
-	public void remover(String cpf) {
+	public void remover(String cpf) throws AlunoNaoEncontradoException {
 		alunos.remover(cpf);
 	}
 	
-	public void atualizar(Aluno aluno) {
+	public void atualizar(Aluno aluno) throws AlunoNaoEncontradoException {
 		alunos.atualizar(aluno);
 	}
 	
-	public Aluno consultar(String cpf) {
+	public Aluno consultar(String cpf) throws AlunoNaoEncontradoException {
 		return alunos.consultar(cpf);
 	}
 	
