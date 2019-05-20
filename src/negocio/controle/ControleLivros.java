@@ -3,6 +3,8 @@ package negocio.controle;
 import dados.RepositorioLivros;
 import dados.RepositorioLivrosArray;
 import negocio.entidades.Livro;
+import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNuloException;
 
 public class ControleLivros {
 		
@@ -12,15 +14,17 @@ public class ControleLivros {
 		livros = RepositorioLivrosArray.getInstance();
 	}
 	
-	public void cadastrar(Livro livro) {
+	public void cadastrar(Livro livro) throws LivroJaExisteException,LivroNuloException{
 		if(livro.getTitulo() != null && livro.getAutor() != null) {
 			if(livros.consultar(livro.getId()) == null) {
 				livros.cadastrar(livro);
 			}else {
-				//Exception ja existe
+				LivroJaExisteException e = new LivroJaExisteException(livro.getId(),livro.getTitulo());
+				throw e;
 			}
 		}else {
-			//exception campos nulos
+			LivroNuloException e = new LivroNuloException(livro.getAutor(),livro.getTitulo());
+			throw e;
 		}
 	}
 	

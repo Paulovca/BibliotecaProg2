@@ -1,4 +1,4 @@
-package negocio.exception;
+package negocio.exception.aluno;
 
 public class AlunoNaoEncontradoException extends Exception{
 	

@@ -3,9 +3,10 @@ package negocio.controle;
 import dados.RepositorioAlunos;
 import dados.RepositorioAlunosArray;
 import negocio.entidades.Aluno;
-import negocio.exception.AlunoNaoEncontradoException;
-import negocio.exception.CampoNuloException;
-import negocio.exception.CpfJaExisteException;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+import negocio.exception.aluno.AlunoNuloException;
+import negocio.exception.aluno.CampoNuloException;
+import negocio.exception.aluno.CpfJaExisteException;
 
 public class ControleAlunos {
 	
@@ -15,7 +16,7 @@ public class ControleAlunos {
 		alunos = RepositorioAlunosArray.getInstance();
 	}
 	
-	public void cadastrar(Aluno aluno) throws CpfJaExisteException, CampoNuloException{
+	public void cadastrar(Aluno aluno) throws CpfJaExisteException, AlunoNuloException{
 		if(aluno.getNome() != null && aluno.getCpf().length() == 11) {
 			if(alunos.consultar(aluno.getCpf()) == null) {
 				alunos.cadastrar(aluno);
@@ -24,7 +25,7 @@ public class ControleAlunos {
 				throw e;
 			}
 		}else {
-			CampoNuloException e = new CampoNuloException(aluno.getNome(),aluno.getCpf());
+			AlunoNuloException e = new AlunoNuloException(aluno.getNome(),aluno.getCpf());
 			throw e;
 		}
 	}

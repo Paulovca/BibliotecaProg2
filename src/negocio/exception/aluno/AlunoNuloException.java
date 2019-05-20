@@ -1,12 +1,12 @@
-package negocio.exception;
+package negocio.exception.aluno;
 
-public class CampoNuloException extends Exception {
+public class AlunoNuloException extends Exception {
 
 	private String nome;
 	private String cpf;
 
-	public CampoNuloException(String nome, String cpf) {
-		super("Cpf e/ou nome não preenchidos!");
+	public AlunoNuloException(String nome, String cpf) {
+		super("Cpf e/ou Nome não preenchidos!");
 		this.nome = nome;
 		this.cpf = cpf;
 	}

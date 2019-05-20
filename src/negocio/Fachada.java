@@ -12,9 +12,9 @@ import negocio.entidades.Emprestimo;
 import negocio.entidades.Funcionario;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
-import negocio.exception.AlunoNaoEncontradoException;
-import negocio.exception.CampoNuloException;
-import negocio.exception.CpfJaExisteException;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+import negocio.exception.aluno.CampoNuloException;
+import negocio.exception.aluno.CpfJaExisteException;
 
 public class Fachada {
 
