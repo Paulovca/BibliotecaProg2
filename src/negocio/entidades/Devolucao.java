@@ -71,9 +71,9 @@ public class Devolucao {
 		this.multa = multa;
 	}
 	
-	public float devolver(Calendar dataDevolucao, Emprestimo emprestimo) {
+	public float devolver( Emprestimo emprestimo) {
 		float multa = 0;
-		long noOfDaysBetween = DAYS.between(emprestimo.getDataEmpretimo().getTime(), dataDevolucao.getTime());
+		long noOfDaysBetween = emprestimo.getDataEmpretimo();
 		if(noOfDaysBetween > 15 ) {
 			//dias = noOfDaysBetween-15;
 			//multa = dias * 5reais;
