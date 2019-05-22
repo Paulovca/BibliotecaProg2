@@ -13,8 +13,10 @@ import negocio.entidades.Funcionario;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
-import negocio.exception.aluno.CampoNuloException;
+import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNuloException;
 
 public class Fachada {
 
@@ -45,7 +47,7 @@ public class Fachada {
 	
 	//Alunos--------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Aluno aluno) throws CpfJaExisteException, CampoNuloException{
+	public void cadastrar(Aluno aluno) throws CpfJaExisteException, AlunoNuloException{
 		alunos.cadastrar(aluno);
 	}
 	
@@ -131,7 +133,7 @@ public class Fachada {
 	
 	//Livros--------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Livro livro) {
+	public void cadastrar(Livro livro) throws LivroJaExisteException, LivroNuloException {
 		livros.cadastrar(livro);
 	}
 	

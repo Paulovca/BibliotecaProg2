@@ -5,7 +5,6 @@ import dados.RepositorioAlunosArray;
 import negocio.entidades.Aluno;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
 import negocio.exception.aluno.AlunoNuloException;
-import negocio.exception.aluno.CampoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
 
 public class ControleAlunos {

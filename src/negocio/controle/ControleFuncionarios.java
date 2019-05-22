@@ -3,6 +3,8 @@ package negocio.controle;
 import dados.RepositorioFuncionarios;
 import dados.RepositorioFuncionariosArray;
 import negocio.entidades.Funcionario;
+import negocio.entidades.funcionario.FuncionarioNuloException;
+import negocio.exception.aluno.CpfJaExisteException;
 
 public class ControleFuncionarios {
 	
@@ -12,15 +14,17 @@ public class ControleFuncionarios {
 		funcionarios = RepositorioFuncionariosArray.getInstance();
 	}
 	
-	public void cadastrar(Funcionario funcionario) {
+	public void cadastrar(Funcionario funcionario) throws CpfJaExisteException, FuncionarioNuloException{
 		if(funcionario.getNome() != null && funcionario.getCpf().length() == 11 && funcionario.getSenha() != null ) {
 			if(funcionarios.consultar(funcionario.getCpf()) == null) {
 				funcionarios.cadastrar(funcionario);
 			}else {
-				//Exception ja existe
+				CpfJaExisteException e = new CpfJaExisteException(funcionario.getCpf());
+				throw e;
 			}
 		}else {
-			//exception campos nulos
+			FuncionarioNuloException e = new FuncionarioNuloException(funcionario.getNome(), funcionario.getCpf(), funcionario.getSenha());
+			throw e;
 		}
 	}
 	

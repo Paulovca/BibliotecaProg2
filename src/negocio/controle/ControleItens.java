@@ -3,6 +3,9 @@ package negocio.controle;
 import dados.RepositorioItens;
 import dados.RepositorioItensArray;
 import negocio.entidades.Item;
+import negocio.exception.item.ItemJaExisteException;
+import negocio.exception.item.ItemNaoEncontradoException;
+import negocio.exception.item.ItemNuloException;
 
 public class ControleItens {
 	
@@ -12,31 +15,35 @@ public class ControleItens {
 		itens = RepositorioItensArray.getInstance();
 	}
 	
-	public void cadastrar(Item item) {
+	public void cadastrar(Item item) throws ItemJaExisteException,ItemNuloException{
 		if(item.getLivro() != null && item.getQuantidade() >= 1) {
 			if(itens.consultar(item.getId()) == null) {
 				itens.cadastrar(item);
 			}else {
-				//Exception ja existe
+				ItemJaExisteException e = new ItemJaExisteException(item.getLivro(), item.getQuantidade());
+				throw e;
 			}
 		}else {
-			//exception campos nulos
+			ItemNuloException e = new ItemNuloException(item.getLivro(), item.getQuantidade());
+			throw e;
 		}
 	}
 	
-	public void remover(int id) {
+	public void remover(int id) throws ItemNaoEncontradoException{
 		Item item = itens.consultar(id);
 		if(item == null) {
-			//exception de nao encontrado
+			ItemNaoEncontradoException e = new ItemNaoEncontradoException(id);
+			throw e;
 		} else {
 			itens.remover(id);
 		}
 	}
 	
-	public Item consultar(int id) {
+	public Item consultar(int id) throws ItemNaoEncontradoException{
 		Item item = itens.consultar(id);
 		if( item == null) {
-			//exception aluno nao encontrado
+			ItemNaoEncontradoException e = new ItemNaoEncontradoException(id);
+			throw e;
 		}
 		return item;
 	}

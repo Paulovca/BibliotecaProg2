@@ -4,6 +4,7 @@ import dados.RepositorioLivros;
 import dados.RepositorioLivrosArray;
 import negocio.entidades.Livro;
 import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNaoEncontradoException;
 import negocio.exception.livro.LivroNuloException;
 
 public class ControleLivros {
@@ -28,28 +29,31 @@ public class ControleLivros {
 		}
 	}
 	
-	public void remover(int id) {
+	public void remover(int id) throws LivroNaoEncontradoException{
 		Livro livro = livros.consultar(id);
 		if(livro == null) {
-			//exception de nao encontrado
+			LivroNaoEncontradoException e = new LivroNaoEncontradoException(id);
+			throw e;
 		} else {
 			livros.remover(id);
 		}
 	}
 	
-	public void atualizar(Livro livro) {
+	public void atualizar(Livro livro) throws LivroNaoEncontradoException{
 		Livro livroAux = livros.consultar(livro.getId());
 		if(livro == null || livroAux == null) {
-			//exception de não encontrado
+			LivroNaoEncontradoException e = new LivroNaoEncontradoException(livro.getId());
+			throw e;
 		} else {
 			livros.atualizar(livro);
 		}
 	}
 	
-	public Livro consultar(int id) {
+	public Livro consultar(int id) throws LivroNaoEncontradoException{
 		Livro livro = livros.consultar(id);
 		if( livro == null) {
-			//exception aluno nao encontrado
+			LivroNaoEncontradoException e = new LivroNaoEncontradoException(id);
+			throw e;
 		}
 		return livro;
 	}
