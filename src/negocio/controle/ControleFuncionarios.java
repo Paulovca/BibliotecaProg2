@@ -3,8 +3,8 @@ package negocio.controle;
 import dados.RepositorioFuncionarios;
 import dados.RepositorioFuncionariosArray;
 import negocio.entidades.Funcionario;
-import negocio.entidades.funcionario.FuncionarioNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.funcionario.FuncionarioNuloException;
 
 public class ControleFuncionarios {
 	

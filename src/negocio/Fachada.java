@@ -15,7 +15,12 @@ import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
 import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.funcionario.FuncionarioNuloException;
+import negocio.exception.item.ItemJaExisteException;
+import negocio.exception.item.ItemNaoEncontradoException;
+import negocio.exception.item.ItemNuloException;
 import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNaoEncontradoException;
 import negocio.exception.livro.LivroNuloException;
 
 public class Fachada {
@@ -101,7 +106,7 @@ public class Fachada {
 	
 	//Funcionarios--------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Funcionario funcionario) {
+	public void cadastrar(Funcionario funcionario) throws CpfJaExisteException, FuncionarioNuloException {
 		funcionarios.cadastrar(funcionario);
 	}
 	
@@ -119,15 +124,15 @@ public class Fachada {
 	
 	//Itens---------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Item item) {
+	public void cadastrar(Item item) throws ItemJaExisteException, ItemNuloException {
 		itens.cadastrar(item);
 	}
 	
-	public void remover(int id) {
+	public void removerItem(int id) throws ItemNaoEncontradoException {
 		itens.remover(id);
 	}
 	
-	public Item consultarItem(int id) {
+	public Item consultarItem(int id) throws ItemNaoEncontradoException {
 		return itens.consultar(id);
 	}
 	
@@ -137,15 +142,15 @@ public class Fachada {
 		livros.cadastrar(livro);
 	}
 	
-	public void removerLivros(int id) {
+	public void removerLivros(int id) throws LivroNaoEncontradoException {
 		livros.remover(id);
 	}
 	
-	public void atualizar(Livro livro) {
+	public void atualizar(Livro livro) throws LivroNaoEncontradoException {
 		livros.atualizar(livro);
 	}
 	
-	public Livro consultarLivro(int id) {
+	public Livro consultarLivro(int id) throws LivroNaoEncontradoException {
 		return livros.consultar(id);
 	}
 	
