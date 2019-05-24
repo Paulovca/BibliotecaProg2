@@ -4,6 +4,7 @@ import dados.RepositorioFuncionarios;
 import dados.RepositorioFuncionariosArray;
 import negocio.entidades.Funcionario;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
 import negocio.exception.funcionario.FuncionarioNuloException;
 
 public class ControleFuncionarios {
@@ -28,28 +29,31 @@ public class ControleFuncionarios {
 		}
 	}
 	
-	public void remover(String cpf) {
+	public void remover(String cpf) throws FuncionarioNaoEncontradoException{
 		Funcionario funcionario = funcionarios.consultar(cpf);
 		if(funcionario == null) {
-			//exception de nao encontrado
+			FuncionarioNaoEncontradoException e = new FuncionarioNaoEncontradoException(cpf);
+			throw e;
 		} else {
 			funcionarios.remover(cpf);
 		}
 	}
 	
-	public void atualizar(Funcionario funcionario) {
+	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException{
 		Funcionario funcionarioAux = funcionarios.consultar(funcionario.getCpf());
 		if(funcionario == null || funcionarioAux == null) {
-			//exception de não encontrado
+			FuncionarioNaoEncontradoException e = new FuncionarioNaoEncontradoException(funcionario.getCpf());
+			throw e;
 		} else {
 			funcionarios.atualizar(funcionario);
 		}
 	}
 	
-	public Funcionario consultar(String cpf) {
+	public Funcionario consultar(String cpf) throws FuncionarioNaoEncontradoException{
 		Funcionario funcionario = funcionarios.consultar(cpf);
 		if( funcionario == null) {
-			//exception aluno nao encontrado
+			FuncionarioNaoEncontradoException e = new FuncionarioNaoEncontradoException(cpf);
+			throw e;
 		}
 		return funcionario;
 	}

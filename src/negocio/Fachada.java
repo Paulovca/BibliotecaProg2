@@ -15,6 +15,13 @@ import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
 import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.devolucao.DevolucaoJaExisteException;
+import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
+import negocio.exception.devolucao.DevolucaoNulaException;
+import negocio.exception.emprestimo.EmprestimoJaExisteException;
+import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
+import negocio.exception.emprestimo.EmprestimoNuloException;
+import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
 import negocio.exception.funcionario.FuncionarioNuloException;
 import negocio.exception.item.ItemJaExisteException;
 import negocio.exception.item.ItemNaoEncontradoException;
@@ -74,7 +81,7 @@ public class Fachada {
 	
 	//Devoluções----------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Devolucao devolucao) {
+	public void cadastrar(Devolucao devolucao) throws DevolucaoJaExisteException, DevolucaoNulaException {
 		devolucoes.cadastrar(devolucao);
 	}
 	
@@ -82,25 +89,25 @@ public class Fachada {
 		return devolucoes.devolver(emprestimo);
 	}
 	
-	public void removerDevolucao(int id) {
+	public void removerDevolucao(int id) throws DevolucaoNaoEncontradaException {
 		devolucoes.remover(id);
 	}
 	
-	public Devolucao consultarDevolucao(int id) {
+	public Devolucao consultarDevolucao(int id) throws DevolucaoNaoEncontradaException {
 		return devolucoes.consultar(id);
 	}
 	
 	//Emprestimos---------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Emprestimo emprestimo) {
+	public void cadastrar(Emprestimo emprestimo) throws EmprestimoJaExisteException, EmprestimoNuloException {
 		emprestimos.cadastrar(emprestimo);
 	}
 	
-	public void removerEmprestimo(int id) {
+	public void removerEmprestimo(int id) throws EmprestimoNaoEncontradoException {
 		emprestimos.remover(id);
 	}
 	
-	public Emprestimo consultarEmprestimo(int id) {
+	public Emprestimo consultarEmprestimo(int id) throws EmprestimoNaoEncontradoException {
 		return emprestimos.consultar(id);
 	}
 	
@@ -110,15 +117,15 @@ public class Fachada {
 		funcionarios.cadastrar(funcionario);
 	}
 	
-	public void removerFuncionario(String cpf) {
+	public void removerFuncionario(String cpf) throws FuncionarioNaoEncontradoException {
 		funcionarios.remover(cpf);
 	}
 	
-	public void atualizar(Funcionario funcionario) {
+	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException {
 		funcionarios.atualizar(funcionario);
 	}
 	
-	public Funcionario consultarFuncionario(String cpf) {
+	public Funcionario consultarFuncionario(String cpf) throws FuncionarioNaoEncontradoException {
 		return funcionarios.consultar(cpf);
 	}
 	

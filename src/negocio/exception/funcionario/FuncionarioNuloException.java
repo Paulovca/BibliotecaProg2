@@ -1,4 +1,4 @@
-package negocio.entidades.funcionario;
+package negocio.exception.funcionario;
 
 public class FuncionarioNuloException extends Exception{
 	private String nome;
