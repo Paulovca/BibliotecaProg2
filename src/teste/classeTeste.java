@@ -50,7 +50,17 @@ public class classeTeste {
 		
 			Fachada.getInstance().listar();
 	
-		
+			 /*1opçao- a gente continua com esse formato de emprestimo, devolução recebe um emprestimo como parâmetro,
+		     * e compara com a data que deveria receber o emprestimo (data devolucao) com a data atual gerando a multa com o metodo da devolução.
+		     * 
+		     * 2-opcao- interface do aluno, e o aluno possui um atributo emrpestimo e devolução(arrays) e na criação de um emprestimo o aluno
+		     * recebe esses objetos e ele pode selecionar os livros que vai devolver, gerando uma multa automaticamente pra ele.
+		     *
+		     *
+		     *
+		     *
+		     *
+		     **/
 		
 		//Emprestimo emp1 = new Emprestimo(aluno1, null, fun1, null, null);
 		//

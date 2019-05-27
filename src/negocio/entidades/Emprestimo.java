@@ -10,18 +10,18 @@ public class Emprestimo {
 	private Aluno aluno;
 	private Item itens[] = new Item[5];
 	private Funcionario funcionario;
-	private Calendar dataEmpretimo = Calendar.getInstance();
+	private Calendar dataEmprestimo = Calendar.getInstance();
 	private Calendar dataDevolucao = Calendar.getInstance();
 	
 	
 
-	public Emprestimo(int id, Aluno aluno, Item[] itens, Funcionario funcionario, Calendar dataEmpretimo, Calendar dataDevolucao) {
+	public Emprestimo(int id, Aluno aluno, Item[] itens, Funcionario funcionario, Calendar dataEmprestimo, Calendar dataDevolucao) {
 		Emprestimo.contador ++;
 		this.id = contador;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
-		this.dataEmpretimo = dataEmpretimo;
+		this.dataEmprestimo = dataEmprestimo;
 		this.dataDevolucao = dataDevolucao;
 	}
 
@@ -50,11 +50,11 @@ public class Emprestimo {
 	}
 
 	public Calendar getDataEmpretimo() {
-		return dataEmpretimo;
+		return dataEmprestimo;
 	}
 
-	public void setDataEmpretimo(Calendar dataEmpretimo) {
-		this.dataEmpretimo = dataEmpretimo;
+	public void setDataEmpretimo(Calendar dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
 	}
 
 	public Calendar getDataDevolucao() {
