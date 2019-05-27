@@ -1,5 +1,6 @@
 package negocio.entidades;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 
 public class Devolucao {
@@ -9,15 +10,15 @@ public class Devolucao {
 	private Aluno aluno;
 	private Item[] itens;
 	private Funcionario funcionario;
-	private Calendar dataDevolucao = Calendar.getInstance();
+	private LocalDate dataDevolucao;
 	private float multa;
 	
-	public Devolucao(Aluno aluno, Item[] itens, Funcionario funcionario, Calendar dataDevolucao) {
+	public Devolucao(Aluno aluno, Item[] itens, Funcionario funcionario) {
 		Devolucao.contador ++;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
-		this.dataDevolucao = dataDevolucao;
+		this.dataDevolucao = LocalDate.now();
 		this.multa = 0;
 		this.id = contador;
 
@@ -47,11 +48,11 @@ public class Devolucao {
 		this.funcionario = funcionario;
 	}
 
-	public Calendar getDataDevolucao() {
+	public LocalDate getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Calendar dataDevolucao) {
+	public void setDataDevolucao(LocalDate dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
@@ -73,10 +74,10 @@ public class Devolucao {
 	
 	public float devolver( Emprestimo emprestimo) {
 		float multa = 0;
-		long noOfDaysBetween = emprestimo.getDataEmpretimo();
-		if(noOfDaysBetween > 15 ) {
-			//dias = noOfDaysBetween-15;
-			//multa = dias * 5reais;
+		if(this.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
+			for(LocalDate i = emprestimo.getDataDevolucao() ; i.isBefore(this.getDataDevolucao()) ; i.plusDays(1)) {
+				multa += 3.50;
+			}
 		}
 		return multa;
 	}

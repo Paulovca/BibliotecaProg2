@@ -18,7 +18,7 @@ public class ControleDevolucoes {
 	}
 	
 	public void cadastrar(Devolucao devolucao) throws DevolucaoJaExisteException,DevolucaoNulaException{
-		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null && devolucao.getDataDevolucao() != null) {
+		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null) {
 			if(devolucoes.consultar(devolucao.getId()) == null) {
 				devolucoes.cadastrar(devolucao);
 			}else {
@@ -26,7 +26,7 @@ public class ControleDevolucoes {
 				throw e;
 			}
 		}else {
-			DevolucaoNulaException e = new DevolucaoNulaException(devolucao.getAluno(),devolucao.getItens(),devolucao.getFuncionario(),devolucao.getDataDevolucao());
+			DevolucaoNulaException e = new DevolucaoNulaException(devolucao.getAluno(),devolucao.getItens(),devolucao.getFuncionario());
 			throw e;
 		}
 	}

@@ -1,6 +1,6 @@
 package negocio.exception.devolucao;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 import negocio.entidades.Aluno;
 import negocio.entidades.Funcionario;
@@ -11,14 +11,12 @@ public class DevolucaoNulaException extends Exception{
 	private Aluno aluno;
 	private Item[] itens;
 	private Funcionario funcionario;
-	private Calendar dataDevolucao;
 	
-	public DevolucaoNulaException(Aluno aluno, Item[] itens, Funcionario funcionario, Calendar dataDevolucao) {
-		super("Aluno, Itens, Funcionario e/ou Data de Devolução nulos!");
+	public DevolucaoNulaException(Aluno aluno, Item[] itens, Funcionario funcionario) {
+		super("Aluno, Itens e/ou Funcionario nulos!");
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
-		this.dataDevolucao = dataDevolucao;
 	}
 
 	public Aluno getAluno() {
@@ -32,10 +30,5 @@ public class DevolucaoNulaException extends Exception{
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-
-	public Calendar getDataDevolucao() {
-		return dataDevolucao;
-	}
-	
 	
 }

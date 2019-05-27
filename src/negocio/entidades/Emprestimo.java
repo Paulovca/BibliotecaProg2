@@ -1,7 +1,6 @@
 package negocio.entidades;
 
-import java.sql.Date;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class Emprestimo {
 	
@@ -10,19 +9,19 @@ public class Emprestimo {
 	private Aluno aluno;
 	private Item itens[] = new Item[5];
 	private Funcionario funcionario;
-	private Calendar dataEmprestimo = Calendar.getInstance();
-	private Calendar dataDevolucao = Calendar.getInstance();
+	private LocalDate dataEmprestimo;
+	private LocalDate dataDevolucao;
 	
 	
 
-	public Emprestimo(int id, Aluno aluno, Item[] itens, Funcionario funcionario, Calendar dataEmprestimo, Calendar dataDevolucao) {
+	public Emprestimo(int id, Aluno aluno, Item[] itens, Funcionario funcionario) {
 		Emprestimo.contador ++;
 		this.id = contador;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
-		this.dataEmprestimo = dataEmprestimo;
-		this.dataDevolucao = dataDevolucao;
+		this.dataEmprestimo = LocalDate.now();
+		this.dataDevolucao = dataEmprestimo.plusDays(15);
 	}
 
 	public Aluno getAluno() {
@@ -49,19 +48,19 @@ public class Emprestimo {
 		this.funcionario = funcionario;
 	}
 
-	public Calendar getDataEmpretimo() {
+	public LocalDate getDataEmpretimo() {
 		return dataEmprestimo;
 	}
 
-	public void setDataEmpretimo(Calendar dataEmprestimo) {
+	public void setDataEmpretimo(LocalDate dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
 
-	public Calendar getDataDevolucao() {
+	public LocalDate getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(Calendar dataDevolucao) {
+	public void setDataDevolucao(LocalDate dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 

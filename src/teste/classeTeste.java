@@ -2,16 +2,10 @@ package teste;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
-import negocio.Fachada;
-import negocio.controle.ControleAlunos;
 import negocio.entidades.Aluno;
-import negocio.entidades.Funcionario;
-import negocio.entidades.Item;
-import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
 
@@ -30,7 +24,7 @@ public class classeTeste {
 		//Item item1 = new Item(livro1, 1);
 		//deve-se criar um array de itens para passar em empréstimo, porém onde esse array será criado?
 		//deve-se criar uma data de emprestimo e devolucao para passar em empréstimo, porém onde esse objeto data será criada?
-		
+	/*	
 		Calendar cal = Calendar.getInstance();
 	    System.out.println(sdf.format(cal.getTime()));
 	    
@@ -49,11 +43,11 @@ public class classeTeste {
 		}
 		
 			Fachada.getInstance().listar();
-	
+	*/
 			 /*1opçao- a gente continua com esse formato de emprestimo, devolução recebe um emprestimo como parâmetro,
 		     * e compara com a data que deveria receber o emprestimo (data devolucao) com a data atual gerando a multa com o metodo da devolução.
 		     * 
-		     * 2-opcao- interface do aluno, e o aluno possui um atributo emrpestimo e devolução(arrays) e na criação de um emprestimo o aluno
+		     * 2-opcao- interface do aluno, e o aluno possui um atributo emprestimo e devolução(arrays) e na criação de um emprestimo o aluno
 		     * recebe esses objetos e ele pode selecionar os livros que vai devolver, gerando uma multa automaticamente pra ele.
 		     *
 		     *
@@ -64,6 +58,19 @@ public class classeTeste {
 		
 		//Emprestimo emp1 = new Emprestimo(aluno1, null, fun1, null, null);
 		//
+			
+			LocalDate deveria = LocalDate.now();
+			LocalDate devolveu = deveria.plusDays(15);
+			
+			float multa = 0;
+			//int j = deveria.getDayOfMonth();
+			
+			if(devolveu.isAfter(deveria)) {
+				for(LocalDate i = deveria ; i.isBefore(devolveu) ; i.plusDays(1)) {
+					multa += 3.50;
+				}
+			}
+			System.out.println(multa);
 	}
 	
 }
