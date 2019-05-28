@@ -1,7 +1,7 @@
 package negocio.entidades;
 
+import java.time.Duration;
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public class Devolucao {
 	
@@ -75,9 +75,7 @@ public class Devolucao {
 	public float devolver( Emprestimo emprestimo) {
 		float multa = 0;
 		if(this.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
-			for(LocalDate i = emprestimo.getDataDevolucao() ; i.isBefore(this.getDataDevolucao()) ; i.plusDays(1)) {
-				multa += 3.50;
-			}
+			multa = (float) (3.50*Duration.between(emprestimo.getDataDevolucao().atStartOfDay(), this.getDataDevolucao().atStartOfDay()).toDays());
 		}
 		return multa;
 	}

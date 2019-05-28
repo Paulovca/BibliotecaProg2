@@ -2,6 +2,7 @@ package teste;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -59,18 +60,21 @@ public class classeTeste {
 		//Emprestimo emp1 = new Emprestimo(aluno1, null, fun1, null, null);
 		//
 			
-			LocalDate deveria = LocalDate.now();
-			LocalDate devolveu = deveria.plusDays(15);
+			LocalDate devolucaoEmprestimo = LocalDate.of(2019, 05, 20);
+			LocalDate devolucao = LocalDate.now();
 			
-			float multa = 0;
-			//int j = deveria.getDayOfMonth();
 			
-			if(devolveu.isAfter(deveria)) {
-				for(LocalDate i = deveria ; i.isBefore(devolveu) ; i.plusDays(1)) {
-					multa += 3.50;
-				}
-			}
-			System.out.println(multa);
+			System.out.println(Duration.between(devolucaoEmprestimo.atStartOfDay(), devolucao.atStartOfDay()).toDays());
+			
+//			float multa = 0;
+//			//int j = deveria.getDayOfMonth();
+//			
+//			if(devolveu.isAfter(deveria)) {
+//				for(LocalDate i = deveria ; i.isBefore(devolveu) ; i.plusDays(1)) {
+//					multa += 3.50;
+//				}
+//			}
+//			System.out.println(multa);
 	}
 	
 }
