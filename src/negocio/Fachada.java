@@ -85,8 +85,8 @@ public class Fachada {
 		devolucoes.cadastrar(devolucao);
 	}
 	
-	public float devolver(Emprestimo emprestimo) {
-		return devolucoes.devolver(emprestimo);
+	public float devolver(Emprestimo emprestimo, Devolucao devolucao) {
+		return devolucoes.devolver(emprestimo,devolucao);
 	}
 	
 	public void removerDevolucao(int id) throws DevolucaoNaoEncontradaException {

@@ -1,5 +1,7 @@
 package negocio.controle;
 
+import java.time.Duration;
+
 import dados.RepositorioDevolucoes;
 import dados.RepositorioDevolucoesArray;
 import negocio.entidades.Aluno;
@@ -31,9 +33,12 @@ public class ControleDevolucoes {
 		}
 	}
 	
-	public float devolver(Emprestimo emprestimo) {
-		
-		return (float) 0.0;
+	public float devolver(Emprestimo emprestimo, Devolucao devolucao) {
+		float multa = 0;
+		if(devolucao.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
+			multa = (float) (3.50*Duration.between(emprestimo.getDataDevolucao().atStartOfDay(), devolucao.getDataDevolucao().atStartOfDay()).toDays());
+		}
+		return multa;
 	}
 	
 	public void remover(int id) throws DevolucaoNaoEncontradaException{
@@ -54,4 +59,5 @@ public class ControleDevolucoes {
 		}
 		return devolucao;
 	}
+	
 }

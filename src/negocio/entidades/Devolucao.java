@@ -72,11 +72,5 @@ public class Devolucao {
 		this.multa = multa;
 	}
 	
-	public float devolver( Emprestimo emprestimo) {
-		float multa = 0;
-		if(this.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
-			multa = (float) (3.50*Duration.between(emprestimo.getDataDevolucao().atStartOfDay(), this.getDataDevolucao().atStartOfDay()).toDays());
-		}
-		return multa;
-	}
+	
 }
