@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import negocio.Fachada;
 import negocio.entidades.Aluno;
 import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
@@ -25,12 +26,12 @@ public class classeTeste {
 		//Item item1 = new Item(livro1, 1);
 		//deve-se criar um array de itens para passar em empréstimo, porém onde esse array será criado?
 		//deve-se criar uma data de emprestimo e devolucao para passar em empréstimo, porém onde esse objeto data será criada?
-	/*	
-		Calendar cal = Calendar.getInstance();
-	    System.out.println(sdf.format(cal.getTime()));
-	    
-	    LocalDateTime now = LocalDateTime.now();
-	    System.out.println(dtf.format(now));
+		
+//		Calendar cal = Calendar.getInstance();
+//	    System.out.println(sdf.format(cal.getTime()));
+//	    
+//	    LocalDateTime now = LocalDateTime.now();
+//	    System.out.println(dtf.format(now));
 	    	    
 	    
 		try {
@@ -38,13 +39,13 @@ public class classeTeste {
 			Fachada.getInstance().cadastrar(aluno2);
 			Fachada.getInstance().cadastrar(aluno1);
 		} catch (AlunoNuloException e) {
-			System.out.println("a");
+			e.getMessage();
 		}catch( CpfJaExisteException e){
-			System.out.println("b");
+			e.getMessage();
 		}
 		
-			Fachada.getInstance().listar();
-	*/
+		//	Fachada.getInstance().listar();
+	
 			 /*1opçao- a gente continua com esse formato de emprestimo, devolução recebe um emprestimo como parâmetro,
 		     * e compara com a data que deveria receber o emprestimo (data devolucao) com a data atual gerando a multa com o metodo da devolução.
 		     * 
@@ -59,12 +60,12 @@ public class classeTeste {
 		
 		//Emprestimo emp1 = new Emprestimo(aluno1, null, fun1, null, null);
 		//
-			
-			LocalDate devolucaoEmprestimo = LocalDate.of(2019, 05, 20);
-			LocalDate devolucao = LocalDate.now();
-			
-			
-			System.out.println(Duration.between(devolucaoEmprestimo.atStartOfDay(), devolucao.atStartOfDay()).toDays());
+//			
+//			LocalDate devolucaoEmprestimo = LocalDate.of(2019, 05, 20);
+//			LocalDate devolucao = LocalDate.now();
+//			
+//			
+//			System.out.println(Duration.between(devolucaoEmprestimo.atStartOfDay(), devolucao.atStartOfDay()).toDays());
 			
 //			float multa = 0;
 //			//int j = deveria.getDayOfMonth();

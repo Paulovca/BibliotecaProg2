@@ -6,14 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Grafica extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldnumero;
-
+	private JTextField textFieldCpf;
+	private JTextField textFieldSenha;
+	private static Grafica instance;
 	/**
 	 * Launch the application.
 	 */
@@ -33,6 +41,13 @@ public class Grafica extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	public static Grafica getInstance() {
+		if(instance == null) {
+			instance = new Grafica();
+		}
+		return instance;
+	}
+	
 	public Grafica() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -41,13 +56,41 @@ public class Grafica extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNmero = new JLabel("Numero:");
-		lblNmero.setBounds(31, 25, 46, 14);
-		contentPane.add(lblNmero);
+		JLabel lblCpf = new JLabel("Cpf:");
+		lblCpf.setBounds(126, 146, 46, 14);
+		contentPane.add(lblCpf);
 		
-		textFieldnumero = new JTextField();
-		textFieldnumero.setBounds(85, 22, 86, 20);
-		contentPane.add(textFieldnumero);
-		textFieldnumero.setColumns(10);
+		textFieldCpf = new JTextField();
+		textFieldCpf.setBounds(170, 143, 100, 20);
+		contentPane.add(textFieldCpf);
+		textFieldCpf.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Senha:");
+		lblNewLabel.setBounds(126, 180, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		textFieldSenha = new JTextField();
+		textFieldSenha.setBounds(170, 177, 100, 20);
+		contentPane.add(textFieldSenha);
+		textFieldSenha.setColumns(10);
+		
+		JButton btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					try {
+						Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
+						dispose();
+						Biblioteca.getInstance().setVisible(true);
+					} catch (FuncionarioNaoEncontradoException e1) {
+						e1.getMessage();
+					}
+				}
+			
+		});
+		btnEntrar.setBounds(311, 211, 89, 23);
+		contentPane.add(btnEntrar);
+		
+		
+		
 	}
 }
