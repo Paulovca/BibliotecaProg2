@@ -10,9 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-public class CadastrarDevolucao extends JFrame {
+public class CadastroDevolucao extends JFrame {
 
 	private JPanel contentPane;
+	private static CadastroDevolucao instance;
 
 	/**
 	 * Launch the application.
@@ -21,7 +22,7 @@ public class CadastrarDevolucao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastrarDevolucao frame = new CadastrarDevolucao();
+					CadastroDevolucao frame = new CadastroDevolucao();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,11 +30,18 @@ public class CadastrarDevolucao extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroDevolucao getInstance() {
+		if(instance == null) {
+			instance = new CadastroDevolucao();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastrarDevolucao() {
+	private CadastroDevolucao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

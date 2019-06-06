@@ -15,6 +15,7 @@ public class CadastroItem extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldQuantidade;
+	private static CadastroItem instance;
 
 	/**
 	 * Launch the application.
@@ -31,11 +32,18 @@ public class CadastroItem extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroItem getInstance() {
+		if(instance == null) {
+			instance = new CadastroItem();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastroItem() {
+	private CadastroItem() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

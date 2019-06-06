@@ -15,6 +15,7 @@ public class CadastroAluno extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldNome;
 	private JTextField textFieldCpf;
+	private static CadastroAluno instance;
 
 	/**
 	 * Launch the application.
@@ -32,10 +33,17 @@ public class CadastroAluno extends JFrame {
 		});
 	}
 
+	public static CadastroAluno getInstance() {
+		if(instance == null) {
+			instance = new CadastroAluno();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public CadastroAluno() {
+	private CadastroAluno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

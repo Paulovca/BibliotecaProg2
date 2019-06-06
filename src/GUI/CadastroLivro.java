@@ -16,6 +16,7 @@ public class CadastroLivro extends JFrame {
 	private JTextField textFieldTitulo;
 	private JTextField textFieldAutor;
 	private JTextField textFieldEstoque;
+	private static CadastroLivro instance;
 
 	/**
 	 * Launch the application.
@@ -32,11 +33,18 @@ public class CadastroLivro extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroLivro getInstance() {
+		if(instance == null) {
+			instance = new CadastroLivro();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastroLivro() {
+	private CadastroLivro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

@@ -11,12 +11,13 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
-public class CadastrarDevolucao2 extends JFrame {
+public class CadastroDevolucao2 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldAluno;
 	private JTextField textFieldItens;
 	private JTextField txtFieldValorDaMulta;
+	private static CadastroDevolucao2 instance;
 
 	/**
 	 * Launch the application.
@@ -25,7 +26,7 @@ public class CadastrarDevolucao2 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastrarDevolucao2 frame = new CadastrarDevolucao2();
+					CadastroDevolucao2 frame = new CadastroDevolucao2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,11 +34,18 @@ public class CadastrarDevolucao2 extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroDevolucao2 getInstance() {
+		if(instance == null) {
+			instance = new CadastroDevolucao2();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastrarDevolucao2() {
+	private CadastroDevolucao2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

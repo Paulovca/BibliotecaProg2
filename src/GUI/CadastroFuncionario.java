@@ -16,6 +16,7 @@ public class CadastroFuncionario extends JFrame {
 	private JTextField textFieldNome;
 	private JTextField textFieldCpf;
 	private JTextField textFieldSenha;
+	private static CadastroFuncionario instance;
 
 	/**
 	 * Launch the application.
@@ -32,11 +33,18 @@ public class CadastroFuncionario extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroFuncionario getInstance() {
+		if(instance == null) {
+			instance = new CadastroFuncionario();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastroFuncionario() {
+	private CadastroFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

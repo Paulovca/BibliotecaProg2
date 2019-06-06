@@ -13,11 +13,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
 
-public class CadastrarEmprestimo extends JFrame {
+public class CadastroEmprestimo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldCpfDoAluno;
 	private JButton btnVoltar;
+	private static CadastroEmprestimo instance;
 
 	/**
 	 * Launch the application.
@@ -26,7 +27,7 @@ public class CadastrarEmprestimo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastrarEmprestimo frame = new CadastrarEmprestimo();
+					CadastroEmprestimo frame = new CadastroEmprestimo();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,11 +35,18 @@ public class CadastrarEmprestimo extends JFrame {
 			}
 		});
 	}
+	
+	public static CadastroEmprestimo getInstance() {
+		if(instance == null) {
+			instance = new CadastroEmprestimo();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CadastrarEmprestimo() {
+	private CadastroEmprestimo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

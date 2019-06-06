@@ -16,12 +16,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Grafica extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldCpf;
 	private JTextField textFieldSenha;
-	private static Grafica instance;
+	private static Login instance;
 	/**
 	 * Launch the application.
 	 */
@@ -29,7 +29,7 @@ public class Grafica extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Grafica frame = new Grafica();
+					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,14 +41,15 @@ public class Grafica extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public static Grafica getInstance() {
+	public static Login getInstance() {
 		if(instance == null) {
-			instance = new Grafica();
+			instance = new Login();
 		}
 		return instance;
 	}
 	
-	public Grafica() {
+	private Login() {
+		super("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
