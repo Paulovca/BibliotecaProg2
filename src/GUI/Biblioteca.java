@@ -122,14 +122,6 @@ public class Biblioteca extends JFrame {
 		btnAtualizarFuncionario.setBounds(172, 91, 80, 23);
 		contentPane.add(btnAtualizarFuncionario);
 		
-		JButton btnAtualizarEmprestimo = new JButton("Atualizar");
-		btnAtualizarEmprestimo.setBounds(262, 91, 80, 23);
-		contentPane.add(btnAtualizarEmprestimo);
-		
-		JButton btnAtualizarDevolucao = new JButton("Atualizar");
-		btnAtualizarDevolucao.setBounds(343, 91, 80, 23);
-		contentPane.add(btnAtualizarDevolucao);
-		
 		JButton btnRemoverAluno = new JButton("Remover");
 		btnRemoverAluno.setBounds(0, 125, 80, 23);
 		contentPane.add(btnRemoverAluno);

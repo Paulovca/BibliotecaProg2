@@ -8,7 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import negocio.Fachada;
+import negocio.entidades.Funcionario;
+import negocio.exception.aluno.CpfJaExisteException;
 import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
+import negocio.exception.funcionario.FuncionarioNuloException;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -49,7 +52,11 @@ public class Login extends JFrame {
 	}
 	
 	private Login() {
-		super("Login");
+		setTitle("Login");
+		
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -78,14 +85,24 @@ public class Login extends JFrame {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 					try {
-						Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
-						dispose();
-						Biblioteca.getInstance().setVisible(true);
+							Funcionario god = new Funcionario("One for all","12345678910","123");
+							Fachada.getInstance().cadastrar(god);
+						
+							Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
+							dispose();
+							Biblioteca.getInstance().setVisible(true);
 					} catch (FuncionarioNaoEncontradoException e1) {
 						e1.getMessage();
+					} catch (CpfJaExisteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (FuncionarioNuloException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
-				}
+			}
 			
 		});
 		btnEntrar.setBounds(311, 211, 89, 23);

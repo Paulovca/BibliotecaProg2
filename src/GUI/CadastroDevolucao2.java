@@ -16,7 +16,6 @@ public class CadastroDevolucao2 extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldAluno;
 	private JTextField textFieldItens;
-	private JTextField txtFieldValorDaMulta;
 	private static CadastroDevolucao2 instance;
 
 	/**
@@ -75,12 +74,6 @@ public class CadastroDevolucao2 extends JFrame {
 		lblMulta.setBounds(123, 143, 46, 14);
 		contentPane.add(lblMulta);
 		
-		txtFieldValorDaMulta = new JTextField();
-		txtFieldValorDaMulta.setText("R$");
-		txtFieldValorDaMulta.setBounds(164, 140, 86, 20);
-		contentPane.add(txtFieldValorDaMulta);
-		txtFieldValorDaMulta.setColumns(10);
-		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
@@ -88,5 +81,10 @@ public class CadastroDevolucao2 extends JFrame {
 		JButton btnDevolver = new JButton("Devolver");
 		btnDevolver.setBounds(335, 228, 89, 23);
 		contentPane.add(btnDevolver);
+		
+		JLabel lblMultaValor = new JLabel();
+		lblMultaValor.setBounds(164, 143, 46, 14);
+		contentPane.add(lblMultaValor);
+		
 	}
 }
