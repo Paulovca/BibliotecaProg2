@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import java.awt.Color;
 
 public class CadastroDevolucao2 extends JFrame {
 
@@ -48,6 +49,7 @@ public class CadastroDevolucao2 extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(51, 204, 51));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -57,7 +59,7 @@ public class CadastroDevolucao2 extends JFrame {
 		contentPane.add(lblAluno);
 		
 		textFieldAluno = new JTextField();
-		textFieldAluno.setBounds(164, 87, 86, 20);
+		textFieldAluno.setBounds(164, 87, 100, 26);
 		contentPane.add(textFieldAluno);
 		textFieldAluno.setColumns(10);
 		
@@ -66,7 +68,7 @@ public class CadastroDevolucao2 extends JFrame {
 		contentPane.add(lblItens);
 		
 		textFieldItens = new JTextField();
-		textFieldItens.setBounds(164, 115, 86, 20);
+		textFieldItens.setBounds(164, 115, 100, 26);
 		contentPane.add(textFieldItens);
 		textFieldItens.setColumns(10);
 		
@@ -83,7 +85,9 @@ public class CadastroDevolucao2 extends JFrame {
 		contentPane.add(btnDevolver);
 		
 		JLabel lblMultaValor = new JLabel();
-		lblMultaValor.setBounds(164, 143, 46, 14);
+		lblMultaValor.setBackground(new Color(255, 255, 255));
+		lblMultaValor.setForeground(new Color(0, 0, 0));
+		lblMultaValor.setBounds(164, 143, 100, 26);
 		contentPane.add(lblMultaValor);
 		
 	}

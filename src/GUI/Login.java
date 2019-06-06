@@ -18,6 +18,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Window.Type;
 
 public class Login extends JFrame {
 
@@ -29,6 +32,23 @@ public class Login extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		 try {
+	            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+	                if ("Nimbus".equals(info.getName())) {
+	                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+	                    break;
+	                }
+	            }
+	        } catch (ClassNotFoundException ex) {
+	        	System.err.println(ex);
+	        } catch (InstantiationException ex) {
+	        	System.err.println(ex);
+	        } catch (IllegalAccessException ex) {
+	        	System.err.println(ex);
+	        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+	        	System.err.println(ex);
+	        }
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,6 +65,22 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public static Login getInstance() {
+		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		Funcionario god = new Funcionario("One for all","12345678910","123");
+		try {
+			Fachada.getInstance().cadastrar(god);
+		} catch (CpfJaExisteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FuncionarioNuloException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if(instance == null) {
 			instance = new Login();
 		}
@@ -52,14 +88,11 @@ public class Login extends JFrame {
 	}
 	
 	private Login() {
-		setTitle("Login");
-		
-		
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Login");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -69,7 +102,7 @@ public class Login extends JFrame {
 		contentPane.add(lblCpf);
 		
 		textFieldCpf = new JTextField();
-		textFieldCpf.setBounds(170, 143, 100, 20);
+		textFieldCpf.setBounds(170, 143, 100, 26);
 		contentPane.add(textFieldCpf);
 		textFieldCpf.setColumns(10);
 		
@@ -78,35 +111,31 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		textFieldSenha = new JTextField();
-		textFieldSenha.setBounds(170, 177, 100, 20);
+		textFieldSenha.setBounds(170, 177, 100, 26);
 		contentPane.add(textFieldSenha);
 		textFieldSenha.setColumns(10);
 		
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 					try {
-							Funcionario god = new Funcionario("One for all","12345678910","123");
-							Fachada.getInstance().cadastrar(god);
-						
+							getInstance();
 							Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
-							dispose();
+							setVisible(false);
 							Biblioteca.getInstance().setVisible(true);
 					} catch (FuncionarioNaoEncontradoException e1) {
 						e1.getMessage();
-					} catch (CpfJaExisteException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (FuncionarioNuloException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					} 
 			}
 			
 		});
-		btnEntrar.setBounds(311, 211, 89, 23);
+		btnEntrar.setBounds(311, 211, 93, 26);
 		contentPane.add(btnEntrar);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\Biblioteca.png"));
+		lblNewLabel_1.setBounds(70, -38, 340, 236);
+		contentPane.add(lblNewLabel_1);
 		
 		
 		
