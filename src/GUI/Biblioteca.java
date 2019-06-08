@@ -92,7 +92,7 @@ public class Biblioteca extends JFrame {
 				Login.getInstance().setVisible(true);
 			}
 		});
-		btnVoltar.setBounds(10, 228, 89, 23);
+		btnVoltar.setBounds(10, 256, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnCadastrarAluno = new JButton("Cadastrar");
