@@ -6,10 +6,19 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.entidades.Livro;
+import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNuloException;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastroLivro extends JFrame {
 
@@ -46,6 +55,7 @@ public class CadastroLivro extends JFrame {
 	 * Create the frame.
 	 */
 	private CadastroLivro() {
+		setTitle("Cadastro Livro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -81,10 +91,32 @@ public class CadastroLivro extends JFrame {
 		textFieldEstoque.setColumns(10);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()));
+				try {
+					Fachada.getInstance().cadastrar(livro);
+					dispose();
+					Biblioteca.getInstance().setVisible(true);
+				} catch (LivroJaExisteException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				} catch (LivroNuloException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				} catch (NumberFormatException e) {
+					JOptionPane.showMessageDialog(null,"Insira um número válido!");
+				}
+			}
+		});
 		btnCadastrar.setBounds(335, 228, 89, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Biblioteca.getInstance().setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		

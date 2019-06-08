@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastroItem extends JFrame {
 
@@ -70,6 +72,12 @@ public class CadastroItem extends JFrame {
 		textFieldQuantidade.setColumns(10);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroDevolucao.getInstance().setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		

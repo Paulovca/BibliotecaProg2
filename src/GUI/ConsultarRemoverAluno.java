@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class ConsultarRemoverAluno extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ConsultarRemoverAluno instance;
 	/**
 	 * Launch the application.
 	 */
@@ -30,10 +30,17 @@ public class ConsultarRemoverAluno extends JFrame {
 		});
 	}
 
+	public static ConsultarRemoverAluno getInstance() {
+		if(instance == null) {
+			instance = new ConsultarRemoverAluno();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarRemoverAluno() {
+	private ConsultarRemoverAluno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -41,7 +48,7 @@ public class ConsultarRemoverAluno extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblAlunosCadastrados = new JLabel("ALunos cadastrados:");
+		JLabel lblAlunosCadastrados = new JLabel("Alunos cadastrados:");
 		lblAlunosCadastrados.setBounds(10, 11, 101, 14);
 		contentPane.add(lblAlunosCadastrados);
 		

@@ -46,6 +46,7 @@ public class CadastroDevolucao extends JFrame {
 	 * Create the frame.
 	 */
 	private CadastroDevolucao() {
+		setTitle("Cadastro Devolução");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 340);
 		contentPane = new JPanel();

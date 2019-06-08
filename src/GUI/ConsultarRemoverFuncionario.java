@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class ConsultarRemoverFuncionario extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ConsultarRemoverFuncionario instance;
 	/**
 	 * Launch the application.
 	 */
@@ -30,10 +30,17 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		});
 	}
 
+	public static ConsultarRemoverFuncionario getInstance() {
+		if(instance == null) {
+			instance = new ConsultarRemoverFuncionario();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarRemoverFuncionario() {
+	private ConsultarRemoverFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

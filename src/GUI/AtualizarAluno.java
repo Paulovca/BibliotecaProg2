@@ -16,7 +16,7 @@ public class AtualizarAluno extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	private static AtualizarAluno instance;
 	/**
 	 * Launch the application.
 	 */
@@ -32,11 +32,18 @@ public class AtualizarAluno extends JFrame {
 			}
 		});
 	}
+	
+	public static AtualizarAluno getInstance() {
+		if(instance == null) {
+			instance = new AtualizarAluno();
+		}
+		return instance;
+	}
 
 	/**
 	 * Create the frame.
 	 */
-	public AtualizarAluno() {
+	private AtualizarAluno() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

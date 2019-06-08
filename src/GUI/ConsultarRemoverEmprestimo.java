@@ -14,7 +14,7 @@ import javax.swing.JTextPane;
 public class ConsultarRemoverEmprestimo extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ConsultarRemoverEmprestimo instance;
 	/**
 	 * Launch the application.
 	 */
@@ -31,10 +31,17 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		});
 	}
 
+	public static ConsultarRemoverEmprestimo getInstance() {
+		if(instance == null) {
+			instance = new ConsultarRemoverEmprestimo();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarRemoverEmprestimo() {
+	private ConsultarRemoverEmprestimo() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

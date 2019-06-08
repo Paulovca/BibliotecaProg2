@@ -95,13 +95,9 @@ public class CadastroAluno extends JFrame {
 					dispose();
 					Biblioteca.getInstance().setVisible(true);
 				} catch (CpfJaExisteException e) {
-					//System.out.println("Oi");
-//					e.printStackTrace();
-					System.out.println(e.getMessage());
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				} catch (AlunoNuloException e) {
-					//System.out.println("Ola");
-					e.getMessage();
+					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 			}
 		});

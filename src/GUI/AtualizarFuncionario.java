@@ -17,7 +17,7 @@ public class AtualizarFuncionario extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
+	private static AtualizarFuncionario instance;
 	/**
 	 * Launch the application.
 	 */
@@ -34,10 +34,17 @@ public class AtualizarFuncionario extends JFrame {
 		});
 	}
 
+	public static AtualizarFuncionario getInstance() {
+		if(instance == null) {
+			instance = new AtualizarFuncionario();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public AtualizarFuncionario() {
+	private AtualizarFuncionario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

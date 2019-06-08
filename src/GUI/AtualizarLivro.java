@@ -17,7 +17,7 @@ public class AtualizarLivro extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
+	private static AtualizarLivro instance;
 	/**
 	 * Launch the application.
 	 */
@@ -34,10 +34,17 @@ public class AtualizarLivro extends JFrame {
 		});
 	}
 
+	public static AtualizarLivro getInstance() {
+		if(instance == null) {
+			instance = new AtualizarLivro();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public AtualizarLivro() {
+	private AtualizarLivro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

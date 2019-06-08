@@ -14,7 +14,7 @@ import javax.swing.JTextPane;
 public class ConsultarRemoverDevolucao extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ConsultarRemoverDevolucao instance;
 	/**
 	 * Launch the application.
 	 */
@@ -31,10 +31,17 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		});
 	}
 
+	public static ConsultarRemoverDevolucao getInstance() {
+		if(instance == null) {
+			instance = new ConsultarRemoverDevolucao();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarRemoverDevolucao() {
+	private ConsultarRemoverDevolucao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

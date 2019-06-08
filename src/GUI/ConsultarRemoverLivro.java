@@ -13,7 +13,7 @@ import javax.swing.JButton;
 public class ConsultarRemoverLivro extends JFrame {
 
 	private JPanel contentPane;
-
+	private static ConsultarRemoverLivro instance;
 	/**
 	 * Launch the application.
 	 */
@@ -29,11 +29,18 @@ public class ConsultarRemoverLivro extends JFrame {
 			}
 		});
 	}
-
+	
+	public static ConsultarRemoverLivro getInstance() {
+		if(instance == null) {
+			instance = new ConsultarRemoverLivro();
+		}
+		return instance;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarRemoverLivro() {
+	private ConsultarRemoverLivro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
