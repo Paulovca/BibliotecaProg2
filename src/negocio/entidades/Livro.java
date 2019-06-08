@@ -44,28 +44,6 @@ public class Livro {
 		this.estoque = estoque;
 	}
 	
-	public void cadastrar() {
-		//será modificado
-	}
-	
-	public Livro consultar() {
-		Livro livro = null;
-		return livro;
-		//será modificado
-	}
-	
-	public void remover() {
-		//será modificado
-	}
-	
-	public void atualizar() {
-		//será modificado
-	}
-	
-	public void atualizar_estoque() {
-		//recebe um parâmetro
-		//será modificado
-	}
 }
 
 

@@ -15,7 +15,6 @@ public class AtualizarAluno extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
 	private static AtualizarAluno instance;
 	/**
 	 * Launch the application.
@@ -91,14 +90,5 @@ public class AtualizarAluno extends JFrame {
 		textField.setBounds(261, 64, 163, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		JLabel lblCpf_1 = new JLabel("Cpf:");
-		lblCpf_1.setBounds(220, 92, 21, 14);
-		contentPane.add(lblCpf_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(261, 89, 163, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 	}
 }

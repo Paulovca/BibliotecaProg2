@@ -131,6 +131,12 @@ public class Biblioteca extends JFrame {
 		contentPane.add(btnCadastrarDevolucao);
 		
 		JButton btnAtualizarAluno = new JButton("Atualizar");
+		btnAtualizarAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				AtualizarAluno.getInstance().setVisible(true);
+			}
+		});
 		btnAtualizarAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAtualizarAluno.setBounds(0, 91, 80, 23);
 		contentPane.add(btnAtualizarAluno);
