@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JTextArea;
+import java.awt.Font;
 
 public class CadastroEmprestimo extends JFrame {
 
@@ -55,24 +57,24 @@ public class CadastroEmprestimo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCpfDoAluno = new JLabel("Cpf do Aluno:");
-		lblCpfDoAluno.setBounds(117, 105, 86, 14);
+		lblCpfDoAluno.setBounds(104, 49, 66, 14);
 		contentPane.add(lblCpfDoAluno);
 		
 		textFieldCpfDoAluno = new JTextField();
-		textFieldCpfDoAluno.setBounds(190, 102, 86, 20);
+		textFieldCpfDoAluno.setBounds(180, 46, 148, 20);
 		contentPane.add(textFieldCpfDoAluno);
 		textFieldCpfDoAluno.setColumns(10);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(117, 130, 46, 14);
+		lblItens.setBounds(104, 80, 29, 14);
 		contentPane.add(lblItens);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setBounds(162, 130, 89, 23);
+		btnAdicionar.setBounds(239, 76, 89, 23);
 		contentPane.add(btnAdicionar);
 		
 		JList list = new JList();
-		list.setBounds(162, 155, 114, 36);
+		list.setBounds(104, 105, 224, 114);
 		contentPane.add(list);
 		
 		btnVoltar = new JButton("Voltar");
@@ -82,5 +84,10 @@ public class CadastroEmprestimo extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setBounds(335, 228, 89, 23);
 		contentPane.add(btnCadastrar);
+		
+		JLabel lblDigiteOCpf = new JLabel("Digite o Cpf do aluno e adicione itens para cadastrar o empr\u00E9stimo:");
+		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteOCpf.setBounds(10, 11, 399, 14);
+		contentPane.add(lblDigiteOCpf);
 	}
 }

@@ -67,22 +67,22 @@ public class CadastroAluno extends JFrame {
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setForeground(new Color(255, 255, 255));
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNome.setBounds(148, 104, 46, 14);
+		lblNome.setBounds(140, 103, 35, 14);
 		contentPane.add(lblNome);
 		
 		textFieldNome = new JTextField();
-		textFieldNome.setBounds(185, 100, 100, 26);
+		textFieldNome.setBounds(185, 100, 100, 20);
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblCpf.setForeground(new Color(255, 255, 255));
-		lblCpf.setBounds(148, 132, 46, 14);
+		lblCpf.setBounds(140, 132, 21, 14);
 		contentPane.add(lblCpf);
 		
 		textFieldCpf = new JTextField();
-		textFieldCpf.setBounds(185, 129, 100, 26);
+		textFieldCpf.setBounds(185, 129, 100, 20);
 		contentPane.add(textFieldCpf);
 		textFieldCpf.setColumns(10);
 		
@@ -120,8 +120,13 @@ public class CadastroAluno extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\Livros.jpg"));
-		lblNewLabel.setBounds(0, 0, 453, 262);
+		lblNewLabel.setBounds(0, 0, 434, 262);
 		contentPane.add(lblNewLabel);
+		
+		JLabel lblDigiteONome = new JLabel("Digite o nome e cpf para cadastrar um aluno:");
+		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteONome.setBounds(10, 30, 310, 14);
+		contentPane.add(lblDigiteONome);
 	}
 
 }

@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class CadastroFuncionario extends JFrame {
 
@@ -53,29 +54,29 @@ public class CadastroFuncionario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(148, 107, 46, 14);
+		lblNome.setBounds(133, 86, 31, 14);
 		contentPane.add(lblNome);
 		
 		textFieldNome = new JTextField();
-		textFieldNome.setBounds(185, 104, 86, 20);
+		textFieldNome.setBounds(174, 83, 122, 20);
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(148, 132, 46, 14);
+		lblCpf.setBounds(133, 111, 21, 14);
 		contentPane.add(lblCpf);
 		
 		textFieldCpf = new JTextField();
-		textFieldCpf.setBounds(185, 129, 86, 20);
+		textFieldCpf.setBounds(174, 108, 122, 20);
 		contentPane.add(textFieldCpf);
 		textFieldCpf.setColumns(10);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(148, 157, 46, 14);
+		lblSenha.setBounds(133, 136, 46, 14);
 		contentPane.add(lblSenha);
 		
 		textFieldSenha = new JTextField();
-		textFieldSenha.setBounds(185, 154, 86, 20);
+		textFieldSenha.setBounds(174, 133, 122, 20);
 		contentPane.add(textFieldSenha);
 		textFieldSenha.setColumns(10);
 		
@@ -86,5 +87,10 @@ public class CadastroFuncionario extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JLabel lblDigiteONome = new JLabel("Digite o nome, cpf e senha para cadastrar um funcion\u00E1rio:");
+		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteONome.setBounds(10, 30, 370, 14);
+		contentPane.add(lblDigiteONome);
 	}
 }

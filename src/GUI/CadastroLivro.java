@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class CadastroLivro extends JFrame {
 
@@ -53,29 +54,29 @@ public class CadastroLivro extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo:");
-		lblTtulo.setBounds(144, 113, 46, 14);
+		lblTtulo.setBounds(124, 94, 30, 14);
 		contentPane.add(lblTtulo);
 		
 		textFieldTitulo = new JTextField();
-		textFieldTitulo.setBounds(190, 110, 86, 20);
+		textFieldTitulo.setBounds(174, 91, 124, 20);
 		contentPane.add(textFieldTitulo);
 		textFieldTitulo.setColumns(10);
 		
 		JLabel lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(144, 141, 46, 14);
+		lblAutor.setBounds(124, 119, 31, 14);
 		contentPane.add(lblAutor);
 		
 		textFieldAutor = new JTextField();
-		textFieldAutor.setBounds(190, 138, 86, 20);
+		textFieldAutor.setBounds(174, 116, 124, 20);
 		contentPane.add(textFieldAutor);
 		textFieldAutor.setColumns(10);
 		
 		JLabel lblEstoque = new JLabel("Estoque:");
-		lblEstoque.setBounds(144, 169, 46, 14);
+		lblEstoque.setBounds(124, 144, 46, 14);
 		contentPane.add(lblEstoque);
 		
 		textFieldEstoque = new JTextField();
-		textFieldEstoque.setBounds(190, 166, 86, 20);
+		textFieldEstoque.setBounds(174, 141, 124, 20);
 		contentPane.add(textFieldEstoque);
 		textFieldEstoque.setColumns(10);
 		
@@ -86,6 +87,10 @@ public class CadastroLivro extends JFrame {
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JLabel lblDigiteOTtulo = new JLabel("Digite o t\u00EDtulo, autor e a quantidade em estoque para cadastrar o livro:");
+		lblDigiteOTtulo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteOTtulo.setBounds(10, 30, 403, 14);
+		contentPane.add(lblDigiteOTtulo);
 	}
-
 }

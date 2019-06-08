@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class CadastroItem extends JFrame {
 
@@ -52,19 +53,19 @@ public class CadastroItem extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblLivro = new JLabel("Livro:");
-		lblLivro.setBounds(127, 102, 46, 14);
+		lblLivro.setBounds(127, 112, 46, 14);
 		contentPane.add(lblLivro);
 		
 		JComboBox comboBoxLivros = new JComboBox();
-		comboBoxLivros.setBounds(162, 99, 121, 20);
+		comboBoxLivros.setBounds(162, 109, 135, 20);
 		contentPane.add(comboBoxLivros);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setBounds(127, 140, 72, 14);
+		lblQuantidade.setBounds(127, 137, 60, 14);
 		contentPane.add(lblQuantidade);
 		
 		textFieldQuantidade = new JTextField();
-		textFieldQuantidade.setBounds(197, 137, 86, 20);
+		textFieldQuantidade.setBounds(197, 134, 100, 20);
 		contentPane.add(textFieldQuantidade);
 		textFieldQuantidade.setColumns(10);
 		
@@ -72,9 +73,14 @@ public class CadastroItem extends JFrame {
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(335, 228, 89, 23);
-		contentPane.add(btnCadastrar);
+		JButton btnOk = new JButton("Ok");
+		btnOk.setBounds(335, 228, 89, 23);
+		contentPane.add(btnOk);
+		
+		JLabel lblSelecioneOLivro = new JLabel("Selecione o livro e indique a quantidade para o empr\u00E9stimo:");
+		lblSelecioneOLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSelecioneOLivro.setBounds(10, 30, 379, 14);
+		contentPane.add(lblSelecioneOLivro);
 		
 	}
 }
