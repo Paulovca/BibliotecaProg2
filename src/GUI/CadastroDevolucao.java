@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 public class CadastroDevolucao extends JFrame {
 
@@ -49,14 +50,6 @@ public class CadastroDevolucao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblListaDeEmprstimos = new JLabel("Lista de Empr\u00E9stimos:");
-		lblListaDeEmprstimos.setBounds(159, 11, 104, 14);
-		contentPane.add(lblListaDeEmprstimos);
-		
-		JList list = new JList();
-		list.setBounds(95, 36, 246, 186);
-		contentPane.add(list);
-		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
@@ -64,6 +57,46 @@ public class CadastroDevolucao extends JFrame {
 		JButton btnOk = new JButton("Ok");
 		btnOk.setBounds(335, 228, 89, 23);
 		contentPane.add(btnOk);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(10, 36, 200, 20);
+		contentPane.add(comboBox);
+		
+		JLabel lblSelecioneOEmprstimo = new JLabel("Selecione o empr\u00E9stimo a ser devolvido:");
+		lblSelecioneOEmprstimo.setBounds(10, 11, 192, 14);
+		contentPane.add(lblSelecioneOEmprstimo);
+		
+		JLabel lblAluno = new JLabel("Aluno:");
+		lblAluno.setBounds(220, 39, 31, 14);
+		contentPane.add(lblAluno);
+		
+		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
+		lblCpfdoaluno.setBounds(261, 39, 57, 14);
+		contentPane.add(lblCpfdoaluno);
+		
+		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rio:");
+		lblFuncionrio.setBounds(220, 64, 59, 14);
+		contentPane.add(lblFuncionrio);
+		
+		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
+		lblNomedofuncionario.setBounds(289, 64, 95, 14);
+		contentPane.add(lblNomedofuncionario);
+		
+		JLabel lblDataDeEmprstimo = new JLabel("Data de empr\u00E9stimo:");
+		lblDataDeEmprstimo.setBounds(220, 89, 100, 14);
+		contentPane.add(lblDataDeEmprstimo);
+		
+		JLabel lblDatadeemprestimo = new JLabel("DataDeEmprestimo");
+		lblDatadeemprestimo.setBounds(330, 89, 94, 14);
+		contentPane.add(lblDatadeemprestimo);
+		
+		JLabel lblItens = new JLabel("Itens:");
+		lblItens.setBounds(220, 114, 46, 14);
+		contentPane.add(lblItens);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(220, 139, 204, 20);
+		contentPane.add(comboBox_1);
 	}
 
 }

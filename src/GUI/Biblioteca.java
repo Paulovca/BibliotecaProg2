@@ -48,7 +48,7 @@ public class Biblioteca extends JFrame {
 	
 	private Biblioteca() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 461, 329);
+		setBounds(100, 100, 460, 329);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,19 +69,19 @@ public class Biblioteca extends JFrame {
 		JLabel lblFuncionario = new JLabel("Funcionario");
 		lblFuncionario.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblFuncionario.setForeground(new Color(255, 255, 255));
-		lblFuncionario.setBounds(181, 32, 71, 14);
+		lblFuncionario.setBounds(182, 32, 71, 14);
 		contentPane.add(lblFuncionario);
 		
 		JLabel lblEmprstimo = new JLabel("Empr\u00E9stimo");
 		lblEmprstimo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblEmprstimo.setForeground(new Color(255, 255, 255));
-		lblEmprstimo.setBounds(272, 32, 71, 14);
+		lblEmprstimo.setBounds(273, 32, 71, 14);
 		contentPane.add(lblEmprstimo);
 		
 		JLabel lblDevoluo = new JLabel("Devolu\u00E7\u00E3o");
 		lblDevoluo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDevoluo.setForeground(new Color(255, 255, 255));
-		lblDevoluo.setBounds(366, 32, 71, 14);
+		lblDevoluo.setBounds(364, 32, 71, 14);
 		contentPane.add(lblDevoluo);
 		
 		JButton btnVoltar = new JButton("voltar");
@@ -117,17 +117,17 @@ public class Biblioteca extends JFrame {
 		
 		JButton btnCadastrarFuncionario = new JButton("Cadastrar");
 		btnCadastrarFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnCadastrarFuncionario.setBounds(181, 57, 80, 23);
+		btnCadastrarFuncionario.setBounds(182, 57, 80, 23);
 		contentPane.add(btnCadastrarFuncionario);
 		
 		JButton btnCadastrarEmprestimo = new JButton("Cadastrar");
 		btnCadastrarEmprestimo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnCadastrarEmprestimo.setBounds(272, 57, 80, 23);
+		btnCadastrarEmprestimo.setBounds(273, 57, 80, 23);
 		contentPane.add(btnCadastrarEmprestimo);
 		
 		JButton btnCadastrarDevolucao = new JButton("Cadastrar");
 		btnCadastrarDevolucao.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnCadastrarDevolucao.setBounds(366, 57, 80, 23);
+		btnCadastrarDevolucao.setBounds(364, 57, 80, 23);
 		contentPane.add(btnCadastrarDevolucao);
 		
 		JButton btnAtualizarAluno = new JButton("Atualizar");
@@ -142,7 +142,7 @@ public class Biblioteca extends JFrame {
 		
 		JButton btnAtualizarFuncionario = new JButton("Atualizar");
 		btnAtualizarFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnAtualizarFuncionario.setBounds(181, 91, 80, 23);
+		btnAtualizarFuncionario.setBounds(182, 91, 80, 23);
 		contentPane.add(btnAtualizarFuncionario);
 		
 		JButton btnRemoverAluno = new JButton("Remover");
@@ -157,17 +157,17 @@ public class Biblioteca extends JFrame {
 		
 		JButton button_1 = new JButton("Remover");
 		button_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_1.setBounds(181, 125, 80, 23);
+		button_1.setBounds(182, 125, 80, 23);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("Remover");
 		button_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_2.setBounds(272, 125, 80, 23);
+		button_2.setBounds(273, 125, 80, 23);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("Remover");
 		button_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_3.setBounds(366, 125, 80, 23);
+		button_3.setBounds(364, 125, 80, 23);
 		contentPane.add(button_3);
 		
 		JButton btnConsultarAluno = new JButton("Consultar");
@@ -187,22 +187,22 @@ public class Biblioteca extends JFrame {
 		
 		JButton button_5 = new JButton("Consultar");
 		button_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_5.setBounds(181, 159, 80, 23);
+		button_5.setBounds(182, 159, 80, 23);
 		contentPane.add(button_5);
 		
 		JButton button_6 = new JButton("Consultar");
 		button_6.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_6.setBounds(272, 159, 80, 23);
+		button_6.setBounds(273, 159, 80, 23);
 		contentPane.add(button_6);
 		
 		JButton button_7 = new JButton("Consultar");
 		button_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_7.setBounds(366, 159, 80, 23);
+		button_7.setBounds(364, 159, 80, 23);
 		contentPane.add(button_7);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\aaa.png"));
-		lblNewLabel.setBounds(0, -17, 529, 308);
+		lblNewLabel.setBounds(0, -17, 445, 308);
 		contentPane.add(lblNewLabel);
 	}
 }
