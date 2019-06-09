@@ -56,7 +56,9 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 		List <Emprestimo> emprestimo = new LinkedList<Emprestimo>();
 		for(int i = 0; i< indice; i++) {
 			if(emprestimos[i].getAluno().getCpf().equals(cpf)) {
-				emprestimo.add(emprestimos[i]);
+				if(emprestimos[i].isDevolvido()==false) {
+					emprestimo.add(emprestimos[i]);
+				}
 			}
 		}
 		return emprestimo;

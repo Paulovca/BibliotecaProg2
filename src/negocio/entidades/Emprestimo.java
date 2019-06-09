@@ -11,6 +11,7 @@ public class Emprestimo {
 	private Funcionario funcionario;
 	private LocalDate dataEmprestimo;
 	private LocalDate dataDevolucao;
+	private boolean Devolvido;
 	
 	
 
@@ -22,6 +23,7 @@ public class Emprestimo {
 		this.funcionario = funcionario;
 		this.dataEmprestimo = LocalDate.now();
 		this.dataDevolucao = dataEmprestimo.plusDays(15);
+		this.setDevolvido(false);
 	}
 
 	public Aluno getAluno() {
@@ -66,6 +68,14 @@ public class Emprestimo {
 
 	public int getId() {
 		return id;
+	}
+
+	public boolean isDevolvido() {
+		return Devolvido;
+	}
+
+	public void setDevolvido(boolean devolvido) {
+		Devolvido = devolvido;
 	}
 
 }

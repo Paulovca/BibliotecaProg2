@@ -35,6 +35,7 @@ public class ControleDevolucoes {
 	
 	public float devolver(Emprestimo emprestimo, Devolucao devolucao) {
 		float multa = 0;
+		emprestimo.setDevolvido(true);
 		if(devolucao.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
 			multa = (float) (3.50*Duration.between(emprestimo.getDataDevolucao().atStartOfDay(), devolucao.getDataDevolucao().atStartOfDay()).toDays());
 		}
