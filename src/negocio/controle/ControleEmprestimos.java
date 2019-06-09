@@ -1,6 +1,7 @@
 package negocio.controle;
 
 import java.awt.List;
+import java.util.ArrayList;
 
 import dados.RepositorioEmprestimos;
 import dados.RepositorioEmprestimosArray;
@@ -50,7 +51,7 @@ public class ControleEmprestimos {
 		return emprestimo;
 	}
 	
-	public java.util.List<Emprestimo> procurarEmprestimos(String cpf) {
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf) {
 		return emprestimos.procurarEmprestimos(cpf);
 	}
 	

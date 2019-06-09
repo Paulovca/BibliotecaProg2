@@ -1,7 +1,8 @@
 package dados;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
+
+
 
 import negocio.entidades.Emprestimo;
 
@@ -52,8 +53,8 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 		return emprestimo;
 	}
 	
-	public List<Emprestimo> procurarEmprestimos(String cpf) {
-		List <Emprestimo> emprestimo = new LinkedList<Emprestimo>();
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf) {
+		ArrayList<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
 		for(int i = 0; i< indice; i++) {
 			if(emprestimos[i].getAluno().getCpf().equals(cpf)) {
 				if(emprestimos[i].isDevolvido()==false) {
