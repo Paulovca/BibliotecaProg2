@@ -2,8 +2,6 @@ package dados;
 
 import java.util.ArrayList;
 
-
-
 import negocio.entidades.Emprestimo;
 
 public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
@@ -61,6 +59,15 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 					emprestimo.add(emprestimos[i]);
 				}
 			}
+		}
+		return emprestimo;
+	}
+	
+	@Override
+	public ArrayList<Emprestimo> listar() {
+		ArrayList<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
+		for(Emprestimo emp : emprestimos) {
+			emprestimo.add(emp);
 		}
 		return emprestimo;
 	}

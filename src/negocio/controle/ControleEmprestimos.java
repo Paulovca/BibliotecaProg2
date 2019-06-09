@@ -55,4 +55,8 @@ public class ControleEmprestimos {
 		return emprestimos.procurarEmprestimos(cpf);
 	}
 	
+	public ArrayList<Emprestimo> Listar(){
+		return emprestimos.listar();
+	}
+	
 }

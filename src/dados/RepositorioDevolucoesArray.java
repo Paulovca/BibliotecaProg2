@@ -1,9 +1,7 @@
 package dados;
 
-import java.util.Date;
-
+import java.util.ArrayList;
 import negocio.entidades.Devolucao;
-import negocio.entidades.Emprestimo;
 
 public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 	
@@ -52,4 +50,12 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 		return devolucao;
 	}
 	
+	@Override
+	public ArrayList<Devolucao> listar() {
+		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
+		for(Devolucao dvl : devolucoes) {
+			devolucao.add(dvl);
+		}
+		return devolucao;
+	}
 }

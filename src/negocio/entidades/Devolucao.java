@@ -72,6 +72,4 @@ public class Devolucao {
 		this.multa = multa;
 	}
 
-	
-	
 }

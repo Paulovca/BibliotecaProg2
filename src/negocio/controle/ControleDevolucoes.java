@@ -1,10 +1,9 @@
 package negocio.controle;
 
 import java.time.Duration;
-
+import java.util.ArrayList;
 import dados.RepositorioDevolucoes;
 import dados.RepositorioDevolucoesArray;
-import negocio.entidades.Aluno;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
 import negocio.exception.devolucao.DevolucaoJaExisteException;
@@ -59,6 +58,10 @@ public class ControleDevolucoes {
 			throw e;
 		}
 		return devolucao;
+	}
+	
+	public ArrayList<Devolucao> listar(){
+		return devolucoes.listar();
 	}
 	
 }
