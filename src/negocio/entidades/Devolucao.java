@@ -71,6 +71,7 @@ public class Devolucao {
 	public void setMulta(float multa) {
 		this.multa = multa;
 	}
+
 	
 	
 }
