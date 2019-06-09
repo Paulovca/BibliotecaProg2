@@ -6,14 +6,12 @@ public class Livro {
 	private String titulo;
 	private String autor;
 	private int estoque;
-	private static int contador = 0;
 	
-	public Livro(String titulo, String autor, int estoque){
-		Livro.contador++;
+	public Livro(String titulo, String autor, int estoque, int id){
 		this.titulo = titulo;
 		this.autor = autor;
 		this.estoque = estoque;
-		this.id = contador;
+		this.id = id;
 	}
 	
 	public int getId() {
@@ -36,11 +34,11 @@ public class Livro {
 		this.autor = autor;
 	}
 
-	public int getestoque() {
+	public int getEstoque() {
 		return estoque;
 	}
 
-	public void setestoque(int estoque) {
+	public void setEstoque(int estoque) {
 		this.estoque = estoque;
 	}
 	

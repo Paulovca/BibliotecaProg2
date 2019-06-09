@@ -27,6 +27,7 @@ public class CadastroLivro extends JFrame {
 	private JTextField textFieldAutor;
 	private JTextField textFieldEstoque;
 	private static CadastroLivro instance;
+	private JTextField textFieldId;
 
 	/**
 	 * Launch the application.
@@ -93,7 +94,7 @@ public class CadastroLivro extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()));
+				Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()),Integer.parseInt(textFieldId.getText()));
 				try {
 					Fachada.getInstance().cadastrar(livro);
 					dispose();
@@ -120,9 +121,18 @@ public class CadastroLivro extends JFrame {
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JLabel lblDigiteOTtulo = new JLabel("Digite o t\u00EDtulo, autor e a quantidade em estoque para cadastrar o livro:");
+		JLabel lblDigiteOTtulo = new JLabel("Digite o t\u00EDtulo, autor, quantidade em estoque e Id para cadastrar o livro:");
 		lblDigiteOTtulo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteOTtulo.setBounds(10, 30, 403, 14);
+		lblDigiteOTtulo.setBounds(10, 30, 414, 14);
 		contentPane.add(lblDigiteOTtulo);
+		
+		JLabel lblId = new JLabel("Id:");
+		lblId.setBounds(124, 169, 46, 14);
+		contentPane.add(lblId);
+		
+		textFieldId = new JTextField();
+		textFieldId.setBounds(174, 166, 124, 20);
+		contentPane.add(textFieldId);
+		textFieldId.setColumns(10);
 	}
 }

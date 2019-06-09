@@ -16,7 +16,7 @@ public class ControleLivros {
 	}
 	
 	public void cadastrar(Livro livro) throws LivroJaExisteException,LivroNuloException{
-		if(livro.getTitulo() != null && livro.getAutor() != null) {
+		if(livro.getTitulo() != null && livro.getAutor() != null && livro.getId()>=0) {
 			if(livros.consultar(livro.getId()) == null) {
 				livros.cadastrar(livro);
 			}else {
@@ -24,7 +24,7 @@ public class ControleLivros {
 				throw e;
 			}
 		}else {
-			LivroNuloException e = new LivroNuloException(livro.getAutor(),livro.getTitulo());
+			LivroNuloException e = new LivroNuloException(livro.getAutor(),livro.getTitulo(),livro.getId());
 			throw e;
 		}
 	}
