@@ -1,5 +1,8 @@
 package dados;
 
+import java.util.ArrayList;
+
+import negocio.entidades.Aluno;
 import negocio.entidades.Livro;
 
 public class RepositorioLivrosArray implements RepositorioLivros{
@@ -54,6 +57,15 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 			if(livros[i].getId() == id) {
 				livro = livros[i];
 			}
+		}
+		return livro;
+	}
+	
+	@Override
+	public ArrayList<Livro> listar() {
+		ArrayList<Livro> livro = new ArrayList<Livro>();
+		for(Livro lvr : livros) {
+			livro.add(lvr);
 		}
 		return livro;
 	}

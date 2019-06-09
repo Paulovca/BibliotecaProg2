@@ -1,7 +1,10 @@
 package negocio.controle;
 
+import java.util.ArrayList;
+
 import dados.RepositorioItens;
 import dados.RepositorioItensArray;
+import negocio.entidades.Aluno;
 import negocio.entidades.Item;
 import negocio.exception.item.ItemJaExisteException;
 import negocio.exception.item.ItemNaoEncontradoException;

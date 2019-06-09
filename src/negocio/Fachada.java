@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.ArrayList;
+
 import negocio.controle.ControleAlunos;
 import negocio.controle.ControleDevolucoes;
 import negocio.controle.ControleEmprestimos;
@@ -75,7 +77,7 @@ public class Fachada {
 		return alunos.consultar(cpf);
 	}
 	
-	public String[] listar() {
+	public ArrayList<Aluno> listar() {
 		return alunos.listar();
 	}
 	
@@ -97,6 +99,10 @@ public class Fachada {
 		return devolucoes.consultar(id);
 	}
 	
+	public ArrayList<Devolucao> listarDevolucao() {
+		return devolucoes.listar();
+	}
+	
 	//Emprestimos---------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public void cadastrar(Emprestimo emprestimo) throws EmprestimoJaExisteException, EmprestimoNuloException {
@@ -109,6 +115,14 @@ public class Fachada {
 	
 	public Emprestimo consultarEmprestimo(int id) throws EmprestimoNaoEncontradoException {
 		return emprestimos.consultar(id);
+	}
+	
+	public ArrayList<Emprestimo> listarEmprestimos(){
+		return emprestimos.Listar();
+	}
+	
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf){
+		return emprestimos.procurarEmprestimos(cpf);
 	}
 	
 	//Funcionarios--------------------------------------------------------------------------------------------------------------------------------------------
@@ -129,6 +143,10 @@ public class Fachada {
 		return funcionarios.consultar(cpf);
 	}
 	
+	public ArrayList<Funcionario> listarFuncionarios(){
+		return funcionarios.listar();
+	}
+	
 	//Itens---------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	public void cadastrar(Item item) throws ItemJaExisteException, ItemNuloException {
@@ -142,6 +160,7 @@ public class Fachada {
 	public Item consultarItem(int id) throws ItemNaoEncontradoException {
 		return itens.consultar(id);
 	}
+	
 	
 	//Livros--------------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -159,6 +178,10 @@ public class Fachada {
 	
 	public Livro consultarLivro(int id) throws LivroNaoEncontradoException {
 		return livros.consultar(id);
+	}
+	
+	public ArrayList<Livro> listarLivros(){
+		return livros.listar();
 	}
 	
 }

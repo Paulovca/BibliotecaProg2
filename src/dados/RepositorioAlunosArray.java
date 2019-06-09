@@ -1,6 +1,9 @@
 package dados;
 
+import java.util.ArrayList;
+
 import negocio.entidades.Aluno;
+import negocio.entidades.Emprestimo;
 
 public class RepositorioAlunosArray implements RepositorioAlunos {
 	
@@ -59,11 +62,11 @@ public class RepositorioAlunosArray implements RepositorioAlunos {
 	}
 
 	@Override
-	public String[] listar() {
-		String[] listaAlunos = new String[indice];
-		for(int i = 0; i < indice; i++) {
-			listaAlunos[i] = alunos[i].getCpf() + ": " + alunos[i].getNome();
+	public ArrayList<Aluno> listar() {
+		ArrayList<Aluno> aluno = new ArrayList<Aluno>();
+		for(Aluno aln : alunos) {
+			aluno.add(aln);
 		}
-		return listaAlunos;
+		return aluno;
 	}
 }

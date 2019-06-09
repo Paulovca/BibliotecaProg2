@@ -1,5 +1,7 @@
 package negocio.controle;
 
+import java.util.ArrayList;
+
 import dados.RepositorioAlunos;
 import dados.RepositorioAlunosArray;
 import negocio.entidades.Aluno;
@@ -58,7 +60,7 @@ public class ControleAlunos {
 		return aluno;
 	}
 	
-	public String[] listar() {
+	public ArrayList<Aluno> listar() {
 		return alunos.listar();
 	}
 }

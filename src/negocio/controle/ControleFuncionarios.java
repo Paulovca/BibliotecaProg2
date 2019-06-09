@@ -1,7 +1,10 @@
 package negocio.controle;
 
+import java.util.ArrayList;
+
 import dados.RepositorioFuncionarios;
 import dados.RepositorioFuncionariosArray;
+import negocio.entidades.Aluno;
 import negocio.entidades.Funcionario;
 import negocio.exception.aluno.CpfJaExisteException;
 import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
@@ -57,6 +60,9 @@ public class ControleFuncionarios {
 		}
 		return funcionario;
 	}
-
+	
+	public ArrayList<Funcionario> listar() {
+		return funcionarios.listar();
+	}
 	
 }

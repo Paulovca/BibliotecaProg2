@@ -1,5 +1,8 @@
 package dados;
 
+import java.util.ArrayList;
+
+import negocio.entidades.Aluno;
 import negocio.entidades.Funcionario;
 
 public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
@@ -54,6 +57,15 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 			if(funcionarios[i].getCpf().equals(cpf)) {
 				funcionario = funcionarios[i];
 			}
+		}
+		return funcionario;
+	}
+	
+	@Override
+	public ArrayList<Funcionario> listar() {
+		ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();
+		for(Funcionario fcn : funcionarios) {
+			funcionario.add(fcn);
 		}
 		return funcionario;
 	}
