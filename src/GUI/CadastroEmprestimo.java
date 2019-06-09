@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CadastroEmprestimo extends JFrame {
 
@@ -77,7 +79,13 @@ public class CadastroEmprestimo extends JFrame {
 		list.setBounds(104, 105, 224, 114);
 		contentPane.add(list);
 		
-		btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Biblioteca.getInstance().setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		

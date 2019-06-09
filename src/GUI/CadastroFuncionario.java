@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CadastroFuncionario extends JFrame {
 
@@ -85,12 +87,18 @@ public class CadastroFuncionario extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Biblioteca.getInstance().setVisible(true);
+			}
+		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JLabel lblDigiteONome = new JLabel("Digite o nome, cpf e senha para cadastrar um funcion\u00E1rio:");
 		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteONome.setBounds(10, 30, 370, 14);
+		lblDigiteONome.setBounds(54, 30, 370, 14);
 		contentPane.add(lblDigiteONome);
 	}
 }

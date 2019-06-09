@@ -64,6 +64,11 @@ public class CadastroAluno extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblDigiteONome = new JLabel("Digite o nome e cpf para cadastrar um aluno:");
+		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteONome.setBounds(75, 30, 310, 14);
+		contentPane.add(lblDigiteONome);
+		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setForeground(new Color(255, 255, 255));
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -118,11 +123,6 @@ public class CadastroAluno extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\Livros.jpg"));
 		lblNewLabel.setBounds(0, 0, 434, 262);
 		contentPane.add(lblNewLabel);
-		
-		JLabel lblDigiteONome = new JLabel("Digite o nome e cpf para cadastrar um aluno:");
-		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteONome.setBounds(10, 30, 310, 14);
-		contentPane.add(lblDigiteONome);
 	}
 
 }

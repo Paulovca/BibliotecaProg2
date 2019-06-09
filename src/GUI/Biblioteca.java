@@ -110,22 +110,42 @@ public class Biblioteca extends JFrame {
 		btnCadastrarLivro.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCadastrarLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroLivro.getInstance().setVisible(true);
 			}
 		});
 		btnCadastrarLivro.setBounds(91, 57, 80, 23);
 		contentPane.add(btnCadastrarLivro);
 		
 		JButton btnCadastrarFuncionario = new JButton("Cadastrar");
+		btnCadastrarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroFuncionario.getInstance().setVisible(true);
+			}
+		});
 		btnCadastrarFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCadastrarFuncionario.setBounds(182, 57, 80, 23);
 		contentPane.add(btnCadastrarFuncionario);
 		
 		JButton btnCadastrarEmprestimo = new JButton("Cadastrar");
+		btnCadastrarEmprestimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroEmprestimo.getInstance().setVisible(true);
+			}
+		});
 		btnCadastrarEmprestimo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCadastrarEmprestimo.setBounds(273, 57, 80, 23);
 		contentPane.add(btnCadastrarEmprestimo);
 		
 		JButton btnCadastrarDevolucao = new JButton("Cadastrar");
+		btnCadastrarDevolucao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroDevolucao.getInstance().setVisible(true);
+			}
+		});
 		btnCadastrarDevolucao.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnCadastrarDevolucao.setBounds(364, 57, 80, 23);
 		contentPane.add(btnCadastrarDevolucao);
@@ -142,69 +162,136 @@ public class Biblioteca extends JFrame {
 		contentPane.add(btnAtualizarAluno);
 		
 		JButton btnAtualizarLivro = new JButton("Atualizar");
+		btnAtualizarLivro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				AtualizarLivro.getInstance().setVisible(true);
+			}
+		});
 		btnAtualizarLivro.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAtualizarLivro.setBounds(91, 91, 80, 23);
 		contentPane.add(btnAtualizarLivro);
 		
 		JButton btnAtualizarFuncionario = new JButton("Atualizar");
+		btnAtualizarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				AtualizarFuncionario.getInstance().setVisible(true);
+			}
+		});
 		btnAtualizarFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnAtualizarFuncionario.setBounds(182, 91, 80, 23);
 		contentPane.add(btnAtualizarFuncionario);
 		
 		JButton btnRemoverAluno = new JButton("Remover");
+		btnRemoverAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverAluno.getInstance("Remover").setVisible(true);
+			}
+		});
 		btnRemoverAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnRemoverAluno.setBounds(0, 125, 80, 23);
 		contentPane.add(btnRemoverAluno);
 		
-		JButton button = new JButton("Remover");
-		button.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button.setBounds(91, 125, 80, 23);
-		contentPane.add(button);
+		JButton btnRemoverLivro = new JButton("Remover");
+		btnRemoverLivro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverLivro.getInstance().setVisible(true);
+			}
+		});
+		btnRemoverLivro.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRemoverLivro.setBounds(91, 125, 80, 23);
+		contentPane.add(btnRemoverLivro);
 		
-		JButton button_1 = new JButton("Remover");
-		button_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_1.setBounds(182, 125, 80, 23);
-		contentPane.add(button_1);
+		JButton btnRemoverFuncionario = new JButton("Remover");
+		btnRemoverFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverFuncionario.getInstance().setVisible(true);
+			}
+		});
+		btnRemoverFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRemoverFuncionario.setBounds(182, 125, 80, 23);
+		contentPane.add(btnRemoverFuncionario);
 		
-		JButton button_2 = new JButton("Remover");
-		button_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_2.setBounds(273, 125, 80, 23);
-		contentPane.add(button_2);
+		JButton btnRemoverEmprestimo = new JButton("Remover");
+		btnRemoverEmprestimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverEmprestimo.getInstance().setVisible(true);
+			}
+		});
+		btnRemoverEmprestimo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRemoverEmprestimo.setBounds(273, 125, 80, 23);
+		contentPane.add(btnRemoverEmprestimo);
 		
-		JButton button_3 = new JButton("Remover");
-		button_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_3.setBounds(364, 125, 80, 23);
-		contentPane.add(button_3);
+		JButton btnRemoverDevolucao = new JButton("Remover");
+		btnRemoverDevolucao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverDevolucao.getInstance().setVisible(true);
+			}
+		});
+		btnRemoverDevolucao.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRemoverDevolucao.setBounds(364, 125, 80, 23);
+		contentPane.add(btnRemoverDevolucao);
 		
 		JButton btnConsultarAluno = new JButton("Consultar");
 		btnConsultarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				setVisible(false);
+				ConsultarRemoverAluno.getInstance("Consultar").setVisible(true);
 			}
 		});
 		btnConsultarAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnConsultarAluno.setBounds(0, 159, 80, 23);
 		contentPane.add(btnConsultarAluno);
 		
-		JButton button_4 = new JButton("Consultar");
-		button_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_4.setBounds(91, 159, 80, 23);
-		contentPane.add(button_4);
+		JButton btnConsultarLivro = new JButton("Consultar");
+		btnConsultarLivro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverLivro.getInstance().setVisible(true);
+			}
+		});
+		btnConsultarLivro.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnConsultarLivro.setBounds(91, 159, 80, 23);
+		contentPane.add(btnConsultarLivro);
 		
-		JButton button_5 = new JButton("Consultar");
-		button_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_5.setBounds(182, 159, 80, 23);
-		contentPane.add(button_5);
+		JButton btnConsultarFuncionario = new JButton("Consultar");
+		btnConsultarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverFuncionario.getInstance().setVisible(true);
+			}
+		});
+		btnConsultarFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnConsultarFuncionario.setBounds(182, 159, 80, 23);
+		contentPane.add(btnConsultarFuncionario);
 		
-		JButton button_6 = new JButton("Consultar");
-		button_6.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_6.setBounds(273, 159, 80, 23);
-		contentPane.add(button_6);
+		JButton btnConsultarEmprestimo = new JButton("Consultar");
+		btnConsultarEmprestimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverEmprestimo.getInstance().setVisible(true);
+			}
+		});
+		btnConsultarEmprestimo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnConsultarEmprestimo.setBounds(273, 159, 80, 23);
+		contentPane.add(btnConsultarEmprestimo);
 		
-		JButton button_7 = new JButton("Consultar");
-		button_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		button_7.setBounds(364, 159, 80, 23);
-		contentPane.add(button_7);
+		JButton btnConsultarDevolucao = new JButton("Consultar");
+		btnConsultarDevolucao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ConsultarRemoverDevolucao.getInstance().setVisible(true);
+			}
+		});
+		btnConsultarDevolucao.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnConsultarDevolucao.setBounds(364, 159, 80, 23);
+		contentPane.add(btnConsultarDevolucao);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\aaa.png"));

@@ -75,7 +75,7 @@ public class CadastroItem extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				CadastroDevolucao.getInstance().setVisible(true);
+				CadastroEmprestimo.getInstance().setVisible(true);
 			}
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
@@ -87,7 +87,7 @@ public class CadastroItem extends JFrame {
 		
 		JLabel lblSelecioneOLivro = new JLabel("Selecione o livro e indique a quantidade para o empr\u00E9stimo:");
 		lblSelecioneOLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblSelecioneOLivro.setBounds(10, 30, 379, 14);
+		lblSelecioneOLivro.setBounds(45, 33, 379, 14);
 		contentPane.add(lblSelecioneOLivro);
 		
 	}

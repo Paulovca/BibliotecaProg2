@@ -2,6 +2,8 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -85,7 +87,13 @@ public class AtualizarLivro extends JFrame {
 		contentPane.add(lblEstoquedelivros);
 		
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setBounds(10, 227, 89, 23);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Biblioteca.getInstance().setVisible(true);
+			}
+		});
+		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
