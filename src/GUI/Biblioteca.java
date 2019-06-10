@@ -20,6 +20,7 @@ public class Biblioteca extends JFrame {
 
 	private JPanel contentPane;
 	private static Biblioteca instance;
+	public static Boolean flag = false;
 	/**
 	 * Launch the application.
 	 */
@@ -187,7 +188,9 @@ public class Biblioteca extends JFrame {
 		btnRemoverAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				ConsultarRemoverAluno.getInstance("Remover").setVisible(true);
+				flag = false;
+				ConsultarRemoverAluno.getInstance().setVisible(true);
+				
 			}
 		});
 		btnRemoverAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -242,7 +245,8 @@ public class Biblioteca extends JFrame {
 		btnConsultarAluno.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				ConsultarRemoverAluno.getInstance("Consultar").setVisible(true);
+				flag = true;
+				ConsultarRemoverAluno.getInstance().setVisible(true);
 			}
 		});
 		btnConsultarAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
