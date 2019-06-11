@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.Font;
 
 public class AtualizarFuncionario extends JFrame {
 
@@ -19,6 +20,7 @@ public class AtualizarFuncionario extends JFrame {
 	private JTextField textField;
 	private JTextField textField_2;
 	private static AtualizarFuncionario instance;
+	private JTextField textField_1;
 	/**
 	 * Launch the application.
 	 */
@@ -53,36 +55,28 @@ public class AtualizarFuncionario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblFuncionariosCadastrados = new JLabel("Funcionarios cadastrados:");
-		lblFuncionariosCadastrados.setBounds(10, 11, 126, 14);
-		contentPane.add(lblFuncionariosCadastrados);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 36, 200, 20);
-		contentPane.add(comboBox);
-		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 67, 31, 14);
+		lblNome.setBounds(10, 91, 31, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(51, 67, 126, 14);
+		lblNomedofuncionario.setBounds(51, 91, 126, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 92, 21, 14);
+		lblCpf.setBounds(10, 116, 21, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblCpfdofuncionario = new JLabel("CpfDoFuncionario");
-		lblCpfdofuncionario.setBounds(41, 92, 85, 14);
+		lblCpfdofuncionario.setBounds(41, 116, 85, 14);
 		contentPane.add(lblCpfdofuncionario);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(10, 117, 34, 14);
+		lblSenha.setBounds(10, 141, 34, 14);
 		contentPane.add(lblSenha);
 		
 		JLabel lblSenhadofuncionario = new JLabel("SenhaDoFuncionario");
-		lblSenhadofuncionario.setBounds(51, 117, 98, 14);
+		lblSenhadofuncionario.setBounds(51, 141, 98, 14);
 		contentPane.add(lblSenhadofuncionario);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -100,22 +94,46 @@ public class AtualizarFuncionario extends JFrame {
 		contentPane.add(btnAtualizar);
 		
 		JLabel lblNome_1 = new JLabel("Nome:");
-		lblNome_1.setBounds(220, 67, 31, 14);
+		lblNome_1.setBounds(220, 91, 31, 14);
 		contentPane.add(lblNome_1);
 		
 		textField = new JTextField();
-		textField.setBounds(261, 64, 163, 20);
+		textField.setBounds(261, 88, 163, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblSenha_1 = new JLabel("Senha:");
-		lblSenha_1.setBounds(220, 92, 34, 14);
+		lblSenha_1.setBounds(220, 116, 34, 14);
 		contentPane.add(lblSenha_1);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(261, 89, 163, 20);
+		textField_2.setBounds(261, 113, 163, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+		
+		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do funcion\u00E1rio:");
+		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteOCpf.setBounds(10, 11, 185, 14);
+		contentPane.add(lblDigiteOCpf);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(10, 36, 201, 20);
+		contentPane.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblDadosAntigos = new JLabel("Dados antigos:");
+		lblDadosAntigos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDadosAntigos.setBounds(10, 67, 116, 14);
+		contentPane.add(lblDadosAntigos);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setBounds(220, 35, 89, 23);
+		contentPane.add(btnConsultar);
+		
+		JLabel lblDadosAtualizados = new JLabel("Dados atualizados:");
+		lblDadosAtualizados.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDadosAtualizados.setBounds(220, 67, 139, 14);
+		contentPane.add(lblDadosAtualizados);
 	}
 
 }
