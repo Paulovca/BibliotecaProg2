@@ -108,9 +108,9 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setBounds(263, 35, 89, 23);
-		contentPane.add(btnPesquisar);
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setBounds(263, 35, 89, 23);
+		contentPane.add(btnConsultar);
 		
 		JLabel lblEmprstimos = new JLabel("Empr\u00E9stimos:");
 		lblEmprstimos.setBounds(10, 64, 66, 14);

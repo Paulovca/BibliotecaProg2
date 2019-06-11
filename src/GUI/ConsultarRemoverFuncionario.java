@@ -11,11 +11,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JTextField;
 
 public class ConsultarRemoverFuncionario extends JFrame {
 
 	private JPanel contentPane;
 	private static ConsultarRemoverFuncionario instance;
+	private JTextField textFieldCpfDoFuncionario;
 	/**
 	 * Launch the application.
 	 */
@@ -50,14 +53,6 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblFuncionariosCadastrados = new JLabel("Funcionarios cadastrados:");
-		lblFuncionariosCadastrados.setBounds(10, 11, 126, 14);
-		contentPane.add(lblFuncionariosCadastrados);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 36, 200, 20);
-		contentPane.add(comboBox);
-		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -73,20 +68,39 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		contentPane.add(btnRemover);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(220, 39, 31, 14);
+		lblNome.setBounds(10, 92, 31, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(261, 39, 95, 14);
+		lblNomedofuncionario.setBounds(51, 92, 95, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(220, 64, 21, 14);
+		lblCpf.setBounds(10, 117, 21, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblCpfdofuncionario = new JLabel("CpfDoFuncionario");
-		lblCpfdofuncionario.setBounds(251, 64, 89, 14);
+		lblCpfdofuncionario.setBounds(41, 117, 89, 14);
 		contentPane.add(lblCpfdofuncionario);
+		
+		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do funcion\u00E1rio:");
+		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteOCpf.setBounds(10, 11, 190, 14);
+		contentPane.add(lblDigiteOCpf);
+		
+		textFieldCpfDoFuncionario = new JTextField();
+		textFieldCpfDoFuncionario.setBounds(10, 36, 190, 20);
+		contentPane.add(textFieldCpfDoFuncionario);
+		textFieldCpfDoFuncionario.setColumns(10);
+		
+		JLabel lblDadosDoFuncionario = new JLabel("Dados do funcionario:");
+		lblDadosDoFuncionario.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDadosDoFuncionario.setBounds(10, 67, 137, 14);
+		contentPane.add(lblDadosDoFuncionario);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setBounds(210, 35, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

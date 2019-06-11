@@ -11,11 +11,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JTextField;
 
 public class ConsultarRemoverLivro extends JFrame {
 
 	private JPanel contentPane;
 	private static ConsultarRemoverLivro instance;
+	private JTextField textField;
 	/**
 	 * Launch the application.
 	 */
@@ -50,14 +53,6 @@ public class ConsultarRemoverLivro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLivrosCadastrados = new JLabel("Livros cadastrados:");
-		lblLivrosCadastrados.setBounds(10, 11, 94, 14);
-		contentPane.add(lblLivrosCadastrados);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 36, 200, 20);
-		contentPane.add(comboBox);
-		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -73,28 +68,47 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(btnRemover);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo:");
-		lblTtulo.setBounds(220, 39, 30, 14);
+		lblTtulo.setBounds(10, 89, 30, 14);
 		contentPane.add(lblTtulo);
 		
 		JLabel lblTtulodolivro = new JLabel("T\u00EDtuloDoLivro");
-		lblTtulodolivro.setBounds(260, 39, 62, 14);
+		lblTtulodolivro.setBounds(50, 89, 62, 14);
 		contentPane.add(lblTtulodolivro);
 		
 		JLabel lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(220, 64, 31, 14);
+		lblAutor.setBounds(10, 114, 31, 14);
 		contentPane.add(lblAutor);
 		
 		JLabel lblAutordolivro = new JLabel("AutorDoLivro");
-		lblAutordolivro.setBounds(260, 64, 63, 14);
+		lblAutordolivro.setBounds(50, 114, 63, 14);
 		contentPane.add(lblAutordolivro);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade:");
-		lblQuantidade.setBounds(220, 89, 63, 14);
+		lblQuantidade.setBounds(10, 137, 63, 14);
 		contentPane.add(lblQuantidade);
 		
 		JLabel lblQuantidadedelivros = new JLabel("QuantidadeDeLivros");
-		lblQuantidadedelivros.setBounds(293, 89, 97, 14);
+		lblQuantidadedelivros.setBounds(83, 137, 97, 14);
 		contentPane.add(lblQuantidadedelivros);
+		
+		JLabel lblDigiteOId = new JLabel("Digite o Id do livro:");
+		lblDigiteOId.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDigiteOId.setBounds(10, 11, 159, 14);
+		contentPane.add(lblDigiteOId);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 36, 200, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblDadosDoLivro = new JLabel("Dados do livro:");
+		lblDadosDoLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDadosDoLivro.setBounds(10, 64, 108, 14);
+		contentPane.add(lblDadosDoLivro);
+		
+		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.setBounds(220, 35, 89, 23);
+		contentPane.add(btnConsultar);
 	}
 
 }

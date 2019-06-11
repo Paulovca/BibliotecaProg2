@@ -69,16 +69,13 @@ public class ConsultarRemoverAluno extends JFrame {
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
+		
 		if (Biblioteca.flag == false) {
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.setBounds(335, 227, 89, 23);
 			contentPane.add(btnRemover);
 		}
-		if(Biblioteca.flag == true) {
-			JButton btnConsultar = new JButton("Consultar");
-			btnConsultar.setBounds(335, 227, 89, 23);
-			contentPane.add(btnConsultar);
-		}
+		
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 92, 31, 14);
@@ -105,5 +102,9 @@ public class ConsultarRemoverAluno extends JFrame {
 		lblDadosDoAluno.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDadosDoAluno.setBounds(10, 67, 108, 14);
 		contentPane.add(lblDadosDoAluno);
+		
+		JButton btnConsultar_1 = new JButton("Consultar");
+		btnConsultar_1.setBounds(220, 35, 89, 23);
+		contentPane.add(btnConsultar_1);
 	}
 }
