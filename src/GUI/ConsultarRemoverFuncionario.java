@@ -57,15 +57,18 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JButton btnRemover = new JButton("Remover");
-		btnRemover.setBounds(335, 227, 89, 23);
-		contentPane.add(btnRemover);
+		if (Biblioteca.flag == false) {
+			JButton btnRemover = new JButton("Remover");
+			btnRemover.setBounds(335, 227, 89, 23);
+			contentPane.add(btnRemover);
+		}
 		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 92, 31, 14);

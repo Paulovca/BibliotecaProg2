@@ -58,15 +58,18 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});
 		btnVoltar.setBounds(10, 324, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		JButton btnRemover = new JButton("Remover");
-		btnRemover.setBounds(335, 324, 89, 23);
-		contentPane.add(btnRemover);
+		if (Biblioteca.flag == false) {
+			JButton btnRemover = new JButton("Remover");
+			btnRemover.setBounds(335, 324, 89, 23);
+			contentPane.add(btnRemover);
+		}
 		
 		JLabel lblAluno = new JLabel("Aluno:");
 		lblAluno.setBounds(10, 139, 31, 14);
@@ -144,5 +147,4 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		btnConsultar.setBounds(220, 35, 89, 23);
 		contentPane.add(btnConsultar);
 	}
-
 }
