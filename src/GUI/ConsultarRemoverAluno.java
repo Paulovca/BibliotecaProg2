@@ -11,11 +11,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.JTextField;
+import java.awt.Font;
 
 public class ConsultarRemoverAluno extends JFrame {
 
 	private JPanel contentPane;
 	private static ConsultarRemoverAluno instance;
+	private JTextField textFieldCpfDoAluno;
 
 	/**
 	 * Launch the application.
@@ -51,24 +54,21 @@ public class ConsultarRemoverAluno extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblAlunosCadastrados = new JLabel("Alunos cadastrados:");
-		lblAlunosCadastrados.setBounds(10, 11, 101, 14);
-		contentPane.add(lblAlunosCadastrados);
-
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 36, 200, 20);
-		contentPane.add(comboBox);
+		JLabel lblCpfDoAluno = new JLabel("Digite o cpf do aluno:");
+		lblCpfDoAluno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblCpfDoAluno.setBounds(10, 11, 156, 14);
+		contentPane.add(lblCpfDoAluno);
 
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
-
 		if (Biblioteca.flag == false) {
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.setBounds(335, 227, 89, 23);
@@ -81,21 +81,29 @@ public class ConsultarRemoverAluno extends JFrame {
 		}
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(220, 39, 31, 14);
+		lblNome.setBounds(10, 92, 31, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(220, 64, 21, 14);
+		lblCpf.setBounds(10, 117, 21, 14);
 		contentPane.add(lblCpf);
 
 		JLabel lblNomedoaluno = new JLabel("NomeDoAluno");
-		lblNomedoaluno.setBounds(261, 39, 67, 14);
+		lblNomedoaluno.setBounds(51, 92, 67, 14);
 		contentPane.add(lblNomedoaluno);
 
 		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(251, 64, 57, 14);
+		lblCpfdoaluno.setBounds(41, 117, 57, 14);
 		contentPane.add(lblCpfdoaluno);
+		
+		textFieldCpfDoAluno = new JTextField();
+		textFieldCpfDoAluno.setBounds(10, 36, 200, 20);
+		contentPane.add(textFieldCpfDoAluno);
+		textFieldCpfDoAluno.setColumns(10);
+		
+		JLabel lblDadosDoAluno = new JLabel("Dados do Aluno:");
+		lblDadosDoAluno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDadosDoAluno.setBounds(10, 67, 108, 14);
+		contentPane.add(lblDadosDoAluno);
 	}
-
-	
 }
