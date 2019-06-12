@@ -6,7 +6,6 @@ import dados.RepositorioItens;
 import dados.RepositorioItensArray;
 import negocio.entidades.Aluno;
 import negocio.entidades.Item;
-import negocio.exception.item.ItemJaExisteException;
 import negocio.exception.item.ItemNaoEncontradoException;
 import negocio.exception.item.ItemNuloException;
 
@@ -18,14 +17,9 @@ public class ControleItens {
 		itens = RepositorioItensArray.getInstance();
 	}
 	
-	public void cadastrar(Item item) throws ItemJaExisteException,ItemNuloException{
+	public void cadastrar(Item item) throws ItemNuloException{
 		if(item.getLivro() != null && item.getQuantidade() >= 1) {
-			if(itens.consultar(item.getId()) == null) {
-				itens.cadastrar(item);
-			}else {
-				ItemJaExisteException e = new ItemJaExisteException(item.getLivro(), item.getQuantidade());
-				throw e;
-			}
+			itens.cadastrar(item);
 		}else {
 			ItemNuloException e = new ItemNuloException(item.getLivro(), item.getQuantidade());
 			throw e;

@@ -98,6 +98,7 @@ public class CadastroAluno extends JFrame {
 				try {
 					Fachada.getInstance().cadastrar(aluno);
 					dispose();
+					instance = null;
 					Biblioteca.getInstance().setVisible(true);
 				} catch (CpfJaExisteException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
@@ -113,6 +114,7 @@ public class CadastroAluno extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});

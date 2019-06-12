@@ -72,6 +72,12 @@ public class CadastroEmprestimo extends JFrame {
 		contentPane.add(lblItens);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				CadastroItem.getInstance().setVisible(true);
+			}
+		});
 		btnAdicionar.setBounds(239, 76, 89, 23);
 		contentPane.add(btnAdicionar);
 		
@@ -83,6 +89,7 @@ public class CadastroEmprestimo extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});

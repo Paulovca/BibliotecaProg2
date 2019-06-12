@@ -98,13 +98,14 @@ public class CadastroLivro extends JFrame {
 				try {
 					Fachada.getInstance().cadastrar(livro);
 					dispose();
+					instance = null;
 					Biblioteca.getInstance().setVisible(true);
 				} catch (LivroJaExisteException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				} catch (LivroNuloException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				} catch (NumberFormatException e) {
-					JOptionPane.showMessageDialog(null,"Insira um número válido!");
+					JOptionPane.showMessageDialog(null,"Insira um número inteiro!");
 				}
 			}
 		});
@@ -115,6 +116,7 @@ public class CadastroLivro extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});

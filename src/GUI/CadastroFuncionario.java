@@ -6,7 +6,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.entidades.Funcionario;
+import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.funcionario.FuncionarioNuloException;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -36,9 +43,9 @@ public class CadastroFuncionario extends JFrame {
 			}
 		});
 	}
-	
+
 	public static CadastroFuncionario getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new CadastroFuncionario();
 		}
 		return instance;
@@ -54,48 +61,63 @@ public class CadastroFuncionario extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(133, 86, 31, 14);
 		contentPane.add(lblNome);
-		
+
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(174, 83, 122, 20);
 		contentPane.add(textFieldNome);
 		textFieldNome.setColumns(10);
-		
+
 		JLabel lblCpf = new JLabel("Cpf:");
 		lblCpf.setBounds(133, 111, 21, 14);
 		contentPane.add(lblCpf);
-		
+
 		textFieldCpf = new JTextField();
 		textFieldCpf.setBounds(174, 108, 122, 20);
 		contentPane.add(textFieldCpf);
 		textFieldCpf.setColumns(10);
-		
+
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setBounds(133, 136, 46, 14);
 		contentPane.add(lblSenha);
-		
+
 		textFieldSenha = new JTextField();
 		textFieldSenha.setBounds(174, 133, 122, 20);
 		contentPane.add(textFieldSenha);
 		textFieldSenha.setColumns(10);
-		
+
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario funcionario = new Funcionario(textFieldNome.getText(), textFieldCpf.getText(), textFieldSenha.getText());
+				try {
+					Fachada.getInstance().cadastrar(funcionario);
+					dispose();
+					instance = null;
+				} catch (CpfJaExisteException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (FuncionarioNuloException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+			}
+		});
 		btnCadastrar.setBounds(335, 228, 89, 23);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JLabel lblDigiteONome = new JLabel("Digite o nome, cpf e senha para cadastrar um funcion\u00E1rio:");
 		lblDigiteONome.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDigiteONome.setBounds(54, 30, 370, 14);

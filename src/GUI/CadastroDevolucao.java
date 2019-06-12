@@ -60,6 +60,7 @@ public class CadastroDevolucao extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});

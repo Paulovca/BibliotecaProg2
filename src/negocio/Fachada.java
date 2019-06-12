@@ -25,7 +25,6 @@ import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
 import negocio.exception.emprestimo.EmprestimoNuloException;
 import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
 import negocio.exception.funcionario.FuncionarioNuloException;
-import negocio.exception.item.ItemJaExisteException;
 import negocio.exception.item.ItemNaoEncontradoException;
 import negocio.exception.item.ItemNuloException;
 import negocio.exception.livro.LivroJaExisteException;
@@ -149,7 +148,7 @@ public class Fachada {
 	
 	//Itens---------------------------------------------------------------------------------------------------------------------------------------------------
 	
-	public void cadastrar(Item item) throws ItemJaExisteException, ItemNuloException {
+	public void cadastrar(Item item) throws ItemNuloException {
 		itens.cadastrar(item);
 	}
 	

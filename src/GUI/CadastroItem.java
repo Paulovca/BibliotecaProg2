@@ -1,24 +1,30 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import dados.RepositorioLivrosArray;
+import negocio.entidades.Item;
+import negocio.entidades.Livro;
 
 public class CadastroItem extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldQuantidade;
+	private JComboBox<Livro> comboBoxLivros;
 	private static CadastroItem instance;
+	
 
 	/**
 	 * Launch the application.
@@ -35,9 +41,9 @@ public class CadastroItem extends JFrame {
 			}
 		});
 	}
-	
+
 	public static CadastroItem getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = new CadastroItem();
 		}
 		return instance;
@@ -53,6 +59,8 @@ public class CadastroItem extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		carregarComboBox();
 		
 		JLabel lblLivro = new JLabel("Livro:");
 		lblLivro.setBounds(127, 112, 46, 14);
@@ -75,6 +83,7 @@ public class CadastroItem extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				instance = null;
 				CadastroEmprestimo.getInstance().setVisible(true);
 			}
 		});
@@ -82,13 +91,27 @@ public class CadastroItem extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnOk = new JButton("Ok");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Item item = new Item((Livro) comboBoxLivros.getSelectedItem(), Integer.parseInt(textFieldQuantidade.getText()));
+			}
+		});
 		btnOk.setBounds(335, 228, 89, 23);
 		contentPane.add(btnOk);
+		
+		
 		
 		JLabel lblSelecioneOLivro = new JLabel("Selecione o livro e indique a quantidade para o empr\u00E9stimo:");
 		lblSelecioneOLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblSelecioneOLivro.setBounds(45, 33, 379, 14);
 		contentPane.add(lblSelecioneOLivro);
 		
+	}
+	private void carregarComboBox(){
+		ArrayList<Livro> livros = new ArrayList<Livro>();
+		livros = RepositorioLivrosArray.getInstance().listar();
+		for(Livro lvr : livros){
+			comboBoxLivros.addItem(lvr);
+		}
 	}
 }
