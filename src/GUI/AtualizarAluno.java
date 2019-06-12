@@ -8,7 +8,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.entidades.Aluno;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -17,9 +23,9 @@ import java.awt.Font;
 public class AtualizarAluno extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldNomeAtt;
 	private static AtualizarAluno instance;
-	private JTextField textField_1;
+	private JTextField textFieldCpfDoAluno;
 	/**
 	 * Launch the application.
 	 */
@@ -74,6 +80,7 @@ public class AtualizarAluno extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				instance = null;
 				Biblioteca.getInstance().setVisible(true);
 			}
 		});
@@ -81,6 +88,19 @@ public class AtualizarAluno extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Aluno aluno = new Aluno(textFieldNomeAtt.getText(),lblCpfdoaluno.getText());
+				try {
+					Fachada.getInstance().atualizar(aluno);
+					dispose();
+					instance = null;
+					Biblioteca.getInstance().setVisible(true);
+				} catch (AlunoNaoEncontradoException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+			}
+		});
 		btnAtualizar.setBounds(335, 227, 89, 23);
 		contentPane.add(btnAtualizar);
 		
@@ -88,22 +108,32 @@ public class AtualizarAluno extends JFrame {
 		lblNome_1.setBounds(220, 92, 31, 14);
 		contentPane.add(lblNome_1);
 		
-		textField = new JTextField();
-		textField.setBounds(261, 89, 163, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldNomeAtt = new JTextField();
+		textFieldNomeAtt.setBounds(261, 89, 163, 20);
+		contentPane.add(textFieldNomeAtt);
+		textFieldNomeAtt.setColumns(10);
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do aluno:");
 		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDigiteOCpf.setBounds(10, 11, 168, 14);
 		contentPane.add(lblDigiteOCpf);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(10, 36, 200, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldCpfDoAluno = new JTextField();
+		textFieldCpfDoAluno.setBounds(10, 36, 200, 20);
+		contentPane.add(textFieldCpfDoAluno);
+		textFieldCpfDoAluno.setColumns(10);
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					lblNomedoaluno.setText(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getNome());
+					lblCpfdoaluno.setText(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getCpf());
+				} catch (AlunoNaoEncontradoException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+			}
+		});
 		btnConsultar.setBounds(220, 35, 89, 23);
 		contentPane.add(btnConsultar);
 		
