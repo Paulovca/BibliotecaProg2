@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import dados.RepositorioAlunosArray;
 import negocio.Fachada;
 import negocio.entidades.Aluno;
 import negocio.exception.aluno.AlunoNuloException;
@@ -97,6 +98,7 @@ public class CadastroAluno extends JFrame {
 				Aluno aluno = new Aluno(textFieldNome.getText(),textFieldCpf.getText());
 				try {
 					Fachada.getInstance().cadastrar(aluno);
+					RepositorioAlunosArray.getInstance().salvarArquivo();
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);
