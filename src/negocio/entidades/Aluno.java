@@ -1,6 +1,8 @@
 package negocio.entidades;
 
-public class Aluno extends Pessoa{
+import java.io.Serializable;
+
+public class Aluno extends Pessoa implements Serializable{
 	
 	public Aluno(String nome, String cpf) {
 		super(nome,cpf);
