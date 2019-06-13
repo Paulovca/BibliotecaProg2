@@ -102,16 +102,15 @@ public class AtualizarFuncionario extends JFrame {
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Funcionario funcionario = new Funcionario(textFieldNomeAtt.getText(),lblCpfdofuncionario.getText(),textFieldSenhaAtt.getText());
-				try {
-					Fachada.getInstance().cadastrar(funcionario);
-					dispose();
-					instance = null;
-					Biblioteca.getInstance().setVisible(true);
-				} catch (CpfJaExisteException e1) {
-					JOptionPane.showMessageDialog(null, e1.getMessage());
-				} catch (FuncionarioNuloException e1) {
-					JOptionPane.showMessageDialog(null, e1.getMessage());
-				}
+					try {
+						Fachada.getInstance().atualizar(funcionario);
+						JOptionPane.showMessageDialog(null, "Funcionario atualizado!");
+						dispose();
+						instance = null;
+						Biblioteca.getInstance().setVisible(true);
+					} catch (FuncionarioNaoEncontradoException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}				
 			}
 		});
 		btnAtualizar.setBounds(335, 227, 89, 23);

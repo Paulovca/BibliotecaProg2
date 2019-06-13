@@ -111,6 +111,7 @@ public class AtualizarLivro extends JFrame {
 				Livro livro = new Livro(textFieldTituloAtt.getText(),textFieldAutorAtt.getText(),Integer.parseInt(textFieldEstoqueAtt.getText()),Integer.parseInt(lblIddolivro.getText()));
 				try {
 					Fachada.getInstance().atualizar(livro);
+					JOptionPane.showMessageDialog(null, "Livro atualizado!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);

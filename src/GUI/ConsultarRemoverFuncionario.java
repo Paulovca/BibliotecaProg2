@@ -8,7 +8,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -64,12 +70,6 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		btnVoltar.setBounds(10, 228, 89, 23);
 		contentPane.add(btnVoltar);
 		
-		if (Biblioteca.flag == false) {
-			JButton btnRemover = new JButton("Remover");
-			btnRemover.setBounds(335, 227, 89, 23);
-			contentPane.add(btnRemover);
-		}
-		
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 92, 31, 14);
 		contentPane.add(lblNome);
@@ -102,8 +102,35 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		contentPane.add(lblDadosDoFuncionario);
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					lblNomedofuncionario.setText(Fachada.getInstance().consultarFuncionario(textFieldCpfDoFuncionario.getText()).getNome());
+					lblCpfdofuncionario.setText(Fachada.getInstance().consultarFuncionario(textFieldCpfDoFuncionario.getText()).getCpf());
+				} catch (FuncionarioNaoEncontradoException e2) {
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+			}
+		});
 		btnConsultar.setBounds(210, 35, 89, 23);
 		contentPane.add(btnConsultar);
+		
+		if (Biblioteca.flag == false) {
+			JButton btnRemover = new JButton("Remover");
+			btnRemover.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {	
+						try {
+							Fachada.getInstance().removerFuncionario(lblCpfdofuncionario.getText());
+							JOptionPane.showMessageDialog(null, "Funcionario removido!");
+						} catch (FuncionarioNaoEncontradoException e) {
+							JOptionPane.showMessageDialog(null, e.getMessage());
+						}
+					
+				}
+			});
+			btnRemover.setBounds(335, 227, 89, 23);
+			contentPane.add(btnRemover);
+		}
 	}
 
 }

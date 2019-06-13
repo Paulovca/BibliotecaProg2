@@ -8,7 +8,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -68,14 +73,7 @@ public class ConsultarRemoverAluno extends JFrame {
 			}
 		});
 		btnVoltar.setBounds(10, 228, 89, 23);
-		contentPane.add(btnVoltar);
-		
-		if (Biblioteca.flag == false) {
-			JButton btnRemover = new JButton("Remover");
-			btnRemover.setBounds(335, 227, 89, 23);
-			contentPane.add(btnRemover);
-		}
-		
+		contentPane.add(btnVoltar);		
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 92, 31, 14);
@@ -104,7 +102,33 @@ public class ConsultarRemoverAluno extends JFrame {
 		contentPane.add(lblDadosDoAluno);
 		
 		JButton btnConsultar_1 = new JButton("Consultar");
+		btnConsultar_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					lblNomedoaluno.setText(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getNome());
+					lblCpfdoaluno.setText(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getCpf());
+				} catch (AlunoNaoEncontradoException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+			}
+		});
 		btnConsultar_1.setBounds(220, 35, 89, 23);
 		contentPane.add(btnConsultar_1);
+		
+		if (Biblioteca.flag == false) {
+			JButton btnRemover = new JButton("Remover");
+			btnRemover.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					try {
+						Fachada.getInstance().remover(lblCpfdoaluno.getText());
+						JOptionPane.showMessageDialog(null, "Aluno removido!");
+					} catch (AlunoNaoEncontradoException e) {
+						JOptionPane.showMessageDialog(null, e.getMessage());
+					}
+				}
+			});
+			btnRemover.setBounds(335, 227, 89, 23);
+			contentPane.add(btnRemover);
+		}
 	}
 }

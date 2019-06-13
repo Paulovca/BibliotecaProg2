@@ -93,6 +93,7 @@ public class AtualizarAluno extends JFrame {
 				Aluno aluno = new Aluno(textFieldNomeAtt.getText(),lblCpfdoaluno.getText());
 				try {
 					Fachada.getInstance().atualizar(aluno);
+					JOptionPane.showMessageDialog(null, "Aluno atualizado!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);
