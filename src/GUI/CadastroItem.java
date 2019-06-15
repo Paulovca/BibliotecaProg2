@@ -61,15 +61,15 @@ public class CadastroItem extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		comboBoxLivros = new JComboBox<Livro>();
+		comboBoxLivros.setBounds(162, 109, 135, 20);
+		contentPane.add(comboBoxLivros);
+		
 		carregarComboBox();
 		
 		JLabel lblLivro = new JLabel("Livro:");
 		lblLivro.setBounds(127, 112, 46, 14);
 		contentPane.add(lblLivro);
-		
-		JComboBox comboBoxLivros = new JComboBox();
-		comboBoxLivros.setBounds(162, 109, 135, 20);
-		contentPane.add(comboBoxLivros);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade:");
 		lblQuantidade.setBounds(127, 137, 60, 14);

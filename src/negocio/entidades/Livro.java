@@ -18,6 +18,11 @@ public class Livro {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "Livro [id=" + id + ", titulo=" + titulo + "]";
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}
