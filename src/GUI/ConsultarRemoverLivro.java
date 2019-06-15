@@ -87,11 +87,11 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(lblAutordolivro);
 		
 		JLabel lblEstoque = new JLabel("Estoque:");
-		lblEstoque.setBounds(10, 137, 63, 14);
+		lblEstoque.setBounds(10, 137, 43, 14);
 		contentPane.add(lblEstoque);
 		
 		JLabel lblEstoquedelivros = new JLabel("Estoquedelivros");
-		lblEstoquedelivros.setBounds(60, 139, 97, 14);
+		lblEstoquedelivros.setBounds(60, 137, 97, 14);
 		contentPane.add(lblEstoquedelivros);
 		
 		JLabel lblDigiteOId = new JLabel("Digite o Id do livro:");
@@ -110,11 +110,11 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(lblDadosDoLivro);
 
 		JLabel lblId = new JLabel("Id:");
-		lblId.setBounds(10, 162, 19, 14);
+		lblId.setBounds(10, 162, 14, 14);
 		contentPane.add(lblId);
 		
 		JLabel lblIddolivro = new JLabel("IdDoLivro");
-		lblIddolivro.setBounds(39, 162, 46, 14);
+		lblIddolivro.setBounds(34, 162, 46, 14);
 		contentPane.add(lblIddolivro);
 		
 		JButton btnConsultar = new JButton("Consultar");
