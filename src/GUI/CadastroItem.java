@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import dados.RepositorioLivrosArray;
+import negocio.Fachada;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
 
@@ -109,7 +110,7 @@ public class CadastroItem extends JFrame {
 	}
 	private void carregarComboBox(){
 		ArrayList<Livro> livros = new ArrayList<Livro>();
-		livros = RepositorioLivrosArray.getInstance().listar();
+		livros = Fachada.getInstance().listarLivros();
 		for(Livro lvr : livros){
 			comboBoxLivros.addItem(lvr);
 		}
