@@ -91,7 +91,7 @@ public class CadastroEmprestimo extends JFrame {
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comboBox.addItem(CadastroItem.itemCriado);
-				setVisible(false);
+				btnAdicionarItem.setVisible(false);
 				Limite++;
 			}
 		});
