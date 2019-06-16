@@ -92,7 +92,7 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblItensDevolvidos);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(10, 217, 204, 20);
+		comboBox_1.setBounds(10, 217, 268, 20);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblCpfDoAluno = new JLabel("Cpf do Aluno:");
@@ -105,12 +105,12 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblDigiteOCpf);
 		
 		textField = new JTextField();
-		textField.setBounds(86, 36, 167, 20);
+		textField.setBounds(86, 36, 239, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setBounds(263, 35, 89, 23);
+		btnConsultar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnConsultar);
 		
 		JLabel lblEmprstimos = new JLabel("Empr\u00E9stimos:");
@@ -118,7 +118,7 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblEmprstimos);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(86, 61, 167, 20);
+		comboBox.setBounds(86, 61, 239, 20);
 		contentPane.add(comboBox);
 		
 		JLabel lblDadosDoEmprstimo = new JLabel("Dados do empr\u00E9stimo:");
@@ -127,15 +127,15 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblDadosDoEmprstimo);
 		
 		JLabel lblMulta = new JLabel("Multa:");
-		lblMulta.setBounds(263, 142, 40, 14);
+		lblMulta.setBounds(285, 142, 40, 14);
 		contentPane.add(lblMulta);
 		
 		JLabel lblValordamulta = new JLabel("ValorDaMulta");
-		lblValordamulta.setBounds(303, 142, 121, 14);
+		lblValordamulta.setBounds(322, 142, 102, 14);
 		contentPane.add(lblValordamulta);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setBounds(125, 188, 89, 23);
+		btnAdicionar.setBounds(189, 188, 89, 23);
 		contentPane.add(btnAdicionar);
 	}
 

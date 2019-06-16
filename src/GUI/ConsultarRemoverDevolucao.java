@@ -116,7 +116,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		contentPane.add(lblItens);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(10, 292, 204, 20);
+		comboBox_1.setBounds(10, 292, 316, 20);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do aluno:");
@@ -125,7 +125,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		contentPane.add(lblDigiteOCpf);
 		
 		textFieldCpfDoAluno = new JTextField();
-		textFieldCpfDoAluno.setBounds(10, 36, 200, 20);
+		textFieldCpfDoAluno.setBounds(10, 36, 316, 20);
 		contentPane.add(textFieldCpfDoAluno);
 		textFieldCpfDoAluno.setColumns(10);
 		
@@ -140,11 +140,11 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		contentPane.add(lblDevoluesFeitas);
 		
 		JComboBox comboBoxDevolucoes = new JComboBox();
-		comboBoxDevolucoes.setBounds(10, 86, 200, 20);
+		comboBoxDevolucoes.setBounds(10, 86, 316, 20);
 		contentPane.add(comboBoxDevolucoes);
 		
 		JButton btnConsultar = new JButton("Consultar");
-		btnConsultar.setBounds(220, 35, 89, 23);
+		btnConsultar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnConsultar);
 	}
 }

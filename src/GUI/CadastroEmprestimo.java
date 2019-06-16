@@ -8,14 +8,24 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import negocio.Fachada;
+import negocio.entidades.Emprestimo;
+import negocio.entidades.Item;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+import negocio.exception.emprestimo.EmprestimoJaExisteException;
+import negocio.exception.emprestimo.EmprestimoNuloException;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
 
 public class CadastroEmprestimo extends JFrame {
 
@@ -23,6 +33,8 @@ public class CadastroEmprestimo extends JFrame {
 	private JTextField textFieldCpfDoAluno;
 	private JButton btnVoltar;
 	private static CadastroEmprestimo instance;
+	private JComboBox<Item> comboBox;
+	static int Limite = 0;
 
 	/**
 	 * Launch the application.
@@ -58,32 +70,33 @@ public class CadastroEmprestimo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		comboBox = new JComboBox();
+		comboBox.setBounds(80, 105, 261, 20);
+		contentPane.add(comboBox);
+		
 		JLabel lblCpfDoAluno = new JLabel("Cpf do Aluno:");
-		lblCpfDoAluno.setBounds(104, 49, 75, 14);
+		lblCpfDoAluno.setBounds(80, 49, 75, 14);
 		contentPane.add(lblCpfDoAluno);
 		
 		textFieldCpfDoAluno = new JTextField();
-		textFieldCpfDoAluno.setBounds(180, 46, 148, 20);
+		textFieldCpfDoAluno.setBounds(151, 46, 190, 20);
 		contentPane.add(textFieldCpfDoAluno);
 		textFieldCpfDoAluno.setColumns(10);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(104, 80, 51, 14);
+		lblItens.setBounds(80, 80, 51, 14);
 		contentPane.add(lblItens);
 		
-		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.addActionListener(new ActionListener() {
+		JButton btnAdicionarItem = new JButton("Adicionar Item");
+		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				comboBox.addItem(CadastroItem.itemCriado);
 				setVisible(false);
-				CadastroItem.getInstance().setVisible(true);
+				Limite++;
 			}
 		});
-		btnAdicionar.setBounds(239, 76, 89, 23);
-		contentPane.add(btnAdicionar);
-		
-		JList list = new JList();
-		list.setBounds(104, 105, 224, 114);
-		contentPane.add(list);
+		btnAdicionarItem.setBounds(222, 136, 119, 23);
+		contentPane.add(btnAdicionarItem);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -97,6 +110,28 @@ public class CadastroEmprestimo extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Item[] itens = new Item[Limite];
+				for(int i = 0; i<=Limite; i++) {
+					itens[i] = comboBox.getItemAt(i);
+				}
+				try {
+					Emprestimo emprestimo = new Emprestimo(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()),itens,Login.funcionarioAtivo);
+					Fachada.getInstance().cadastrar(emprestimo);
+					dispose();
+					instance = null;
+					Limite = 0;
+					Biblioteca.getInstance().setVisible(true);
+				} catch (AlunoNaoEncontradoException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				} catch (EmprestimoJaExisteException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				} catch (EmprestimoNuloException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
+			}
+		});
 		btnCadastrar.setBounds(335, 228, 89, 23);
 		contentPane.add(btnCadastrar);
 		
@@ -104,5 +139,20 @@ public class CadastroEmprestimo extends JFrame {
 		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDigiteOCpf.setBounds(10, 11, 414, 14);
 		contentPane.add(lblDigiteOCpf);
+		
+		JButton btnCriarItem = new JButton("Criar Item");
+		btnCriarItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Limite <= 6) {
+					setVisible(false);
+					CadastroItem.getInstance().setVisible(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Limite de itens excedido!");
+				}
+			}
+		});
+		btnCriarItem.setBounds(246, 77, 95, 23);
+		contentPane.add(btnCriarItem);
+		
 	}
 }

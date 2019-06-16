@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +19,7 @@ import dados.RepositorioLivrosArray;
 import negocio.Fachada;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
+import negocio.exception.item.ItemNuloException;
 
 public class CadastroItem extends JFrame {
 
@@ -25,6 +27,7 @@ public class CadastroItem extends JFrame {
 	private JTextField textFieldQuantidade;
 	private JComboBox<Livro> comboBoxLivros;
 	private static CadastroItem instance;
+    protected static Item itemCriado;
 	
 
 	/**
@@ -85,6 +88,7 @@ public class CadastroItem extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				instance = null;
+				CadastroEmprestimo.Limite--;
 				CadastroEmprestimo.getInstance().setVisible(true);
 			}
 		});
@@ -95,12 +99,18 @@ public class CadastroItem extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item item = new Item((Livro) comboBoxLivros.getSelectedItem(), Integer.parseInt(textFieldQuantidade.getText()));
+				itemCriado = item;
+				try {
+					Fachada.getInstance().cadastrar(item);
+					setVisible(false);
+					Biblioteca.getInstance().setVisible(true);
+				} catch (ItemNuloException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
 			}
 		});
 		btnOk.setBounds(335, 228, 89, 23);
 		contentPane.add(btnOk);
-		
-		
 		
 		JLabel lblSelecioneOLivro = new JLabel("Selecione o livro e indique a quantidade para o empr\u00E9stimo:");
 		lblSelecioneOLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -108,6 +118,7 @@ public class CadastroItem extends JFrame {
 		contentPane.add(lblSelecioneOLivro);
 		
 	}
+	
 	private void carregarComboBox(){
 		ArrayList<Livro> livros = new ArrayList<Livro>();
 		livros = Fachada.getInstance().listarLivros();
@@ -115,4 +126,5 @@ public class CadastroItem extends JFrame {
 			comboBoxLivros.addItem(lvr);
 		}
 	}
+	
 }

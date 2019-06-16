@@ -108,7 +108,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblDatadadevolucao);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(10, 263, 200, 20);
+		comboBox_1.setBounds(10, 263, 315, 20);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do aluno:");
@@ -117,7 +117,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblDigiteOCpf);
 		
 		textField = new JTextField();
-		textField.setBounds(10, 36, 200, 20);
+		textField.setBounds(10, 36, 315, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -132,11 +132,11 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblEmprstimosEmAberto);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(10, 86, 200, 20);
+		comboBox.setBounds(10, 86, 315, 20);
 		contentPane.add(comboBox);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.setBounds(220, 35, 89, 23);
+		btnPesquisar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnPesquisar);
 	}
 }

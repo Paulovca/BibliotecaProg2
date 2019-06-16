@@ -15,7 +15,7 @@ public class Emprestimo {
 	
 	
 
-	public Emprestimo(int id, Aluno aluno, Item[] itens, Funcionario funcionario) {
+	public Emprestimo( Aluno aluno, Item[] itens, Funcionario funcionario) {
 		Emprestimo.contador ++;
 		this.id = contador;
 		this.aluno = aluno;

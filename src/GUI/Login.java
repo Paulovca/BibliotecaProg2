@@ -30,7 +30,7 @@ public class Login extends JFrame {
 	private JTextField textFieldSenha;
 	private static Login instance;
 	
-	private static Funcionario funcionarioAtivo;
+	static Funcionario funcionarioAtivo;
 	/**
 	 * Launch the application.
 	 */
