@@ -23,33 +23,31 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	
 	private final static int TAMANHO = 200;
 	
-	private RepositorioDevolucoesArray() {
-		this.devolucoes = new Devolucao[TAMANHO];
-		this.indice = 0;
-		lerDoArquivo();
-	}
+//	private RepositorioDevolucoesArray() {
+//		this.devolucoes = new Devolucao[TAMANHO];
+//		this.indice = 0;
+//		lerDoArquivo();
+//	}
 	
 	public static RepositorioDevolucoesArray getInstance() {
 		if(instance == null) {
-			instance = new RepositorioDevolucoesArray();
+			instance = lerDoArquivo();
 		}
 		return instance;
 	}
 
-	private void lerDoArquivo() {
-	    File in = new File("alunos.dat");
+	private static RepositorioDevolucoesArray lerDoArquivo() {
+		RepositorioDevolucoesArray instanciaLocal = null;
+	    File in = new File("devolucoes.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
 	    try {
 	      fis = new FileInputStream(in);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
-	      RepositorioDevolucoesArray repTem = (RepositorioDevolucoesArray) o;
-	      this.devolucoes= repTem.devolucoes;
-	      this.indice= repTem.indice;
-	      Devolucao.setContador(repTem.indice);
+	      instanciaLocal = (RepositorioDevolucoesArray) o;
 	    } catch (Exception e) {
-	    	e.printStackTrace();
+	      instanciaLocal = new RepositorioDevolucoesArray();
 	    } finally {
 	      if (ois != null) {
 	        try {
@@ -58,30 +56,57 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	        }
 	      }
 	    }
+
+	    return instanciaLocal;
 	  }
 	
 	public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("alunos.dat");
-	    FileOutputStream fos = null;
-	    ObjectOutputStream oos = null;
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          /* Silent */}
-	      }
-	    }
-	  }
+		if (instance == null) {
+			return;
+		}
+		File out = new File("devolucoes.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(out);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+				/* Silent */}
+			}
+		}
+	}
+	
+//	private void lerDoArquivo() {
+//	    File in = new File("alunos.dat");
+//	    FileInputStream fis = null;
+//	    ObjectInputStream ois = null;
+//	    try {
+//	      fis = new FileInputStream(in);
+//	      ois = new ObjectInputStream(fis);
+//	      Object o = ois.readObject();
+//	      RepositorioDevolucoesArray repTem = (RepositorioDevolucoesArray) o;
+//	      this.devolucoes= repTem.devolucoes;
+//	      this.indice= repTem.indice;
+//	      Devolucao.setContador(repTem.indice);
+//	    } catch (Exception e) {
+//	    	e.printStackTrace();
+//	    } finally {
+//	      if (ois != null) {
+//	        try {
+//	          ois.close();
+//	        } catch (IOException e) {/* Silent exception */
+//	        }
+//	      }
+//	    }
+//	  }
+	
 	
 	@Override
 	public void cadastrar(Devolucao devolucao) {

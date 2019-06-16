@@ -1,7 +1,13 @@
 package negocio.entidades;
 
-public class Funcionario extends Pessoa{
+import java.io.Serializable;
+
+public class Funcionario extends Pessoa implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -158635118734474194L;
 	private String senha;
 	
 	public Funcionario(String nome, String cpf, String senha) {

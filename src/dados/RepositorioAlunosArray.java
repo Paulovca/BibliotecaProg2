@@ -24,21 +24,15 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	
 	private final static int TAMANHO = 200;
 	
-	private RepositorioAlunosArray() {
-		this.alunos = new Aluno[TAMANHO];
-		this.indice = 0;
-		lerDoArquivo();
-	}
-	
 	public static RepositorioAlunosArray getInstance() {
 		if(instance == null) {
-			instance = new RepositorioAlunosArray();
+			instance = lerDoArquivo();
 		}
 		return instance;
 	}
-	
-	private void lerDoArquivo() {
 
+	private static RepositorioAlunosArray lerDoArquivo() {
+		RepositorioAlunosArray instanciaLocal = null;
 	    File in = new File("alunos.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
@@ -46,12 +40,9 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	      fis = new FileInputStream(in);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
-	      RepositorioAlunosArray repTem = (RepositorioAlunosArray) o;
-	      this.alunos= repTem.alunos;
-	      this.indice= repTem.indice;
-	      
+	      instanciaLocal = (RepositorioAlunosArray) o;
 	    } catch (Exception e) {
-	    	e.printStackTrace();
+	      instanciaLocal = new RepositorioAlunosArray();
 	    } finally {
 	      if (ois != null) {
 	        try {
@@ -60,30 +51,58 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	        }
 	      }
 	    }
+
+	    return instanciaLocal;
 	  }
 	
 	public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("alunos.dat");
-	    FileOutputStream fos = null;
-	    ObjectOutputStream oos = null;
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          /* Silent */}
-	      }
-	    }
-	  }
+		if (instance == null) {
+			return;
+		}
+		File out = new File("alunos.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(out);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+				/* Silent */}
+			}
+		}
+	}
+	
+//	private void lerDoArquivo() {
+//
+//	    File in = new File("alunos.dat");
+//	    FileInputStream fis = null;
+//	    ObjectInputStream ois = null;
+//	    try {
+//	      fis = new FileInputStream(in);
+//	      ois = new ObjectInputStream(fis);
+//	      Object o = ois.readObject();
+//	      RepositorioAlunosArray repTem = (RepositorioAlunosArray) o;
+//	      this.alunos= repTem.alunos;
+//	      this.indice= repTem.indice;
+//	      
+//	    } catch (Exception e) {
+//	    	e.printStackTrace();
+//	    } finally {
+//	      if (ois != null) {
+//	        try {
+//	          ois.close();
+//	        } catch (IOException e) {/* Silent exception */
+//	        }
+//	      }
+//	    }
+//	  }
+	
 
 	@Override
 	public void cadastrar(Aluno aluno) {
@@ -114,8 +133,10 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	public Aluno consultar(String cpf) {
 		Aluno aluno = null;
 		for(int i = 0; i< indice ; i++) {
-			if(alunos[i].getCpf().equals(cpf)) {
-				aluno = alunos[i];
+			if(alunos[i] != null) {
+				if(alunos[i].getCpf().equals(cpf)) {
+						aluno = alunos[i];
+				}
 			}
 		}
 		return aluno;

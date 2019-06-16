@@ -1,10 +1,15 @@
 package negocio.entidades;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 
-public class Devolucao {
+public class Devolucao implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5897811956750760212L;
 	private int id = 0;
 	private static int contador = 0;
 	private Aluno aluno;

@@ -1,7 +1,13 @@
 package negocio.entidades;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1833993804381812501L;
 	private int id = 0;
 	private Livro livro;
 	private int quantidade;

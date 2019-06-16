@@ -11,5 +11,5 @@ public interface RepositorioEmprestimos {
 	public Emprestimo consultar(int id);
 	public ArrayList<Emprestimo> procurarEmprestimos(String cpf);
 	public ArrayList<Emprestimo> listar();
-	
+	public void salvarArquivo();
 }

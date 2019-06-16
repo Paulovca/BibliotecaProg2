@@ -19,33 +19,25 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 	
 	private final static int TAMANHO = 200;
 	
-	private RepositorioLivrosArray() {
-		this.livros = new Livro[TAMANHO];
-		this.indice = 0;
-	}
-	
 	public static RepositorioLivrosArray getInstance() {
 		if(instance == null) {
-			instance = new RepositorioLivrosArray();
+			instance = lerDoArquivo();
 		}
 		return instance;
 	}
-	
-	private void lerDoArquivo() {
 
-	    File in = new File("alunos.dat");
+	private static RepositorioLivrosArray lerDoArquivo() {
+		RepositorioLivrosArray instanciaLocal = null;
+	    File in = new File("livros.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
 	    try {
 	      fis = new FileInputStream(in);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
-	      RepositorioLivrosArray repTem = (RepositorioLivrosArray) o;
-	      this.livros= repTem.livros;
-	      this.indice= repTem.indice;
-	      
+	      instanciaLocal = (RepositorioLivrosArray) o;
 	    } catch (Exception e) {
-	    	e.printStackTrace();
+	      instanciaLocal = new RepositorioLivrosArray();
 	    } finally {
 	      if (ois != null) {
 	        try {
@@ -54,30 +46,32 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 	        }
 	      }
 	    }
+
+	    return instanciaLocal;
 	  }
 	
 	public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("alunos.dat");
-	    FileOutputStream fos = null;
-	    ObjectOutputStream oos = null;
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          /* Silent */}
-	      }
-	    }
-	  }
+		if (instance == null) {
+			return;
+		}
+		File out = new File("livros.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(out);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+				/* Silent */}
+			}
+		}
+	}
 	
 	@Override
 	public void cadastrar(Livro livro) {

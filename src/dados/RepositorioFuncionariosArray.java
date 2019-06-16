@@ -24,34 +24,25 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios,Ser
 	
 	private final static int TAMANHO = 200;
 	
-	private RepositorioFuncionariosArray() {
-		this.funcionarios = new Funcionario[TAMANHO];
-		this.indice = 0;
-		lerDoArquivo();
-	}
-	
 	public static RepositorioFuncionariosArray getInstance() {
 		if(instance == null) {
-			instance = new RepositorioFuncionariosArray();
+			instance = lerDoArquivo();
 		}
 		return instance;
 	}
-	
-	private void lerDoArquivo() {
 
-	    File in = new File("alunos.dat");
+	private static RepositorioFuncionariosArray lerDoArquivo() {
+		RepositorioFuncionariosArray instanciaLocal = null;
+	    File in = new File("funcionarios.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
 	    try {
 	      fis = new FileInputStream(in);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
-	      RepositorioFuncionariosArray repTem = (RepositorioFuncionariosArray) o;
-	      this.funcionarios= repTem.funcionarios;
-	      this.indice= repTem.indice;
-	      
+	      instanciaLocal = (RepositorioFuncionariosArray) o;
 	    } catch (Exception e) {
-	    	e.printStackTrace();
+	      instanciaLocal = new RepositorioFuncionariosArray();
 	    } finally {
 	      if (ois != null) {
 	        try {
@@ -60,30 +51,32 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios,Ser
 	        }
 	      }
 	    }
+
+	    return instanciaLocal;
 	  }
 	
 	public void salvarArquivo() {
-	    if (instance == null) {
-	      return;
-	    }
-	    File out = new File("alunos.dat");
-	    FileOutputStream fos = null;
-	    ObjectOutputStream oos = null;
-	    try {
-	      fos = new FileOutputStream(out);
-	      oos = new ObjectOutputStream(fos);
-	      oos.writeObject(instance);
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      if (oos != null) {
-	        try {
-	          oos.close();
-	        } catch (IOException e) {
-	          /* Silent */}
-	      }
-	    }
-	  }
+		if (instance == null) {
+			return;
+		}
+		File out = new File("funcionarios.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(out);
+			oos = new ObjectOutputStream(fos);
+			oos.writeObject(instance);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (oos != null) {
+				try {
+					oos.close();
+				} catch (IOException e) {
+				/* Silent */}
+			}
+		}
+	}
 	
 	@Override
 	public void cadastrar(Funcionario funcionario) {

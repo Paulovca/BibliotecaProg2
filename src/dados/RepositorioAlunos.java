@@ -10,5 +10,5 @@ public interface RepositorioAlunos {
 	public void remover(String cpf);
 	public void atualizar(Aluno aluno);
 	public ArrayList<Aluno> listar();
-		
+	public void salvarArquivo();
 }

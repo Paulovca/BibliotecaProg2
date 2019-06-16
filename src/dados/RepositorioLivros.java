@@ -11,5 +11,5 @@ public interface RepositorioLivros {
 	public void atualizar(Livro livro);
 	public Livro consultar(int id);
 	public ArrayList<Livro> listar();
-
+	public void salvarArquivo();
 }

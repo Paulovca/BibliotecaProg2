@@ -1,9 +1,14 @@
 package negocio.entidades;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Emprestimo {
+public class Emprestimo implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3068475570049101606L;
 	private int id = 0;
 	private static int contador = 0;
 	private Aluno aluno;
