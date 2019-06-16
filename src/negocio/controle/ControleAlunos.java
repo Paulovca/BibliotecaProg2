@@ -21,6 +21,7 @@ public class ControleAlunos {
 		if(aluno.getNome() != null && aluno.getCpf().length() == 11) {
 			if(alunos.consultar(aluno.getCpf()) == null) {
 				alunos.cadastrar(aluno);
+				RepositorioAlunosArray.getInstance().salvarArquivo();
 			}else {
 				CpfJaExisteException e = new CpfJaExisteException(aluno.getCpf());
 				throw e;
@@ -38,6 +39,7 @@ public class ControleAlunos {
 			throw e;
 		} else {
 			alunos.remover(cpf);
+			RepositorioAlunosArray.getInstance().salvarArquivo();
 		}
 	}
 	
@@ -48,6 +50,7 @@ public class ControleAlunos {
 			throw e;
 		} else {
 			alunos.atualizar(aluno);
+			RepositorioAlunosArray.getInstance().salvarArquivo();
 		}
 	}
 	

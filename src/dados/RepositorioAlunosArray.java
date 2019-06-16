@@ -69,13 +69,10 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	    File out = new File("alunos.dat");
 	    FileOutputStream fos = null;
 	    ObjectOutputStream oos = null;
-
-
 	    try {
 	      fos = new FileOutputStream(out);
 	      oos = new ObjectOutputStream(fos);
 	      oos.writeObject(instance);
-	      
 	    } catch (Exception e) {
 	      e.printStackTrace();
 	    } finally {

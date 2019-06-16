@@ -22,6 +22,7 @@ public class ControleDevolucoes {
 		if(devolucao.getAluno() != null && devolucao.getFuncionario() != null && devolucao.getItens() != null) {
 			if(devolucoes.consultar(devolucao.getId()) == null) {
 				devolucoes.cadastrar(devolucao);
+				RepositorioDevolucoesArray.getInstance().salvarArquivo();
 			}else {
 				DevolucaoJaExisteException e = new DevolucaoJaExisteException(devolucao.getId());
 				throw e;
@@ -48,6 +49,7 @@ public class ControleDevolucoes {
 			throw e;
 		} else {
 			devolucoes.remover(id);
+			RepositorioDevolucoesArray.getInstance().salvarArquivo();
 		}
 	}
 	

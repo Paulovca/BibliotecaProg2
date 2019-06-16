@@ -20,6 +20,7 @@ public class ControleItens {
 	public void cadastrar(Item item) throws ItemNuloException{
 		if(item.getLivro() != null && item.getQuantidade() >= 1) {
 			itens.cadastrar(item);
+			RepositorioItensArray.getInstance().salvarArquivo();
 		}else {
 			ItemNuloException e = new ItemNuloException(item.getLivro(), item.getQuantidade());
 			throw e;
@@ -33,6 +34,7 @@ public class ControleItens {
 			throw e;
 		} else {
 			itens.remover(id);
+			RepositorioItensArray.getInstance().salvarArquivo();
 		}
 	}
 	

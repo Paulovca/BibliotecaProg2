@@ -22,6 +22,7 @@ public class ControleEmprestimos {
 		if(emprestimo.getAluno() != null && emprestimo.getFuncionario() != null && emprestimo.getItens() != null) {
 			if(emprestimos.consultar(emprestimo.getId()) == null) {
 				emprestimos.cadastrar(emprestimo);
+				RepositorioEmprestimosArray.getInstance().salvarArquivo();
 			}else {
 				EmprestimoJaExisteException e = new EmprestimoJaExisteException(emprestimo.getId());
 				throw e;
@@ -39,6 +40,7 @@ public class ControleEmprestimos {
 			throw e;
 		} else {
 			emprestimos.remover(id);
+			RepositorioEmprestimosArray.getInstance().salvarArquivo();
 		}
 	}
 	

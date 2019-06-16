@@ -21,6 +21,7 @@ public class ControleLivros {
 		if(livro.getTitulo() != null && livro.getAutor() != null && livro.getId()>=0) {
 			if(livros.consultar(livro.getId()) == null) {
 				livros.cadastrar(livro);
+				RepositorioLivrosArray.getInstance().salvarArquivo();
 			}else {
 				LivroJaExisteException e = new LivroJaExisteException(livro.getId(),livro.getTitulo());
 				throw e;
@@ -38,6 +39,7 @@ public class ControleLivros {
 			throw e;
 		} else {
 			livros.remover(id);
+			RepositorioLivrosArray.getInstance().salvarArquivo();
 		}
 	}
 	
@@ -48,6 +50,7 @@ public class ControleLivros {
 			throw e;
 		} else {
 			livros.atualizar(livro);
+			RepositorioLivrosArray.getInstance().salvarArquivo();
 		}
 	}
 	

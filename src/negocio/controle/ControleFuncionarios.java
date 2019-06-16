@@ -22,6 +22,7 @@ public class ControleFuncionarios {
 		if(funcionario.getNome() != null && funcionario.getCpf().length() == 11 && funcionario.getSenha() != null ) {
 			if(funcionarios.consultar(funcionario.getCpf()) == null) {
 				funcionarios.cadastrar(funcionario);
+				RepositorioFuncionariosArray.getInstance().salvarArquivo();
 			}else {
 				CpfJaExisteException e = new CpfJaExisteException(funcionario.getCpf());
 				throw e;
@@ -39,6 +40,7 @@ public class ControleFuncionarios {
 			throw e;
 		} else {
 			funcionarios.remover(cpf);
+			RepositorioFuncionariosArray.getInstance().salvarArquivo();
 		}
 	}
 	
@@ -49,6 +51,7 @@ public class ControleFuncionarios {
 			throw e;
 		} else {
 			funcionarios.atualizar(funcionario);
+			RepositorioFuncionariosArray.getInstance().salvarArquivo();
 		}
 	}
 	

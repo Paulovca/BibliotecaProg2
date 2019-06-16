@@ -1,10 +1,21 @@
 package dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import negocio.entidades.Devolucao;
 
-public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
+public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8470952087014330365L;
 	private static RepositorioDevolucoesArray instance;
 	private Devolucao[] devolucoes;
 	private int indice;
@@ -14,6 +25,7 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 	private RepositorioDevolucoesArray() {
 		this.devolucoes = new Devolucao[TAMANHO];
 		this.indice = 0;
+		lerDoArquivo();
 	}
 	
 	public static RepositorioDevolucoesArray getInstance() {
@@ -23,6 +35,54 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes{
 		return instance;
 	}
 
+	private void lerDoArquivo() {
+
+	    File in = new File("alunos.dat");
+	    FileInputStream fis = null;
+	    ObjectInputStream ois = null;
+	    try {
+	      fis = new FileInputStream(in);
+	      ois = new ObjectInputStream(fis);
+	      Object o = ois.readObject();
+	      RepositorioDevolucoesArray repTem = (RepositorioDevolucoesArray) o;
+	      this.devolucoes= repTem.devolucoes;
+	      this.indice= repTem.indice;
+	      
+	    } catch (Exception e) {
+	    	e.printStackTrace();
+	    } finally {
+	      if (ois != null) {
+	        try {
+	          ois.close();
+	        } catch (IOException e) {/* Silent exception */
+	        }
+	      }
+	    }
+	  }
+	
+	public void salvarArquivo() {
+	    if (instance == null) {
+	      return;
+	    }
+	    File out = new File("alunos.dat");
+	    FileOutputStream fos = null;
+	    ObjectOutputStream oos = null;
+	    try {
+	      fos = new FileOutputStream(out);
+	      oos = new ObjectOutputStream(fos);
+	      oos.writeObject(instance);
+	    } catch (Exception e) {
+	      e.printStackTrace();
+	    } finally {
+	      if (oos != null) {
+	        try {
+	          oos.close();
+	        } catch (IOException e) {
+	          /* Silent */}
+	      }
+	    }
+	  }
+	
 	@Override
 	public void cadastrar(Devolucao devolucao) {
 		devolucoes[indice] = devolucao;
