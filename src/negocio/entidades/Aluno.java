@@ -2,12 +2,12 @@ package negocio.entidades;
 
 import java.io.Serializable;
 
-public class Aluno extends Pessoa implements Serializable {
+public class Aluno extends Pessoa {
 	
 	/**
 	 * serialVersionUID
 	 */
-	private static final long serialVersionUID = 5100023855706194181L;
+	//private static final long serialVersionUID = 5100023855706194181L;
 
 	public Aluno() {
 	}

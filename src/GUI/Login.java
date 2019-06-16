@@ -14,6 +14,7 @@ import negocio.exception.funcionario.FuncionarioNaoEncontradoException;
 import negocio.exception.funcionario.FuncionarioNuloException;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,6 +29,8 @@ public class Login extends JFrame {
 	private JTextField textFieldCpf;
 	private JTextField textFieldSenha;
 	private static Login instance;
+	
+	private static Funcionario funcionarioAtivo;
 	/**
 	 * Launch the application.
 	 */
@@ -52,7 +55,7 @@ public class Login extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login frame = new Login();
+					Login frame = Login.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -119,12 +122,13 @@ public class Login extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
-							getInstance();
+							//getInstance();
 							Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
+							funcionarioAtivo = new Funcionario(Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getNome(), Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getCpf(), Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getSenha());
 							setVisible(false);
 							Biblioteca.getInstance().setVisible(true);
 					} catch (FuncionarioNaoEncontradoException e1) {
-						e1.getMessage();
+						JOptionPane.showMessageDialog(null, e1.getMessage());
 					} 
 			}
 			
