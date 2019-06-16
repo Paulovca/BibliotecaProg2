@@ -125,7 +125,9 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	public ArrayList<Aluno> listar() {
 		ArrayList<Aluno> aluno = new ArrayList<Aluno>();
 		for(Aluno aln : alunos) {
-			aluno.add(aln);
+			if(aln!=null) {
+				aluno.add(aln);
+			}
 		}
 		return aluno;
 	}

@@ -114,7 +114,9 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	public ArrayList<Devolucao> listar() {
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
 		for(Devolucao dvl : devolucoes) {
-			devolucao.add(dvl);
+			if(dvl != null) {
+				devolucao.add(dvl);
+			}
 		}
 		return devolucao;
 	}

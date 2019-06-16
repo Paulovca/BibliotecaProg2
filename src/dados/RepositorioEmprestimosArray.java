@@ -123,7 +123,9 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 	public ArrayList<Emprestimo> listar() {
 		ArrayList<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
 		for(Emprestimo emp : emprestimos) {
-			emprestimo.add(emp);
+			if(emp != null) {
+				emprestimo.add(emp);
+			}
 		}
 		return emprestimo;
 	}

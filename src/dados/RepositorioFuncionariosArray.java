@@ -125,7 +125,9 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios,Ser
 	public ArrayList<Funcionario> listar() {
 		ArrayList<Funcionario> funcionario = new ArrayList<Funcionario>();
 		for(Funcionario fcn : funcionarios) {
-			funcionario.add(fcn);
+			if(fcn != null) {
+				funcionario.add(fcn);
+			}
 		}
 		return funcionario;
 	}

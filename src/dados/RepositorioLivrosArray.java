@@ -119,7 +119,9 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 	public ArrayList<Livro> listar() {
 		ArrayList<Livro> livro = new ArrayList<Livro>();
 		for(Livro lvr : livros) {
-			livro.add(lvr);
+			if(lvr != null) {
+				livro.add(lvr);
+			}
 		}
 		return livro;
 	}
