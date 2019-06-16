@@ -10,9 +10,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import negocio.entidades.Aluno;
-import negocio.entidades.Emprestimo;
 
 public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
+	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = -1690443057364996772L;
 	
 	private static RepositorioAlunosArray instance;
 	private Aluno[] alunos;
@@ -23,17 +27,17 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	private RepositorioAlunosArray() {
 		this.alunos = new Aluno[TAMANHO];
 		this.indice = 0;
+		lerDoArquivo();
 	}
 	
 	public static RepositorioAlunosArray getInstance() {
 		if(instance == null) {
-			instance = lerDoArquivo();
+			instance = new RepositorioAlunosArray();
 		}
 		return instance;
 	}
 	
-	private static RepositorioAlunosArray lerDoArquivo() {
-		RepositorioAlunosArray instanciaLocal = null;
+	private void lerDoArquivo() {
 
 	    File in = new File("alunos.dat");
 	    FileInputStream fis = null;
@@ -42,9 +46,12 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	      fis = new FileInputStream(in);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
-	      instanciaLocal = (RepositorioAlunosArray) o;
+	      RepositorioAlunosArray repTem = (RepositorioAlunosArray) o;
+	      this.alunos= repTem.alunos;
+	      this.indice= repTem.indice;
+	      
 	    } catch (Exception e) {
-	      instanciaLocal = new RepositorioAlunosArray();
+	    	e.printStackTrace();
 	    } finally {
 	      if (ois != null) {
 	        try {
@@ -53,8 +60,6 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	        }
 	      }
 	    }
-
-	    return instanciaLocal;
 	  }
 	
 	public void salvarArquivo() {
@@ -65,10 +70,12 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	    FileOutputStream fos = null;
 	    ObjectOutputStream oos = null;
 
+
 	    try {
 	      fos = new FileOutputStream(out);
 	      oos = new ObjectOutputStream(fos);
 	      oos.writeObject(instance);
+	      
 	    } catch (Exception e) {
 	      e.printStackTrace();
 	    } finally {

@@ -2,7 +2,15 @@ package negocio.entidades;
 
 import java.io.Serializable;
 
-public class Aluno extends Pessoa implements Serializable{
+public class Aluno extends Pessoa implements Serializable {
+	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 5100023855706194181L;
+
+	public Aluno() {
+	}
 	
 	public Aluno(String nome, String cpf) {
 		super(nome,cpf);

@@ -1,9 +1,20 @@
 package negocio.entidades;
 
-public abstract class Pessoa {
+import java.io.Serializable;
+
+public abstract class Pessoa implements Serializable {
+	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 3439512605925445607L;
 	
 	private String nome;
 	private String cpf;
+	
+	public Pessoa() {
+		
+	}
 	
 	public Pessoa(String nome, String cpf) {
 		this.nome = nome;

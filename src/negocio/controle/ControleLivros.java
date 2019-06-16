@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import dados.RepositorioLivros;
 import dados.RepositorioLivrosArray;
-import negocio.entidades.Aluno;
 import negocio.entidades.Livro;
 import negocio.exception.livro.LivroJaExisteException;
 import negocio.exception.livro.LivroNaoEncontradoException;
