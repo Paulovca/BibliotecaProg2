@@ -6,13 +6,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import negocio.entidades.Aluno;
 import negocio.entidades.Item;
 
-public class RepositorioItensArray implements RepositorioItens {
+public class RepositorioItensArray implements RepositorioItens, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3503777212848115432L;
 	private static RepositorioItensArray instance;
 	private Item[] itens;
 	private int indice;

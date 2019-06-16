@@ -6,13 +6,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import negocio.entidades.Aluno;
 import negocio.entidades.Livro;
 
-public class RepositorioLivrosArray implements RepositorioLivros{
+public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4138198760094342537L;
 	private static RepositorioLivrosArray instance;
 	private Livro[] livros;
 	private int indice;

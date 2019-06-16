@@ -6,13 +6,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import negocio.entidades.Emprestimo;
 import negocio.entidades.Item;
 
-public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
+public class RepositorioEmprestimosArray implements RepositorioEmprestimos, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1080911171862270419L;
 	private static RepositorioEmprestimosArray instance;
 	private Emprestimo[] emprestimos;
 	private int indice;
