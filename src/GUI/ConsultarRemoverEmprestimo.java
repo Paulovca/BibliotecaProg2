@@ -5,18 +5,16 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import GUI.ConsultarRemoverDevolucao.AcaoSelecaoCombo;
 import negocio.Fachada;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
 import negocio.entidades.Item;
-
+import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -86,7 +84,12 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Fachada.getInstance().removerEmprestimo(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getId());
+					try {
+						Fachada.getInstance().removerEmprestimo(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getId());
+						JOptionPane.showMessageDialog(null, "Emprestimo removido!");
+					} catch (EmprestimoNaoEncontradoException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
 				}
 			});
 			btnRemover.setBounds(335, 304, 89, 23);
