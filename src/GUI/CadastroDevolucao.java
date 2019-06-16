@@ -6,21 +6,34 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import BancoJFrame.AcaoSelecaoCombo;
+import negocio.Fachada;
+import negocio.entidades.Emprestimo;
+import negocio.entidades.Livro;
+import negocio.exception.aluno.AlunoNaoEncontradoException;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class CadastroDevolucao extends JFrame {
 
 	private JPanel contentPane;
 	private static CadastroDevolucao instance;
-	private JTextField textField;
-
+	private JTextField textFieldCpfDoAluno;
+	private JComboBox<Emprestimo> comboBoxEmprestimos;
+	private JLabel lblEmprstimo;
+	private DefaultComboBoxModel<Emprestimo> comboBoxModel ;
+	private JLabel lblDadosemprestimo;
 	/**
 	 * Launch the application.
 	 */
@@ -49,12 +62,21 @@ public class CadastroDevolucao extends JFrame {
 	 */
 	private CadastroDevolucao() {
 		setTitle("Cadastro Devolução");
+		
+		AcaoSelecaoCombo acaoSelecao = new AcaoSelecaoCombo();
+		
+		comboBoxModel = new DefaultComboBoxModel<Emprestimo>();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 340);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		comboBoxEmprestimos = new JComboBox();
+		comboBoxEmprestimos.setBounds(86, 61, 239, 20);
+		contentPane.add(comboBoxEmprestimos);
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -68,6 +90,10 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JButton btnOk = new JButton("Ok");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnOk.setBounds(335, 267, 89, 23);
 		contentPane.add(btnOk);
 		
@@ -75,25 +101,17 @@ public class CadastroDevolucao extends JFrame {
 		lblFuncionrio.setBounds(10, 142, 68, 14);
 		contentPane.add(lblFuncionrio);
 		
-		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(79, 142, 174, 14);
-		contentPane.add(lblNomedofuncionario);
-		
-		JLabel lblDataDeEmprstimo = new JLabel("Data de empr\u00E9stimo:");
-		lblDataDeEmprstimo.setBounds(10, 167, 110, 14);
-		contentPane.add(lblDataDeEmprstimo);
-		
-		JLabel lblDatadeemprestimo = new JLabel("DataDeEmprestimo");
-		lblDatadeemprestimo.setBounds(120, 167, 133, 14);
-		contentPane.add(lblDatadeemprestimo);
+		lblEmprstimo = new JLabel("Empr\u00E9stimo:");
+		lblEmprstimo.setBounds(10, 167, 110, 14);
+		contentPane.add(lblEmprstimo);
 		
 		JLabel lblItensDevolvidos = new JLabel("Itens devolvidos:");
-		lblItensDevolvidos.setBounds(10, 192, 110, 14);
+		lblItensDevolvidos.setBounds(239, 142, 110, 14);
 		contentPane.add(lblItensDevolvidos);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(10, 217, 268, 20);
-		contentPane.add(comboBox_1);
+		JComboBox comboBoxItens = new JComboBox();
+		comboBoxItens.setBounds(239, 167, 185, 20);
+		contentPane.add(comboBoxItens);
 		
 		JLabel lblCpfDoAluno = new JLabel("Cpf do Aluno:");
 		lblCpfDoAluno.setBounds(10, 39, 76, 14);
@@ -104,12 +122,22 @@ public class CadastroDevolucao extends JFrame {
 		lblDigiteOCpf.setBounds(10, 11, 342, 14);
 		contentPane.add(lblDigiteOCpf);
 		
-		textField = new JTextField();
-		textField.setBounds(86, 36, 239, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldCpfDoAluno = new JTextField();
+		textFieldCpfDoAluno.setBounds(86, 36, 239, 20);
+		contentPane.add(textFieldCpfDoAluno);
+		textFieldCpfDoAluno.setColumns(10);
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					carregarComboBox(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getCpf());
+					
+				} catch (AlunoNaoEncontradoException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
+			}
+		});
 		btnConsultar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnConsultar);
 		
@@ -117,26 +145,33 @@ public class CadastroDevolucao extends JFrame {
 		lblEmprstimos.setBounds(10, 64, 76, 14);
 		contentPane.add(lblEmprstimos);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(86, 61, 239, 20);
-		contentPane.add(comboBox);
-		
 		JLabel lblDadosDoEmprstimo = new JLabel("Dados do empr\u00E9stimo:");
 		lblDadosDoEmprstimo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDadosDoEmprstimo.setBounds(10, 114, 164, 14);
 		contentPane.add(lblDadosDoEmprstimo);
 		
-		JLabel lblMulta = new JLabel("Multa:");
-		lblMulta.setBounds(285, 142, 40, 14);
-		contentPane.add(lblMulta);
+		lblDadosemprestimo = new JLabel("DadosEmprestimo");
+		lblDadosemprestimo.setBounds(75, 139, 154, 20);
+		contentPane.add(lblDadosemprestimo);
 		
-		JLabel lblValordamulta = new JLabel("ValorDaMulta");
-		lblValordamulta.setBounds(322, 142, 102, 14);
-		contentPane.add(lblValordamulta);
-		
-		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setBounds(189, 188, 89, 23);
-		contentPane.add(btnAdicionar);
+		//quando o combobox está selecionado---------------------------------------------------------------
+		comboBoxEmprestimos.addActionListener(acaoSelecao);
 	}
-
+	
+	private void carregarComboBox(String cpf){
+		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
+		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
+		for(Emprestimo emp : emprestimos){
+			comboBoxModel.addElement(emp);
+		}
+		comboBoxEmprestimos.setModel(comboBoxModel);
+	}
+	
+	private class AcaoSelecaoCombo implements ActionListener{ //SLIDE 42 // Definir handlers
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			lblDadosemprestimo.setText(comboBoxEmprestimos.getSelectedItem().);
+		}
+		
+	}
 }

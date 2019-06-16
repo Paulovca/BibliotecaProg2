@@ -78,4 +78,11 @@ public class Emprestimo {
 		Devolvido = devolvido;
 	}
 
+	@Override
+	public String toString() {
+		return "" + funcionario.getNome() + "\n" + dataEmprestimo + "";
+	}
+	
+	
+
 }
