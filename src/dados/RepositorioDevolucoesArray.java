@@ -23,11 +23,10 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	
 	private final static int TAMANHO = 200;
 	
-//	private RepositorioDevolucoesArray() {
-//		this.devolucoes = new Devolucao[TAMANHO];
-//		this.indice = 0;
-//		lerDoArquivo();
-//	}
+	private RepositorioDevolucoesArray() {
+		devolucoes = new Devolucao[TAMANHO];
+		indice = 0;
+	}
 	
 	public static RepositorioDevolucoesArray getInstance() {
 		if(instance == null) {

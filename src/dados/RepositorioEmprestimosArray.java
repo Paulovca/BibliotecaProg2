@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import negocio.entidades.Emprestimo;
+import negocio.entidades.Item;
 
 public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 
@@ -17,6 +18,11 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 	private int indice;
 	
 	private final static int TAMANHO = 200;
+	
+	private RepositorioEmprestimosArray () {
+		emprestimos = new Emprestimo[TAMANHO];
+		indice = 0;
+	}
 	
 	public static RepositorioEmprestimosArray getInstance() {
 		if(instance == null) {

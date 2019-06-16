@@ -24,6 +24,11 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios,Ser
 	
 	private final static int TAMANHO = 200;
 	
+	private RepositorioFuncionariosArray() {
+		funcionarios = new Funcionario[TAMANHO];
+		indice = 0;
+	}
+	
 	public static RepositorioFuncionariosArray getInstance() {
 		if(instance == null) {
 			instance = lerDoArquivo();

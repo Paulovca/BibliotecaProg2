@@ -24,6 +24,11 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	
 	private final static int TAMANHO = 200;
 	
+	private RepositorioAlunosArray () {
+		alunos = new Aluno[TAMANHO];
+		indice = 0;
+	}
+	
 	public static RepositorioAlunosArray getInstance() {
 		if(instance == null) {
 			instance = lerDoArquivo();

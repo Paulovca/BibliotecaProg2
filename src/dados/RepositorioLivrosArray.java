@@ -19,6 +19,11 @@ public class RepositorioLivrosArray implements RepositorioLivros{
 	
 	private final static int TAMANHO = 200;
 	
+//	private RepositorioLivrosArray() {
+//		livros = new Livro[TAMANHO];
+//		indice = 0;
+//	}
+	
 	public static RepositorioLivrosArray getInstance() {
 		if(instance == null) {
 			instance = lerDoArquivo();

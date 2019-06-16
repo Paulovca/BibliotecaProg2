@@ -19,6 +19,11 @@ public class RepositorioItensArray implements RepositorioItens {
 	
 	private final static int TAMANHO = 200;
 	
+	private RepositorioItensArray () {
+		itens = new Item[TAMANHO];
+		indice = 0;
+	}
+	
 	public static RepositorioItensArray getInstance() {
 		if(instance == null) {
 			instance = lerDoArquivo();
