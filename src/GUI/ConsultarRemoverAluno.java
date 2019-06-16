@@ -76,19 +76,19 @@ public class ConsultarRemoverAluno extends JFrame {
 		contentPane.add(btnVoltar);		
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 92, 31, 14);
+		lblNome.setBounds(10, 92, 40, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 117, 21, 14);
+		lblCpf.setBounds(10, 117, 30, 14);
 		contentPane.add(lblCpf);
 
 		JLabel lblNomedoaluno = new JLabel("NomeDoAluno");
-		lblNomedoaluno.setBounds(51, 92, 67, 14);
+		lblNomedoaluno.setBounds(51, 92, 336, 14);
 		contentPane.add(lblNomedoaluno);
 
 		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(41, 117, 57, 14);
+		lblCpfdoaluno.setBounds(41, 117, 169, 14);
 		contentPane.add(lblCpfdoaluno);
 		
 		textFieldCpfDoAluno = new JTextField();
@@ -98,7 +98,7 @@ public class ConsultarRemoverAluno extends JFrame {
 		
 		JLabel lblDadosDoAluno = new JLabel("Dados do Aluno:");
 		lblDadosDoAluno.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDadosDoAluno.setBounds(10, 67, 108, 14);
+		lblDadosDoAluno.setBounds(10, 67, 156, 14);
 		contentPane.add(lblDadosDoAluno);
 		
 		JButton btnConsultar_1 = new JButton("Consultar");

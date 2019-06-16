@@ -61,19 +61,19 @@ public class AtualizarAluno extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 92, 31, 14);
+		lblNome.setBounds(10, 92, 40, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblNomedoaluno = new JLabel("NomeDoAluno");
-		lblNomedoaluno.setBounds(51, 92, 67, 14);
+		lblNomedoaluno.setBounds(51, 92, 159, 14);
 		contentPane.add(lblNomedoaluno);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 117, 21, 14);
+		lblCpf.setBounds(10, 117, 30, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(41, 117, 57, 14);
+		lblCpfdoaluno.setBounds(41, 117, 169, 14);
 		contentPane.add(lblCpfdoaluno);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -106,7 +106,7 @@ public class AtualizarAluno extends JFrame {
 		contentPane.add(btnAtualizar);
 		
 		JLabel lblNome_1 = new JLabel("Nome:");
-		lblNome_1.setBounds(220, 92, 31, 14);
+		lblNome_1.setBounds(220, 92, 40, 14);
 		contentPane.add(lblNome_1);
 		
 		textFieldNomeAtt = new JTextField();

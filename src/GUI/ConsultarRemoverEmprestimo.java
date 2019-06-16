@@ -72,39 +72,39 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		}
 		
 		JLabel lblAluno = new JLabel("Aluno:");
-		lblAluno.setBounds(10, 139, 31, 14);
+		lblAluno.setBounds(10, 139, 43, 14);
 		contentPane.add(lblAluno);
 		
 		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(53, 139, 57, 14);
+		lblCpfdoaluno.setBounds(53, 139, 299, 14);
 		contentPane.add(lblCpfdoaluno);
 		
 		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rio:");
-		lblFuncionrio.setBounds(10, 164, 59, 14);
+		lblFuncionrio.setBounds(10, 164, 69, 14);
 		contentPane.add(lblFuncionrio);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(79, 164, 95, 14);
+		lblNomedofuncionario.setBounds(79, 164, 292, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblDataDeEmprstimo = new JLabel("Data de Empr\u00E9stimo:");
-		lblDataDeEmprstimo.setBounds(10, 189, 100, 14);
+		lblDataDeEmprstimo.setBounds(10, 189, 110, 14);
 		contentPane.add(lblDataDeEmprstimo);
 		
 		JLabel lblDatadoemprestimo = new JLabel("DataDoEmprestimo");
-		lblDatadoemprestimo.setBounds(120, 189, 99, 14);
+		lblDatadoemprestimo.setBounds(120, 189, 189, 14);
 		contentPane.add(lblDatadoemprestimo);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(10, 239, 31, 14);
+		lblItens.setBounds(10, 239, 89, 14);
 		contentPane.add(lblItens);
 		
 		JLabel lblDataDaDevoluo = new JLabel("Data da Devolu\u00E7\u00E3o:");
-		lblDataDaDevoluo.setBounds(10, 214, 98, 14);
+		lblDataDaDevoluo.setBounds(10, 214, 104, 14);
 		contentPane.add(lblDataDaDevoluo);
 		
 		JLabel lblDatadadevolucao = new JLabel("DataDaDevolucao");
-		lblDatadadevolucao.setBounds(118, 214, 86, 14);
+		lblDatadadevolucao.setBounds(118, 214, 191, 14);
 		contentPane.add(lblDatadadevolucao);
 		
 		JComboBox comboBox_1 = new JComboBox();
@@ -113,7 +113,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do aluno:");
 		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteOCpf.setBounds(10, 11, 123, 14);
+		lblDigiteOCpf.setBounds(10, 11, 194, 14);
 		contentPane.add(lblDigiteOCpf);
 		
 		textField = new JTextField();
@@ -128,7 +128,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		
 		JLabel lblEmprstimosEmAberto = new JLabel("Empr\u00E9stimos em aberto:");
 		lblEmprstimosEmAberto.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblEmprstimosEmAberto.setBounds(10, 64, 156, 14);
+		lblEmprstimosEmAberto.setBounds(10, 64, 209, 14);
 		contentPane.add(lblEmprstimosEmAberto);
 		
 		JComboBox comboBox = new JComboBox();

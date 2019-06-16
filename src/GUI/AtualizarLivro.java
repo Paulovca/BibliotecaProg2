@@ -63,27 +63,27 @@ public class AtualizarLivro extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo:");
-		lblTtulo.setBounds(10, 92, 30, 14);
+		lblTtulo.setBounds(10, 92, 37, 14);
 		contentPane.add(lblTtulo);
 		
 		JLabel lblTitulodolivro = new JLabel("TituloDoLivro");
-		lblTitulodolivro.setBounds(50, 92, 62, 14);
+		lblTitulodolivro.setBounds(50, 92, 160, 14);
 		contentPane.add(lblTitulodolivro);
 		
 		JLabel lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(10, 117, 31, 14);
+		lblAutor.setBounds(10, 117, 37, 14);
 		contentPane.add(lblAutor);
 		
 		JLabel lblAutordolivro = new JLabel("AutorDoLivro");
-		lblAutordolivro.setBounds(49, 117, 63, 14);
+		lblAutordolivro.setBounds(49, 117, 161, 14);
 		contentPane.add(lblAutordolivro);
 		
 		JLabel lblEstoque = new JLabel("Estoque:");
-		lblEstoque.setBounds(10, 142, 43, 14);
+		lblEstoque.setBounds(10, 142, 54, 14);
 		contentPane.add(lblEstoque);
 		
 		JLabel lblEstoquedelivros = new JLabel("EstoqueDeLivros");
-		lblEstoquedelivros.setBounds(59, 142, 80, 14);
+		lblEstoquedelivros.setBounds(59, 142, 151, 14);
 		contentPane.add(lblEstoquedelivros);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -98,11 +98,11 @@ public class AtualizarLivro extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JLabel lblId = new JLabel("Id:");
-		lblId.setBounds(10, 167, 14, 14);
+		lblId.setBounds(10, 167, 22, 14);
 		contentPane.add(lblId);
 		
 		JLabel lblIddolivro = new JLabel("IdDoLivro");
-		lblIddolivro.setBounds(34, 167, 46, 14);
+		lblIddolivro.setBounds(34, 167, 78, 14);
 		contentPane.add(lblIddolivro);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
@@ -142,7 +142,7 @@ public class AtualizarLivro extends JFrame {
 		textFieldAutorAtt.setColumns(10);
 		
 		JLabel lblEstoque_1 = new JLabel("Estoque:");
-		lblEstoque_1.setBounds(220, 142, 43, 14);
+		lblEstoque_1.setBounds(220, 142, 50, 14);
 		contentPane.add(lblEstoque_1);
 		
 		textFieldEstoqueAtt = new JTextField();

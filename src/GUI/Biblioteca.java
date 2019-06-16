@@ -60,7 +60,7 @@ public class Biblioteca extends JFrame {
 
 		JLabel lblAluno = new JLabel("Aluno");
 		lblAluno.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblAluno.setForeground(new Color(255, 255, 255));
+		lblAluno.setForeground(Color.BLACK);
 		lblAluno.setBounds(10, 32, 46, 14);
 		contentPane.add(lblAluno);
 
@@ -115,7 +115,7 @@ public class Biblioteca extends JFrame {
 
 		JLabel lblLivro = new JLabel("Livro");
 		lblLivro.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblLivro.setForeground(new Color(255, 255, 255));
+		lblLivro.setForeground(Color.BLACK);
 		lblLivro.setBounds(91, 32, 46, 14);
 		contentPane.add(lblLivro);
 
@@ -169,7 +169,7 @@ public class Biblioteca extends JFrame {
 
 		JLabel lblFuncionario = new JLabel("Funcionario");
 		lblFuncionario.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblFuncionario.setForeground(new Color(255, 255, 255));
+		lblFuncionario.setForeground(Color.BLACK);
 		lblFuncionario.setBounds(182, 32, 71, 14);
 		contentPane.add(lblFuncionario);
 
@@ -223,7 +223,7 @@ public class Biblioteca extends JFrame {
 		
 		JLabel lblEmprstimo = new JLabel("Empr\u00E9stimo");
 		lblEmprstimo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblEmprstimo.setForeground(new Color(255, 255, 255));
+		lblEmprstimo.setForeground(Color.BLACK);
 		lblEmprstimo.setBounds(273, 32, 71, 14);
 		contentPane.add(lblEmprstimo);
 		
@@ -266,7 +266,7 @@ public class Biblioteca extends JFrame {
 
 		JLabel lblDevoluo = new JLabel("Devolu\u00E7\u00E3o");
 		lblDevoluo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDevoluo.setForeground(new Color(255, 255, 255));
+		lblDevoluo.setForeground(Color.BLACK);
 		lblDevoluo.setBounds(364, 32, 71, 14);
 		contentPane.add(lblDevoluo);
 

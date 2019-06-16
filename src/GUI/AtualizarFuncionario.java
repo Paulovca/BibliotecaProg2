@@ -64,27 +64,27 @@ public class AtualizarFuncionario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 91, 31, 14);
+		lblNome.setBounds(10, 91, 39, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(51, 91, 126, 14);
+		lblNomedofuncionario.setBounds(51, 91, 159, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 116, 21, 14);
+		lblCpf.setBounds(10, 116, 28, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblCpfdofuncionario = new JLabel("CpfDoFuncionario");
-		lblCpfdofuncionario.setBounds(41, 116, 85, 14);
+		lblCpfdofuncionario.setBounds(41, 116, 169, 14);
 		contentPane.add(lblCpfdofuncionario);
 		
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(10, 141, 34, 14);
+		lblSenha.setBounds(10, 141, 39, 14);
 		contentPane.add(lblSenha);
 		
 		JLabel lblSenhadofuncionario = new JLabel("SenhaDoFuncionario");
-		lblSenhadofuncionario.setBounds(51, 141, 98, 14);
+		lblSenhadofuncionario.setBounds(51, 141, 159, 14);
 		contentPane.add(lblSenhadofuncionario);
 		
 		JButton btnVoltar = new JButton("Voltar");
@@ -117,7 +117,7 @@ public class AtualizarFuncionario extends JFrame {
 		contentPane.add(btnAtualizar);
 		
 		JLabel lblNome_1 = new JLabel("Nome:");
-		lblNome_1.setBounds(220, 91, 31, 14);
+		lblNome_1.setBounds(220, 91, 39, 14);
 		contentPane.add(lblNome_1);
 		
 		textFieldNomeAtt = new JTextField();
@@ -126,7 +126,7 @@ public class AtualizarFuncionario extends JFrame {
 		textFieldNomeAtt.setColumns(10);
 		
 		JLabel lblSenha_1 = new JLabel("Senha:");
-		lblSenha_1.setBounds(220, 116, 34, 14);
+		lblSenha_1.setBounds(220, 116, 39, 14);
 		contentPane.add(lblSenha_1);
 		
 		textFieldSenhaAtt = new JTextField();

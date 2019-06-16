@@ -71,9 +71,9 @@ public class CadastroAluno extends JFrame {
 		contentPane.add(lblDigiteONome);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setForeground(new Color(255, 255, 255));
+		lblNome.setForeground(Color.BLACK);
 		lblNome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNome.setBounds(140, 103, 35, 14);
+		lblNome.setBounds(140, 103, 43, 14);
 		contentPane.add(lblNome);
 		
 		textFieldNome = new JTextField();
@@ -83,8 +83,8 @@ public class CadastroAluno extends JFrame {
 		
 		JLabel lblCpf = new JLabel("Cpf:");
 		lblCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblCpf.setForeground(new Color(255, 255, 255));
-		lblCpf.setBounds(140, 132, 21, 14);
+		lblCpf.setForeground(Color.BLACK);
+		lblCpf.setBounds(140, 132, 43, 14);
 		contentPane.add(lblCpf);
 		
 		textFieldCpf = new JTextField();

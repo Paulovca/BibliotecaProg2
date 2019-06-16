@@ -65,7 +65,7 @@ public class CadastroLivro extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTtulo = new JLabel("T\u00EDtulo:");
-		lblTtulo.setBounds(124, 94, 30, 14);
+		lblTtulo.setBounds(124, 94, 46, 14);
 		contentPane.add(lblTtulo);
 		
 		textFieldTitulo = new JTextField();
@@ -74,7 +74,7 @@ public class CadastroLivro extends JFrame {
 		textFieldTitulo.setColumns(10);
 		
 		JLabel lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(124, 119, 31, 14);
+		lblAutor.setBounds(124, 119, 51, 14);
 		contentPane.add(lblAutor);
 		
 		textFieldAutor = new JTextField();
@@ -83,7 +83,7 @@ public class CadastroLivro extends JFrame {
 		textFieldAutor.setColumns(10);
 		
 		JLabel lblEstoque = new JLabel("Estoque:");
-		lblEstoque.setBounds(124, 144, 46, 14);
+		lblEstoque.setBounds(124, 144, 51, 14);
 		contentPane.add(lblEstoque);
 		
 		textFieldEstoque = new JTextField();
@@ -125,7 +125,7 @@ public class CadastroLivro extends JFrame {
 		
 		JLabel lblDigiteOTtulo = new JLabel("Digite o t\u00EDtulo, autor, quantidade em estoque e Id para cadastrar o livro:");
 		lblDigiteOTtulo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteOTtulo.setBounds(10, 30, 414, 14);
+		lblDigiteOTtulo.setBounds(10, 30, 424, 14);
 		contentPane.add(lblDigiteOTtulo);
 		
 		JLabel lblId = new JLabel("Id:");

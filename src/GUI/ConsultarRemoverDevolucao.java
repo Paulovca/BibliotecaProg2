@@ -72,47 +72,47 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		}
 		
 		JLabel lblAluno = new JLabel("Aluno:");
-		lblAluno.setBounds(10, 139, 31, 14);
+		lblAluno.setBounds(10, 139, 43, 14);
 		contentPane.add(lblAluno);
 		
 		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(51, 139, 57, 14);
+		lblCpfdoaluno.setBounds(51, 139, 258, 14);
 		contentPane.add(lblCpfdoaluno);
 		
 		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rio:");
-		lblFuncionrio.setBounds(10, 164, 59, 14);
+		lblFuncionrio.setBounds(10, 164, 70, 14);
 		contentPane.add(lblFuncionrio);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(79, 164, 95, 14);
+		lblNomedofuncionario.setBounds(79, 164, 285, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblDataDoEmprstimo = new JLabel("Data do empr\u00E9stimo:");
-		lblDataDoEmprstimo.setBounds(10, 192, 100, 14);
+		lblDataDoEmprstimo.setBounds(10, 192, 109, 14);
 		contentPane.add(lblDataDoEmprstimo);
 		
 		JLabel lblDatadoemprestimo = new JLabel("DataDoEmprestimo");
-		lblDatadoemprestimo.setBounds(120, 192, 99, 14);
+		lblDatadoemprestimo.setBounds(120, 192, 213, 14);
 		contentPane.add(lblDatadoemprestimo);
 		
 		JLabel lblDataDaDevoluo = new JLabel("Data da devolu\u00E7\u00E3o:");
-		lblDataDaDevoluo.setBounds(10, 217, 95, 14);
+		lblDataDaDevoluo.setBounds(10, 217, 109, 14);
 		contentPane.add(lblDataDaDevoluo);
 		
 		JLabel lblDatadadevolucao = new JLabel("DataDaDevolucao");
-		lblDatadadevolucao.setBounds(115, 217, 89, 14);
+		lblDatadadevolucao.setBounds(115, 217, 218, 14);
 		contentPane.add(lblDatadadevolucao);
 		
 		JLabel lblMulta = new JLabel("Multa:");
-		lblMulta.setBounds(10, 242, 31, 14);
+		lblMulta.setBounds(10, 242, 37, 14);
 		contentPane.add(lblMulta);
 		
 		JLabel lblValordamulta = new JLabel("ValorDaMulta");
-		lblValordamulta.setBounds(51, 242, 63, 14);
+		lblValordamulta.setBounds(51, 242, 168, 14);
 		contentPane.add(lblValordamulta);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(10, 267, 31, 14);
+		lblItens.setBounds(10, 267, 70, 14);
 		contentPane.add(lblItens);
 		
 		JComboBox comboBox_1 = new JComboBox();

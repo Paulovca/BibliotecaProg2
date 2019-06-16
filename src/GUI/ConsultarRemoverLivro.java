@@ -71,27 +71,27 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JLabel lblTitulo = new JLabel("T\u00EDtulo:");
-		lblTitulo.setBounds(10, 89, 30, 14);
+		lblTitulo.setBounds(10, 89, 43, 14);
 		contentPane.add(lblTitulo);
 		
 		JLabel lblTitulodolivro = new JLabel("T\u00EDtuloDoLivro");
-		lblTitulodolivro.setBounds(50, 89, 62, 14);
+		lblTitulodolivro.setBounds(50, 89, 319, 14);
 		contentPane.add(lblTitulodolivro);
 		
 		JLabel lblAutor = new JLabel("Autor:");
-		lblAutor.setBounds(10, 114, 31, 14);
+		lblAutor.setBounds(10, 114, 37, 14);
 		contentPane.add(lblAutor);
 		
 		JLabel lblAutordolivro = new JLabel("AutorDoLivro");
-		lblAutordolivro.setBounds(50, 114, 63, 14);
+		lblAutordolivro.setBounds(50, 114, 294, 14);
 		contentPane.add(lblAutordolivro);
 		
 		JLabel lblEstoque = new JLabel("Estoque:");
-		lblEstoque.setBounds(10, 137, 43, 14);
+		lblEstoque.setBounds(10, 137, 53, 14);
 		contentPane.add(lblEstoque);
 		
 		JLabel lblEstoquedelivros = new JLabel("Estoquedelivros");
-		lblEstoquedelivros.setBounds(60, 137, 97, 14);
+		lblEstoquedelivros.setBounds(60, 137, 309, 14);
 		contentPane.add(lblEstoquedelivros);
 		
 		JLabel lblDigiteOId = new JLabel("Digite o Id do livro:");
@@ -110,11 +110,11 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(lblDadosDoLivro);
 
 		JLabel lblId = new JLabel("Id:");
-		lblId.setBounds(10, 162, 14, 14);
+		lblId.setBounds(10, 162, 24, 14);
 		contentPane.add(lblId);
 		
 		JLabel lblIddolivro = new JLabel("IdDoLivro");
-		lblIddolivro.setBounds(34, 162, 46, 14);
+		lblIddolivro.setBounds(34, 162, 275, 14);
 		contentPane.add(lblIddolivro);
 		
 		JButton btnConsultar = new JButton("Consultar");

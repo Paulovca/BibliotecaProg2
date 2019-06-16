@@ -71,19 +71,19 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 92, 31, 14);
+		lblNome.setBounds(10, 92, 41, 14);
 		contentPane.add(lblNome);
 		
 		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(51, 92, 95, 14);
+		lblNomedofuncionario.setBounds(51, 92, 206, 14);
 		contentPane.add(lblNomedofuncionario);
 		
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(10, 117, 21, 14);
+		lblCpf.setBounds(10, 117, 32, 14);
 		contentPane.add(lblCpf);
 		
 		JLabel lblCpfdofuncionario = new JLabel("CpfDoFuncionario");
-		lblCpfdofuncionario.setBounds(41, 117, 89, 14);
+		lblCpfdofuncionario.setBounds(41, 117, 206, 14);
 		contentPane.add(lblCpfdofuncionario);
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do funcion\u00E1rio:");

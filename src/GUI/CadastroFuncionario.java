@@ -63,7 +63,7 @@ public class CadastroFuncionario extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(133, 86, 31, 14);
+		lblNome.setBounds(133, 86, 39, 14);
 		contentPane.add(lblNome);
 
 		textFieldNome = new JTextField();
@@ -72,7 +72,7 @@ public class CadastroFuncionario extends JFrame {
 		textFieldNome.setColumns(10);
 
 		JLabel lblCpf = new JLabel("Cpf:");
-		lblCpf.setBounds(133, 111, 21, 14);
+		lblCpf.setBounds(133, 111, 39, 14);
 		contentPane.add(lblCpf);
 
 		textFieldCpf = new JTextField();
@@ -81,7 +81,7 @@ public class CadastroFuncionario extends JFrame {
 		textFieldCpf.setColumns(10);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setBounds(133, 136, 46, 14);
+		lblSenha.setBounds(133, 136, 39, 14);
 		contentPane.add(lblSenha);
 
 		textFieldSenha = new JTextField();

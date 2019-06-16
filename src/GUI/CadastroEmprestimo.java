@@ -59,7 +59,7 @@ public class CadastroEmprestimo extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblCpfDoAluno = new JLabel("Cpf do Aluno:");
-		lblCpfDoAluno.setBounds(104, 49, 66, 14);
+		lblCpfDoAluno.setBounds(104, 49, 75, 14);
 		contentPane.add(lblCpfDoAluno);
 		
 		textFieldCpfDoAluno = new JTextField();
@@ -68,7 +68,7 @@ public class CadastroEmprestimo extends JFrame {
 		textFieldCpfDoAluno.setColumns(10);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(104, 80, 29, 14);
+		lblItens.setBounds(104, 80, 51, 14);
 		contentPane.add(lblItens);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
@@ -102,7 +102,7 @@ public class CadastroEmprestimo extends JFrame {
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o Cpf do aluno e adicione itens para cadastrar o empr\u00E9stimo:");
 		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDigiteOCpf.setBounds(10, 11, 399, 14);
+		lblDigiteOCpf.setBounds(10, 11, 414, 14);
 		contentPane.add(lblDigiteOCpf);
 	}
 }
