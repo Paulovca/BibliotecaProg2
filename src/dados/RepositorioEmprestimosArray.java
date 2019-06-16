@@ -44,7 +44,7 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos {
 	      RepositorioEmprestimosArray repTem = (RepositorioEmprestimosArray) o;
 	      this.emprestimos= repTem.emprestimos;
 	      this.indice= repTem.indice;
-	      
+	      Emprestimo.setContador(repTem.indice);
 	    } catch (Exception e) {
 	    	e.printStackTrace();
 	    } finally {

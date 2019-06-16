@@ -95,7 +95,11 @@ public class CadastroDevolucao extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Devolucao devolucao = new Devolucao(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getAluno(),((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens(),Login.funcionarioAtivo);
 				try {
-					Fachada.getInstance().cadastrar(devolucao);;
+					Fachada.getInstance().cadastrar(devolucao);
+					JOptionPane.showMessageDialog(null, "Devolução cadatrada!");
+					dispose();
+					instance = null;
+					Biblioteca.getInstance().setVisible(true);
 				} catch (DevolucaoJaExisteException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (DevolucaoNulaException e1) {

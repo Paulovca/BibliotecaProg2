@@ -71,5 +71,8 @@ public class Devolucao {
 	public void setMulta(float multa) {
 		this.multa = multa;
 	}
+	public static void setContador(int i) {
+		Devolucao.contador = i;
+	}
 
 }

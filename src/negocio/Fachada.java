@@ -98,6 +98,10 @@ public class Fachada {
 		return devolucoes.consultar(id);
 	}
 	
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
+		return devolucoes.procurarDevolucoes(cpf);
+	}
+	
 	public ArrayList<Devolucao> listarDevolucao() {
 		return devolucoes.listar();
 	}

@@ -66,6 +66,10 @@ public class Emprestimo {
 		this.dataDevolucao = dataDevolucao;
 	}
 
+	public static void setContador(int i) {
+		Emprestimo.contador = i;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -77,7 +81,7 @@ public class Emprestimo {
 	public void setDevolvido(boolean devolvido) {
 		Devolvido = devolvido;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "" + funcionario.getNome() + "\n" + dataEmprestimo + "";

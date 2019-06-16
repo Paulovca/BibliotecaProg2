@@ -4,11 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import negocio.Fachada;
+import negocio.entidades.Devolucao;
+import negocio.entidades.Emprestimo;
+import negocio.entidades.Item;
+import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
@@ -20,6 +26,12 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private JPanel contentPane;
 	private static ConsultarRemoverDevolucao instance;
 	private JTextField textFieldCpfDoAluno;
+	private JComboBox<Devolucao> comboBoxDevolucoes;
+	private JLabel lblCpfdoaluno;
+	private JLabel lblNomedofuncionario;
+	private JLabel lblDatadadevolucao;
+	private JLabel lblValordamulta;
+	private JComboBox<Item> comboBoxItens;
 	/**
 	 * Launch the application.
 	 */
@@ -54,6 +66,8 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		AcaoSelecaoCombo acaoSelecao = new AcaoSelecaoCombo();
+		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -67,6 +81,19 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		
 		if (Biblioteca.flag == false) {
 			JButton btnRemover = new JButton("Remover");
+			btnRemover.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+					Fachada.getInstance().removerDevolucao(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getId());
+					JOptionPane.showMessageDialog(null, "Devolução removida com sucesso!");
+					dispose();
+					instance = null;
+					Biblioteca.getInstance().setVisible(true);
+					} catch(DevolucaoNaoEncontradaException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
+				}
+			});
 			btnRemover.setBounds(335, 324, 89, 23);
 			contentPane.add(btnRemover);
 		}
@@ -75,7 +102,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		lblAluno.setBounds(10, 139, 43, 14);
 		contentPane.add(lblAluno);
 		
-		JLabel lblCpfdoaluno = new JLabel("CpfDoAluno");
+		lblCpfdoaluno = new JLabel("CpfDoAluno");
 		lblCpfdoaluno.setBounds(51, 139, 258, 14);
 		contentPane.add(lblCpfdoaluno);
 		
@@ -83,41 +110,33 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		lblFuncionrio.setBounds(10, 164, 70, 14);
 		contentPane.add(lblFuncionrio);
 		
-		JLabel lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(79, 164, 285, 14);
+		lblNomedofuncionario = new JLabel("NomeDoFuncionario");
+		lblNomedofuncionario.setBounds(77, 164, 285, 14);
 		contentPane.add(lblNomedofuncionario);
 		
-		JLabel lblDataDoEmprstimo = new JLabel("Data do empr\u00E9stimo:");
-		lblDataDoEmprstimo.setBounds(10, 192, 109, 14);
-		contentPane.add(lblDataDoEmprstimo);
-		
-		JLabel lblDatadoemprestimo = new JLabel("DataDoEmprestimo");
-		lblDatadoemprestimo.setBounds(120, 192, 213, 14);
-		contentPane.add(lblDatadoemprestimo);
-		
 		JLabel lblDataDaDevoluo = new JLabel("Data da devolu\u00E7\u00E3o:");
-		lblDataDaDevoluo.setBounds(10, 217, 109, 14);
+		lblDataDaDevoluo.setBounds(10, 189, 109, 14);
 		contentPane.add(lblDataDaDevoluo);
 		
-		JLabel lblDatadadevolucao = new JLabel("DataDaDevolucao");
-		lblDatadadevolucao.setBounds(115, 217, 218, 14);
+		lblDatadadevolucao = new JLabel("DataDaDevolucao");
+		lblDatadadevolucao.setBounds(113, 189, 218, 14);
 		contentPane.add(lblDatadadevolucao);
 		
 		JLabel lblMulta = new JLabel("Multa:");
-		lblMulta.setBounds(10, 242, 37, 14);
+		lblMulta.setBounds(10, 214, 37, 14);
 		contentPane.add(lblMulta);
 		
-		JLabel lblValordamulta = new JLabel("ValorDaMulta");
-		lblValordamulta.setBounds(51, 242, 168, 14);
+		lblValordamulta = new JLabel("ValorDaMulta");
+		lblValordamulta.setBounds(51, 214, 168, 14);
 		contentPane.add(lblValordamulta);
 		
 		JLabel lblItens = new JLabel("Itens:");
-		lblItens.setBounds(10, 267, 70, 14);
+		lblItens.setBounds(10, 239, 70, 14);
 		contentPane.add(lblItens);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(10, 292, 316, 20);
-		contentPane.add(comboBox_1);
+		comboBoxItens = new JComboBox<Item>();
+		comboBoxItens.setBounds(10, 264, 316, 20);
+		contentPane.add(comboBoxItens);
 		
 		JLabel lblDigiteOCpf = new JLabel("Digite o cpf do aluno:");
 		lblDigiteOCpf.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -139,12 +158,44 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		lblDevoluesFeitas.setBounds(10, 64, 116, 14);
 		contentPane.add(lblDevoluesFeitas);
 		
-		JComboBox comboBoxDevolucoes = new JComboBox();
+		comboBoxDevolucoes = new JComboBox<Devolucao>();
 		comboBoxDevolucoes.setBounds(10, 86, 316, 20);
 		contentPane.add(comboBoxDevolucoes);
 		
 		JButton btnConsultar = new JButton("Consultar");
+		btnConsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				carregarComboBox(textFieldCpfDoAluno.getText());
+			}
+		});
 		btnConsultar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnConsultar);
+		
+		//quando o emprestimo no combobox for selecionado----------------------------------------------------
+		comboBoxDevolucoes.addActionListener(acaoSelecao);
+	}
+	
+	private void carregarComboBox(String cpf){
+		ArrayList<Devolucao> devolucoes = new ArrayList<Devolucao>();
+		devolucoes = Fachada.getInstance().procurarDevolucoes(cpf);
+		for(Devolucao dvl : devolucoes){
+			comboBoxDevolucoes.addItem(dvl);
+		}
+		
+	}
+	
+	private class AcaoSelecaoCombo implements ActionListener{ 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			lblCpfdoaluno.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getAluno().getCpf());
+			lblNomedofuncionario.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getFuncionario().getNome());
+			lblDatadadevolucao.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getDataDevolucao().toString());
+			lblValordamulta.setText(String.valueOf(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getMulta()));
+			Item[] itens = ((Devolucao)comboBoxDevolucoes.getSelectedItem()).getItens();
+			for(Item itm : itens) {
+				comboBoxItens.addItem(itm);
+			}
+		}
+		
 	}
 }

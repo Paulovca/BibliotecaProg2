@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import negocio.entidades.Devolucao;
+import negocio.entidades.Emprestimo;
 
 public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable{
 	
@@ -36,7 +37,6 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	}
 
 	private void lerDoArquivo() {
-
 	    File in = new File("alunos.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
@@ -47,7 +47,7 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	      RepositorioDevolucoesArray repTem = (RepositorioDevolucoesArray) o;
 	      this.devolucoes= repTem.devolucoes;
 	      this.indice= repTem.indice;
-	      
+	      Devolucao.setContador(repTem.indice);
 	    } catch (Exception e) {
 	    	e.printStackTrace();
 	    } finally {
@@ -111,6 +111,17 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	}
 	
 	@Override
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
+		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
+		for(int i = 0; i< indice; i++) {
+			if(devolucoes[i].getAluno().getCpf().equals(cpf)) {
+					devolucao.add(devolucoes[i]);
+			}
+		}
+		return devolucao;
+	}
+	
+	@Override
 	public ArrayList<Devolucao> listar() {
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
 		for(Devolucao dvl : devolucoes) {
@@ -120,4 +131,5 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 		}
 		return devolucao;
 	}
+
 }

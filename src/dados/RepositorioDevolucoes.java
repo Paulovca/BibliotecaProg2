@@ -11,4 +11,5 @@ public interface RepositorioDevolucoes {
 	public void remover(int id);
 	public Devolucao consultar(int id);
 	public ArrayList<Devolucao> listar();
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf);
 }

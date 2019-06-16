@@ -38,6 +38,7 @@ public class ControleDevolucoes {
 		emprestimo.setDevolvido(true);
 		if(devolucao.getDataDevolucao().isAfter(emprestimo.getDataDevolucao())) {
 			multa = (float) (3.50*Duration.between(emprestimo.getDataDevolucao().atStartOfDay(), devolucao.getDataDevolucao().atStartOfDay()).toDays());
+			devolucao.setMulta(multa);
 		}
 		return multa;
 	}
@@ -60,6 +61,10 @@ public class ControleDevolucoes {
 			throw e;
 		}
 		return devolucao;
+	}
+	
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf){
+		return devolucoes.procurarDevolucoes(cpf);
 	}
 	
 	public ArrayList<Devolucao> listar(){
