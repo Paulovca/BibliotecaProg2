@@ -102,6 +102,7 @@ public class CadastroItem extends JFrame {
 				itemCriado = item;
 				try {
 					Fachada.getInstance().cadastrar(item);
+					JOptionPane.showMessageDialog(null, "Item cadastrado!");
 					setVisible(false);
 					Biblioteca.getInstance().setVisible(true);
 				} catch (ItemNuloException e1) {

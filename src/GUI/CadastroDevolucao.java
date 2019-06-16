@@ -37,6 +37,7 @@ public class CadastroDevolucao extends JFrame {
 	private JLabel lblDatadoemprestimo;
 	private JComboBox<Item> comboBoxItens;
 	private JLabel lblValordamulta;
+	
 	/**
 	 * Launch the application.
 	 */

@@ -98,6 +98,7 @@ public class CadastroAluno extends JFrame {
 				Aluno aluno = new Aluno(textFieldNome.getText(),textFieldCpf.getText());
 				try {
 					Fachada.getInstance().cadastrar(aluno);
+					JOptionPane.showMessageDialog(null, "Aluno cadastrado!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);

@@ -32,6 +32,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private JLabel lblDatadadevolucao;
 	private JLabel lblValordamulta;
 	private JComboBox<Item> comboBoxItens;
+	
 	/**
 	 * Launch the application.
 	 */

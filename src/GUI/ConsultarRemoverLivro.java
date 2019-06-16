@@ -139,7 +139,6 @@ public class ConsultarRemoverLivro extends JFrame {
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					
 						try {
 							Fachada.getInstance().removerLivros(Integer.parseInt(lblIddolivro.getText()));
 							JOptionPane.showMessageDialog(null, "Livro removido!");

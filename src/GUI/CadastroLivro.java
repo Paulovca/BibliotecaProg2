@@ -97,6 +97,7 @@ public class CadastroLivro extends JFrame {
 				Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()),Integer.parseInt(textFieldId.getText()));
 				try {
 					Fachada.getInstance().cadastrar(livro);
+					JOptionPane.showMessageDialog(null, "Livro cadastrado!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);

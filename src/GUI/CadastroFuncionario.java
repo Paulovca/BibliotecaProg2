@@ -95,8 +95,10 @@ public class CadastroFuncionario extends JFrame {
 				Funcionario funcionario = new Funcionario(textFieldNome.getText(), textFieldCpf.getText(), textFieldSenha.getText());
 				try {
 					Fachada.getInstance().cadastrar(funcionario);
+					JOptionPane.showMessageDialog(null, "Funcionário cadastrado!");
 					dispose();
 					instance = null;
+					Biblioteca.getInstance().setVisible(true);
 				} catch (CpfJaExisteException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				} catch (FuncionarioNuloException e1) {

@@ -119,6 +119,7 @@ public class CadastroEmprestimo extends JFrame {
 				try {
 					Emprestimo emprestimo = new Emprestimo(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()),itens,Login.funcionarioAtivo);
 					Fachada.getInstance().cadastrar(emprestimo);
+					JOptionPane.showMessageDialog(null, "Emprestimo cadastrado!");
 					dispose();
 					instance = null;
 					Limite = 0;
