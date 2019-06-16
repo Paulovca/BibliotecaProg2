@@ -34,7 +34,7 @@ public class CadastroItem extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroItem frame = new CadastroItem();
+					CadastroItem frame = CadastroItem.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

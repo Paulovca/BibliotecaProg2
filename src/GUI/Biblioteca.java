@@ -29,7 +29,7 @@ public class Biblioteca extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Biblioteca frame = new Biblioteca();
+					Biblioteca frame = Biblioteca.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -35,7 +35,7 @@ public class CadastroFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroFuncionario frame = new CadastroFuncionario();
+					CadastroFuncionario frame = CadastroFuncionario.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

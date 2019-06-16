@@ -27,7 +27,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarRemoverEmprestimo frame = new ConsultarRemoverEmprestimo();
+					ConsultarRemoverEmprestimo frame = ConsultarRemoverEmprestimo.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

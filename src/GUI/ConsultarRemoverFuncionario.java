@@ -32,7 +32,7 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarRemoverFuncionario frame = new ConsultarRemoverFuncionario();
+					ConsultarRemoverFuncionario frame = ConsultarRemoverFuncionario.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

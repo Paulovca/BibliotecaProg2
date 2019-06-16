@@ -27,7 +27,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarRemoverDevolucao frame = new ConsultarRemoverDevolucao();
+					ConsultarRemoverDevolucao frame = ConsultarRemoverDevolucao.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

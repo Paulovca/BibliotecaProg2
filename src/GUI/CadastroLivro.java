@@ -36,7 +36,7 @@ public class CadastroLivro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroLivro frame = new CadastroLivro();
+					CadastroLivro frame = CadastroLivro.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

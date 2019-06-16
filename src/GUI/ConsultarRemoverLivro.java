@@ -32,7 +32,7 @@ public class ConsultarRemoverLivro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarRemoverLivro frame = new ConsultarRemoverLivro();
+					ConsultarRemoverLivro frame = ConsultarRemoverLivro.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

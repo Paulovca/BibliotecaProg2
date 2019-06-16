@@ -35,7 +35,7 @@ public class AtualizarLivro extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AtualizarLivro frame = new AtualizarLivro();
+					AtualizarLivro frame = AtualizarLivro.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

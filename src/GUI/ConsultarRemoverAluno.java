@@ -32,7 +32,7 @@ public class ConsultarRemoverAluno extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConsultarRemoverAluno frame = new ConsultarRemoverAluno();
+					ConsultarRemoverAluno frame = ConsultarRemoverAluno.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

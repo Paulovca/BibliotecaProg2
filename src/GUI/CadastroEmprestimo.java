@@ -31,7 +31,7 @@ public class CadastroEmprestimo extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroEmprestimo frame = new CadastroEmprestimo();
+					CadastroEmprestimo frame = CadastroEmprestimo.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

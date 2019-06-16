@@ -33,7 +33,7 @@ public class AtualizarAluno extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AtualizarAluno frame = new AtualizarAluno();
+					AtualizarAluno frame = AtualizarAluno.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
