@@ -3,12 +3,18 @@ package negocio.entidades;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import dados.RepositorioDevolucoesArray;
 
 public class Devolucao implements Serializable{
 	
-	/**
+	@Override
+	public String toString() {
+		return ""+ aluno.getNome() + ", " + dataDevolucao + ", " + funcionario
+				+ ", livros:" + Arrays.toString(itens) + "]";
+	}
+	/**Arrays.toString(itens)
 	 * 
 	 */
 	private static final long serialVersionUID = 5897811956750760212L;

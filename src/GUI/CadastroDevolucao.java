@@ -31,7 +31,7 @@ public class CadastroDevolucao extends JFrame {
 	private JPanel contentPane;
 	private static CadastroDevolucao instance;
 	private JTextField textFieldCpfDoAluno;
-	private JComboBox<Emprestimo> comboBoxEmprestimos;
+	private JComboBox<String> comboBoxEmprestimos;
 	private JLabel lblNomeDoFuncionario;
 	private JList list;
 	private JLabel lblDatadoemprestimo;
@@ -76,7 +76,7 @@ public class CadastroDevolucao extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		comboBoxEmprestimos = new JComboBox<Emprestimo>();
+		comboBoxEmprestimos = new JComboBox<String>();
 		comboBoxEmprestimos.setBounds(86, 61, 239, 20);
 		contentPane.add(comboBoxEmprestimos);
 		
@@ -196,7 +196,7 @@ public class CadastroDevolucao extends JFrame {
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
 		for(Emprestimo emp : emprestimos){
-			comboBoxEmprestimos.addItem(emp);
+			comboBoxEmprestimos.addItem(emp.toString());
 		}
 		
 	}
@@ -204,7 +204,9 @@ public class CadastroDevolucao extends JFrame {
 	private void carregarComboBoxItens() {
 		Item[] itens = ((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens();
 		for(Item itm : itens) {
-			comboBoxItens.addItem(itm.getLivro().getTitulo());
+			if(itm != null) {
+				comboBoxItens.addItem(itm.getLivro().getTitulo());
+			}
 		}
 	}
 	

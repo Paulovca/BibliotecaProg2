@@ -2,6 +2,7 @@ package negocio.entidades;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import dados.RepositorioEmprestimosArray;
 
@@ -91,7 +92,8 @@ public class Emprestimo implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "" + funcionario.getNome() + "\n" + dataEmprestimo + "";
+		return ""+ aluno.getNome() + ", " + dataEmprestimo + ", " + funcionario
+				+ ", livros:" + Arrays.toString(itens) + "]";
 	}
 	
 	

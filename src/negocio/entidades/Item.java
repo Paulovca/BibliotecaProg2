@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 public class Item implements Serializable{
 	
+	@Override
+	public String toString() {
+		return "" + livro.getTitulo() + ", " + quantidade + "";
+	}
+
 	/**
 	 * 
 	 */

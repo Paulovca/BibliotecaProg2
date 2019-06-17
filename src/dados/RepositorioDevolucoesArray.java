@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
 
-public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable{
-	
+public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable {
+
 	/**
 	 * 
 	 */
@@ -20,16 +20,16 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	private static RepositorioDevolucoesArray instance;
 	private Devolucao[] devolucoes;
 	private int indice;
-	
+
 	private final static int TAMANHO = 200;
-	
+
 	private RepositorioDevolucoesArray() {
 		devolucoes = new Devolucao[TAMANHO];
 		indice = 0;
 	}
-	
+
 	public static RepositorioDevolucoesArray getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = lerDoArquivo();
 		}
 		return instance;
@@ -37,28 +37,28 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 
 	private static RepositorioDevolucoesArray lerDoArquivo() {
 		RepositorioDevolucoesArray instanciaLocal = null;
-	    File in = new File("devolucoes.dat");
-	    FileInputStream fis = null;
-	    ObjectInputStream ois = null;
-	    try {
-	      fis = new FileInputStream(in);
-	      ois = new ObjectInputStream(fis);
-	      Object o = ois.readObject();
-	      instanciaLocal = (RepositorioDevolucoesArray) o;
-	    } catch (Exception e) {
-	      instanciaLocal = new RepositorioDevolucoesArray();
-	    } finally {
-	      if (ois != null) {
-	        try {
-	          ois.close();
-	        } catch (IOException e) {/* Silent exception */
-	        }
-	      }
-	    }
+		File in = new File("devolucoes.dat");
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(in);
+			ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			instanciaLocal = (RepositorioDevolucoesArray) o;
+		} catch (Exception e) {
+			instanciaLocal = new RepositorioDevolucoesArray();
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {/* Silent exception */
+				}
+			}
+		}
 
-	    return instanciaLocal;
-	  }
-	
+		return instanciaLocal;
+	}
+
 	public void salvarArquivo() {
 		if (instance == null) {
 			return;
@@ -77,11 +77,11 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 				try {
 					oos.close();
 				} catch (IOException e) {
-				/* Silent */}
+					/* Silent */}
 			}
 		}
 	}
-	
+
 //	private void lerDoArquivo() {
 //	    File in = new File("alunos.dat");
 //	    FileInputStream fis = null;
@@ -105,19 +105,18 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 //	      }
 //	    }
 //	  }
-	
-	
+
 	@Override
 	public void cadastrar(Devolucao devolucao) {
 		devolucoes[indice] = devolucao;
 		indice++;
 	}
-	
+
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i <= indice ; i++) {
-			if(devolucoes[i] != null) {
-				if(devolucoes[i].getId() == id) {
+		for (int i = 0; i <= indice; i++) {
+			if (devolucoes[i] != null) {
+				if (devolucoes[i].getId() == id) {
 					devolucoes[i] = devolucoes[indice];
 					devolucoes[indice] = null;
 				}
@@ -128,31 +127,33 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	@Override
 	public Devolucao consultar(int id) {
 		Devolucao devolucao = null;
-		for(int i = 0; i<= indice ; i++) {
-			if(devolucoes[i].getId() == id) {
-				devolucao = devolucoes[i];
+		for (int i = 0; i <= indice; i++) {
+			if (devolucoes[i] != null) {
+				if (devolucoes[i].getId() == id) {
+					devolucao = devolucoes[i];
+				}
 			}
 		}
 		return devolucao;
 	}
-	
+
 	@Override
 	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
-		for(int i = 0; i<= indice; i++) {
-			if(devolucoes[i].getAluno().getCpf().equals(cpf)) {
-					devolucao.add(devolucoes[i]);
+		for (int i = 0; i <= indice; i++) {
+			if (devolucoes[i].getAluno().getCpf().equals(cpf)) {
+				devolucao.add(devolucoes[i]);
 			}
 		}
 		return devolucao;
 	}
-	
+
 	@Override
 	public ArrayList<Devolucao> listar() {
 		lerDoArquivo();
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
-		for(Devolucao dvl : devolucoes) {
-			if(dvl != null) {
+		for (Devolucao dvl : devolucoes) {
+			if (dvl != null) {
 				devolucao.add(dvl);
 			}
 		}

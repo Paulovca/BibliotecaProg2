@@ -26,7 +26,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private JPanel contentPane;
 	private static ConsultarRemoverDevolucao instance;
 	private JTextField textFieldCpfDoAluno;
-	private JComboBox<Devolucao> comboBoxDevolucoes;
+	private JComboBox<String> comboBoxDevolucoes;
 	private JLabel lblCpfdoaluno;
 	private JLabel lblNomedofuncionario;
 	private JLabel lblDatadadevolucao;
@@ -161,7 +161,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		lblDevoluesFeitas.setBounds(10, 64, 116, 14);
 		contentPane.add(lblDevoluesFeitas);
 		
-		comboBoxDevolucoes = new JComboBox<Devolucao>();
+		comboBoxDevolucoes = new JComboBox<String>();
 		comboBoxDevolucoes.setBounds(10, 86, 316, 20);
 		contentPane.add(comboBoxDevolucoes);
 		
@@ -191,7 +191,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		ArrayList<Devolucao> devolucoes = new ArrayList<Devolucao>();
 		devolucoes = Fachada.getInstance().procurarDevolucoes(cpf);
 		for(Devolucao dvl : devolucoes){
-			comboBoxDevolucoes.addItem(dvl);
+			comboBoxDevolucoes.addItem(dvl.toString());
 		}
 		
 	}
@@ -199,7 +199,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private void carregarComboBoxItens() {
 		Item[] itens = ((Emprestimo)comboBoxItens.getSelectedItem()).getItens();
 		for(Item itm : itens) {
-			comboBoxItens.addItem(itm.getLivro().getTitulo());
+			comboBoxItens.addItem(itm.toString());
 		}
 	}
 	

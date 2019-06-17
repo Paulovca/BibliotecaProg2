@@ -27,7 +27,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 	private JPanel contentPane;
 	private static ConsultarRemoverEmprestimo instance;
 	private JTextField textFieldCpfDoAluno;
-	private JComboBox<Emprestimo> comboBoxEmprestimos;
+	private JComboBox<String> comboBoxEmprestimos;
 	private JLabel lblCpfdoaluno;
 	private JLabel lblNomedofuncionario;
 	private JLabel lblDatadoemprestimo;
@@ -158,7 +158,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		lblEmprstimosEmAberto.setBounds(10, 64, 209, 14);
 		contentPane.add(lblEmprstimosEmAberto);
 		
-		comboBoxEmprestimos = new JComboBox<Emprestimo>();
+		comboBoxEmprestimos = new JComboBox<String>();
 		comboBoxEmprestimos.setBounds(10, 86, 315, 20);
 		contentPane.add(comboBoxEmprestimos);
 		
@@ -188,7 +188,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
 		for(Emprestimo emp : emprestimos){
-			comboBoxEmprestimos.addItem(emp);
+			comboBoxEmprestimos.addItem(emp.toString());
 		}
 		
 	}
@@ -196,7 +196,9 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 	private void carregarComboBoxItens() {
 		Item[] itens = ((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens();
 		for(Item itm : itens) {
-			comboBoxItens.addItem(itm.getLivro().getTitulo());
+			if(itm != null) {
+				comboBoxItens.addItem(itm.toString());
+			}		
 		}
 	}
 	

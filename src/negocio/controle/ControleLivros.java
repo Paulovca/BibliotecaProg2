@@ -37,7 +37,7 @@ public class ControleLivros {
 	
 	public void atualizarEstoqueEmprestimo(Emprestimo emprestimo) {
 		Item[] itens = emprestimo.getItens();
-		for(int i = 0; i<=itens.length; i++ ) {
+		for(int i = 0; i<itens.length; i++ ) {
 			if(itens[i] != null) {
 				livros.atualizarEstoqueEmprestimo(itens[i]);
 			}
@@ -46,7 +46,7 @@ public class ControleLivros {
 	
 	public void atualizarEstoqueDevolucao(Devolucao devolucao) {
 		Item[] itens = devolucao.getItens();
-		for(int i = 0; i<=itens.length; i++ ) {
+		for(int i = 0; i<itens.length; i++ ) {
 			if(itens[i] != null) {
 				livros.atualizarEstoqueDevolucao(itens[i]);
 			}
