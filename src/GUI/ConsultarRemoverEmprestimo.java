@@ -32,7 +32,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 	private JLabel lblNomedofuncionario;
 	private JLabel lblDatadoemprestimo;
 	private JLabel lblDatadadevolucao;
-	private JComboBox<Item> comboBoxItens;
+	private JComboBox<String> comboBoxItens;
 	/**
 	 * Launch the application.
 	 */
@@ -134,7 +134,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		lblDatadadevolucao.setBounds(134, 214, 191, 14);
 		contentPane.add(lblDatadadevolucao);
 		
-		comboBoxItens = new JComboBox<Item>();
+		comboBoxItens = new JComboBox<String>();
 		comboBoxItens.setBounds(10, 263, 315, 20);
 		contentPane.add(comboBoxItens);
 		
@@ -166,6 +166,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				carregarComboBox(textFieldCpfDoAluno.getText());
+				carregarComboBoxItens();
 			}
 		});
 		btnConsultar.setBounds(335, 35, 89, 23);
@@ -184,6 +185,13 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		
 	}
 	
+	private void carregarComboBoxItens() {
+		Item[] itens = ((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens();
+		for(Item itm : itens) {
+			comboBoxItens.addItem(itm.getLivro().getTitulo());
+		}
+	}
+	
 	private class AcaoSelecaoCombo implements ActionListener{ 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -191,10 +199,6 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 			lblNomedofuncionario.setText(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getFuncionario().getNome());
 			lblDatadadevolucao.setText(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getDataDevolucao().toString());
 			lblDatadoemprestimo.setText(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getDataEmpretimo().toString());
-			Item[] itens = ((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens();
-			for(Item itm : itens) {
-				comboBoxItens.addItem(itm);
-			}
 		}
 		
 	}

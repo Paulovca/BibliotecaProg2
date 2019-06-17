@@ -26,7 +26,7 @@ public class Livro implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", titulo=" + titulo + "]";
+		return "" + titulo + ", estoque:" + estoque + "";
 	}
 
 	public String getTitulo() {

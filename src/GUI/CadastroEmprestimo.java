@@ -37,7 +37,7 @@ public class CadastroEmprestimo extends JFrame {
 	private static CadastroEmprestimo instance;
 	private JComboBox<String> comboBox;
 	static int Limite = 10;
-	private ArrayList<Item> itensArray;
+	private ArrayList<Item> itensArray = new ArrayList<Item>();
 
 	/**
 	 * Launch the application.
