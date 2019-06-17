@@ -92,10 +92,7 @@ public class Emprestimo implements Serializable{
 	
 	@Override
 	public String toString() {
-		return ""+ aluno.getNome() + ", " + dataEmprestimo + ", " + funcionario
-				+ ", livros:" + Arrays.toString(itens) + "]";
+		return aluno.getNome() + " - " + dataEmprestimo + " - " + Arrays.toString(itens)
+				+ ", " + funcionario.getNome();
 	}
-	
-	
-
 }

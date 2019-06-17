@@ -6,7 +6,7 @@ public class Item implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "" + livro.getTitulo() + ", " + quantidade + "";
+		return livro.getTitulo() + ": " + quantidade;
 	}
 
 	/**
