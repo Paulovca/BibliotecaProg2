@@ -21,7 +21,7 @@ public class Devolucao implements Serializable{
 	private float multa;
 	
 	public Devolucao(Aluno aluno, Item[] itens, Funcionario funcionario) {
-		Devolucao.contador = RepositorioDevolucoesArray.getInstance().listar().size();
+		Devolucao.contador = RepositorioDevolucoesArray.getInstance().listar().size()+1;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
