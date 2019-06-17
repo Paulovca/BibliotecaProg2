@@ -38,6 +38,7 @@ public class CadastroItem extends JFrame {
 			public void run() {
 				try {
 					CadastroItem frame = CadastroItem.getInstance();
+					itemCriado = null;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -103,6 +104,7 @@ public class CadastroItem extends JFrame {
 				try {
 					Fachada.getInstance().cadastrar(item);
 					JOptionPane.showMessageDialog(null, "Item cadastrado!");
+					CadastroEmprestimo.vezes = 0;
 					setVisible(false);
 					CadastroEmprestimo.getInstance().setVisible(true);
 				} catch (ItemNuloException e1) {

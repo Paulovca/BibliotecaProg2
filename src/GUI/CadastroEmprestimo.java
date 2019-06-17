@@ -38,6 +38,8 @@ public class CadastroEmprestimo extends JFrame {
 	private JComboBox<String> comboBox;
 	static int Limite = 10;
 	private ArrayList<Item> itensArray = new ArrayList<Item>();
+	private JButton btnAdicionarItem;
+	public static int vezes = 0;
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,7 @@ public class CadastroEmprestimo extends JFrame {
 			public void run() {
 				try {
 					CadastroEmprestimo frame = CadastroEmprestimo.getInstance();
+					vezes = 0;
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -91,16 +94,20 @@ public class CadastroEmprestimo extends JFrame {
 		lblItens.setBounds(80, 80, 51, 14);
 		contentPane.add(lblItens);
 		
-		JButton btnAdicionarItem = new JButton("Adicionar Item");
+		
+		btnAdicionarItem = new JButton("Adicionar Item");
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				itensArray.add(CadastroItem.itemCriado);
-				comboBox.addItem(CadastroItem.itemCriado.getLivro().getTitulo());
-				btnAdicionarItem.setVisible(false);
+				if(vezes == 0) {
+					itensArray.add(CadastroItem.itemCriado);
+					comboBox.addItem(CadastroItem.itemCriado.getLivro().getTitulo());
+					vezes++;
+				}
 			}
 		});
 		btnAdicionarItem.setBounds(222, 136, 119, 23);
 		contentPane.add(btnAdicionarItem);
+		
 		
 		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.addActionListener(new ActionListener() {
