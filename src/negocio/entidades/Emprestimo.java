@@ -3,6 +3,8 @@ package negocio.entidades;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import dados.RepositorioEmprestimosArray;
+
 public class Emprestimo implements Serializable{
 	
 	/**
@@ -21,7 +23,7 @@ public class Emprestimo implements Serializable{
 	
 
 	public Emprestimo( Aluno aluno, Item[] itens, Funcionario funcionario) {
-		Emprestimo.contador ++;
+		Emprestimo.contador = RepositorioEmprestimosArray.getInstance().listar().size()+1;
 		this.id = contador;
 		this.aluno = aluno;
 		this.itens = itens;

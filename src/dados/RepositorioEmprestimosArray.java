@@ -130,6 +130,7 @@ public class RepositorioEmprestimosArray implements RepositorioEmprestimos, Seri
 	
 	@Override
 	public ArrayList<Emprestimo> listar() {
+		lerDoArquivo();
 		ArrayList<Emprestimo> emprestimo = new ArrayList<Emprestimo>();
 		for(Emprestimo emp : emprestimos) {
 			if(emp != null) {
