@@ -164,11 +164,11 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblDadosDoEmprstimo);
 		
 		lblNomeDoFuncionario = new JLabel("NomeDoFuncionario");
-		lblNomeDoFuncionario.setBounds(75, 139, 143, 20);
+		lblNomeDoFuncionario.setBounds(86, 139, 143, 20);
 		contentPane.add(lblNomeDoFuncionario);
 		
 		lblDatadoemprestimo = new JLabel("DataDoEmprestimo");
-		lblDatadoemprestimo.setBounds(75, 167, 143, 14);
+		lblDatadoemprestimo.setBounds(86, 167, 143, 14);
 		contentPane.add(lblDatadoemprestimo);
 		
 		JLabel lblMulta = new JLabel("Multa:");
@@ -176,7 +176,7 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(lblMulta);
 		
 		lblValordamulta = new JLabel("ValorDaMulta");
-		lblValordamulta.setBounds(53, 192, 165, 14);
+		lblValordamulta.setBounds(64, 192, 165, 14);
 		contentPane.add(lblValordamulta);
 		
 		//quando o emprestimo no combobox for selecionado----------------------------------------------------

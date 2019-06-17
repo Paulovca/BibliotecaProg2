@@ -166,11 +166,19 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				carregarComboBox(textFieldCpfDoAluno.getText());
-				carregarComboBoxItens();
 			}
 		});
 		btnConsultar.setBounds(335, 35, 89, 23);
 		contentPane.add(btnConsultar);
+		
+		JButton btnCarregarItens = new JButton("Carregar Itens");
+		btnCarregarItens.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				carregarComboBoxItens();
+			}
+		});
+		btnCarregarItens.setBounds(312, 235, 112, 23);
+		contentPane.add(btnCarregarItens);
 		
 		comboBoxEmprestimos.addActionListener(acaoSelecao);
 		
