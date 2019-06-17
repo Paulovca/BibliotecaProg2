@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 
+import dados.RepositorioDevolucoesArray;
+
 public class Devolucao implements Serializable{
 	
 	/**
@@ -19,7 +21,7 @@ public class Devolucao implements Serializable{
 	private float multa;
 	
 	public Devolucao(Aluno aluno, Item[] itens, Funcionario funcionario) {
-		Devolucao.contador ++;
+		Devolucao.contador = RepositorioDevolucoesArray.getInstance().listar().size();
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;

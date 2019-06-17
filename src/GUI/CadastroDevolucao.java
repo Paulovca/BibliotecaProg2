@@ -155,7 +155,7 @@ public class CadastroDevolucao extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		JLabel lblEmprstimos = new JLabel("Empr\u00E9stimos:");
-		lblEmprstimos.setBounds(10, 64, 76, 14);
+		lblEmprstimos.setBounds(10, 64, 89, 14);
 		contentPane.add(lblEmprstimos);
 		
 		JLabel lblDadosDoEmprstimo = new JLabel("Dados do empr\u00E9stimo:");
