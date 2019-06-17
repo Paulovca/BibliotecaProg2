@@ -11,7 +11,7 @@ public class Devolucao implements Serializable{
 	
 	@Override
 	public String toString() {
-		return ""+ aluno.getNome() + ", " + dataDevolucao + ", " + funcionario
+		return ""+ aluno.getNome() + ", " + dataDevolucao + ", " + funcionario.getNome()
 				+ ", livros:" + Arrays.toString(itens) + "]";
 	}
 	/**Arrays.toString(itens)

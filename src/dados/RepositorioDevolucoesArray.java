@@ -141,8 +141,10 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
 		for (int i = 0; i <= indice; i++) {
-			if (devolucoes[i].getAluno().getCpf().equals(cpf)) {
-				devolucao.add(devolucoes[i]);
+			if (devolucoes[i] != null) {
+				if (devolucoes[i].getAluno().getCpf().equals(cpf)) {
+					devolucao.add(devolucoes[i]);
+				}
 			}
 		}
 		return devolucao;
