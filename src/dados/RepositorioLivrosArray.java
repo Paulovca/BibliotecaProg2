@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import negocio.entidades.Aluno;
+import negocio.entidades.Item;
 import negocio.entidades.Livro;
 
 public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
@@ -91,17 +92,19 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i < indice ; i++) {
-			if(livros[i].getId() == id) {
-				livros[i] = livros[indice];
-				livros[indice] = null;
+		for(int i = 0; i <= indice ; i++) {
+			if(livros[i] != null) {
+				if(livros[i].getId() == id) {
+					livros[i] = livros[indice];
+					livros[indice] = null;
+				}
 			}
 		}
 	}
 	
 	@Override
 	public void atualizar(Livro livro) {
-		for(int i = 0; i < indice ; i++) {
+		for(int i = 0; i <= indice ; i++) {
 			if(livros[i].getId() == livro.getId()) {
 				livros[i] = livro;
 			}
@@ -111,9 +114,11 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	@Override
 	public Livro consultar(int id) {
 		Livro livro = null;
-		for(int i = 0; i< indice ; i++) {
-			if(livros[i].getId() == id) {
-				livro = livros[i];
+		for(int i = 0; i<= indice ; i++) {
+			if(livros[i] != null) {
+				if(livros[i].getId() == id) {
+					livro = livros[i];
+				}
 			}
 		}
 		return livro;
@@ -128,6 +133,28 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 			}
 		}
 		return livro;
+	}
+	
+	@Override
+	public void atualizarEstoqueEmprestimo(Item item) {
+		for(int i = 0; i<=indice;i++) {
+			if(livros[i] != null) {
+				if(livros[i].getId() == item.getId()) {
+					livros[i].setEstoque(livros[i].getEstoque() - item.getQuantidade());
+				}
+			}
+		}
+	}
+
+	@Override
+	public void atualizarEstoqueDevolucao(Item item) {
+		for(int i = 0; i<=indice;i++) {
+			if(livros[i] != null) {
+				if(livros[i].getId() == item.getId()) {
+					livros[i].setEstoque(livros[i].getEstoque() + item.getQuantidade());
+				}
+			}
+		}
 	}
 
 }

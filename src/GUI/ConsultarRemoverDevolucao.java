@@ -60,6 +60,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	 * Create the frame.
 	 */
 	private ConsultarRemoverDevolucao() {
+		setTitle("Consultar Devolução");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 396);
 		contentPane = new JPanel();
@@ -81,6 +82,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		if (Biblioteca.flag == false) {
+			setTitle("Remover Devolução");
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {

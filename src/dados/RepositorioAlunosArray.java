@@ -117,19 +117,23 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	
 	@Override
 	public void remover(String cpf) {
-		for(int i = 0; i < indice ; i++) {
-			if(alunos[i].getCpf().equals(cpf)) {
-				alunos[i] = alunos[indice];
-				alunos[indice] = null;
+		for(int i = 0; i <= indice ; i++) {
+			if(alunos[i] != null) {
+				if(alunos[i].getCpf().equals(cpf)) {
+					alunos[i] = alunos[indice];
+					alunos[indice] = null;
+				}
 			}
 		}
 	}
 	
 	@Override
 	public void atualizar(Aluno aluno) {
-		for(int i = 0; i < indice ; i++) {
-			if(alunos[i].getCpf().equals(aluno.getCpf())) {
-				alunos[i] = aluno;
+		for(int i = 0; i <=indice ; i++) {
+			if(alunos[i] != null) {
+				if(alunos[i].getCpf().equals(aluno.getCpf())) {
+					alunos[i] = aluno;
+				}
 			}
 		}
 	}
@@ -137,7 +141,7 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	@Override
 	public Aluno consultar(String cpf) {
 		Aluno aluno = null;
-		for(int i = 0; i< indice ; i++) {
+		for(int i = 0; i<= indice ; i++) {
 			if(alunos[i] != null) {
 				if(alunos[i].getCpf().equals(cpf)) {
 						aluno = alunos[i];

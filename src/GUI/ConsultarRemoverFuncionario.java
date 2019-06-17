@@ -52,6 +52,7 @@ public class ConsultarRemoverFuncionario extends JFrame {
 	 * Create the frame.
 	 */
 	private ConsultarRemoverFuncionario() {
+		setTitle("Consultar Funcionario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -116,6 +117,7 @@ public class ConsultarRemoverFuncionario extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		if (Biblioteca.flag == false) {
+			setTitle("Remover Funcionario");
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {	

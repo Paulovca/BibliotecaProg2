@@ -183,6 +183,14 @@ public class Fachada {
 		return livros.consultar(id);
 	}
 	
+	public void atualizarEstoqueEmprestimo(Emprestimo emprestimo) {
+		livros.atualizarEstoqueEmprestimo(emprestimo);
+	}
+	
+	public void atualizarEstoqueDevolucao(Devolucao devolucao) {
+		livros.atualizarEstoqueDevolucao(devolucao);
+	}
+	
 	public ArrayList<Livro> listarLivros(){
 		return livros.listar();
 	}

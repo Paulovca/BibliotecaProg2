@@ -52,6 +52,7 @@ public class ConsultarRemoverLivro extends JFrame {
 	 * Create the frame.
 	 */
 	private ConsultarRemoverLivro() {
+		setTitle("Consultar Livro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -136,6 +137,7 @@ public class ConsultarRemoverLivro extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		if (Biblioteca.flag == false) {
+			setTitle("Remover Livro");
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

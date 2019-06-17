@@ -115,10 +115,12 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i < indice ; i++) {
-			if(devolucoes[i].getId() == id) {
-				devolucoes[i] = devolucoes[indice];
-				devolucoes[indice] = null;
+		for(int i = 0; i <= indice ; i++) {
+			if(devolucoes[i] != null) {
+				if(devolucoes[i].getId() == id) {
+					devolucoes[i] = devolucoes[indice];
+					devolucoes[indice] = null;
+				}
 			}
 		}
 	}
@@ -126,7 +128,7 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	@Override
 	public Devolucao consultar(int id) {
 		Devolucao devolucao = null;
-		for(int i = 0; i< indice ; i++) {
+		for(int i = 0; i<= indice ; i++) {
 			if(devolucoes[i].getId() == id) {
 				devolucao = devolucoes[i];
 			}
@@ -137,7 +139,7 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 	@Override
 	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
-		for(int i = 0; i< indice; i++) {
+		for(int i = 0; i<= indice; i++) {
 			if(devolucoes[i].getAluno().getCpf().equals(cpf)) {
 					devolucao.add(devolucoes[i]);
 			}

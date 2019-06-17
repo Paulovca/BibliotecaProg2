@@ -91,10 +91,12 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i < indice ; i++) {
-			if(itens[i].getId() == id) {
-				itens[i] = itens[indice];
-				itens[indice] = null;
+		for(int i = 0; i <= indice ; i++) {
+			if(itens[i] != null) {
+				if(itens[i].getId() == id) {
+					itens[i] = itens[indice];
+					itens[indice] = null;
+				}
 			}
 		}
 	}
@@ -102,9 +104,11 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 	@Override
 	public Item consultar(int id) {
 		Item item = null;
-		for(int i = 0; i< indice ; i++) {
-			if(itens[i].getId() == id) {
-				item = itens[i];
+		for(int i = 0; i<= indice ; i++) {
+			if(itens[i] != null) {
+				if(itens[i].getId() == id) {
+					item = itens[i];
+				}
 			}
 		}
 		return item;

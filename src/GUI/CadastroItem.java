@@ -57,6 +57,7 @@ public class CadastroItem extends JFrame {
 	 * Create the frame.
 	 */
 	private CadastroItem() {
+		setTitle("Cadastro item");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -88,7 +89,6 @@ public class CadastroItem extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				instance = null;
-				CadastroEmprestimo.Limite--;
 				CadastroEmprestimo.getInstance().setVisible(true);
 			}
 		});
@@ -104,7 +104,7 @@ public class CadastroItem extends JFrame {
 					Fachada.getInstance().cadastrar(item);
 					JOptionPane.showMessageDialog(null, "Item cadastrado!");
 					setVisible(false);
-					Biblioteca.getInstance().setVisible(true);
+					CadastroEmprestimo.getInstance().setVisible(true);
 				} catch (ItemNuloException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}

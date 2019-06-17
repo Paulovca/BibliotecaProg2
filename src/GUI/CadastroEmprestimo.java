@@ -25,6 +25,8 @@ import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 
 public class CadastroEmprestimo extends JFrame {
@@ -33,8 +35,9 @@ public class CadastroEmprestimo extends JFrame {
 	private JTextField textFieldCpfDoAluno;
 	private JButton btnVoltar;
 	private static CadastroEmprestimo instance;
-	private JComboBox<Item> comboBox;
-	static int Limite = 0;
+	private JComboBox<String> comboBox;
+	static int Limite = 10;
+	private ArrayList<Item> itensArray;
 
 	/**
 	 * Launch the application.
@@ -63,6 +66,7 @@ public class CadastroEmprestimo extends JFrame {
 	 * Create the frame.
 	 */
 	private CadastroEmprestimo() {
+		setTitle("Cadastro empréstimo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -70,7 +74,7 @@ public class CadastroEmprestimo extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.setBounds(80, 105, 261, 20);
 		contentPane.add(comboBox);
 		
@@ -90,9 +94,9 @@ public class CadastroEmprestimo extends JFrame {
 		JButton btnAdicionarItem = new JButton("Adicionar Item");
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				comboBox.addItem(CadastroItem.itemCriado);
+				itensArray.add(CadastroItem.itemCriado);
+				comboBox.addItem(CadastroItem.itemCriado.getLivro().getTitulo());
 				btnAdicionarItem.setVisible(false);
-				Limite++;
 			}
 		});
 		btnAdicionarItem.setBounds(222, 136, 119, 23);
@@ -113,12 +117,13 @@ public class CadastroEmprestimo extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Item[] itens = new Item[Limite];
-				for(int i = 0; i<=Limite; i++) {
-					itens[i] = comboBox.getItemAt(i);
+				for(int i = 0; i < itensArray.size(); i++) {
+					itens[i] = itensArray.get(i);
 				}
 				try {
 					Emprestimo emprestimo = new Emprestimo(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()),itens,Login.funcionarioAtivo);
 					Fachada.getInstance().cadastrar(emprestimo);
+					Fachada.getInstance().atualizarEstoqueEmprestimo(emprestimo);
 					JOptionPane.showMessageDialog(null, "Emprestimo cadastrado!");
 					dispose();
 					instance = null;
@@ -144,16 +149,14 @@ public class CadastroEmprestimo extends JFrame {
 		JButton btnCriarItem = new JButton("Criar Item");
 		btnCriarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(Limite <= 6) {
 					setVisible(false);
 					CadastroItem.getInstance().setVisible(true);
-				} else {
-					JOptionPane.showMessageDialog(null, "Limite de itens excedido!");
-				}
 			}
 		});
 		btnCriarItem.setBounds(246, 77, 95, 23);
 		contentPane.add(btnCriarItem);
+		
+		
 		
 	}
 }

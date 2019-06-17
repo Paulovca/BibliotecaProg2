@@ -60,6 +60,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 	 * Create the frame.
 	 */
 	private ConsultarRemoverEmprestimo() {
+		setTitle("Consultar Emprestimo");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 376);
 		contentPane = new JPanel();
@@ -81,6 +82,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(btnVoltar);
 		
 		if (Biblioteca.flag == false) {
+			setTitle("Remover Emprestimo");
 			JButton btnRemover = new JButton("Remover");
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -170,6 +172,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(btnConsultar);
 		
 		comboBoxEmprestimos.addActionListener(acaoSelecao);
+		
 	}
 	
 	private void carregarComboBox(String cpf){

@@ -55,6 +55,7 @@ public class AtualizarLivro extends JFrame {
 	 * Create the frame.
 	 */
 	private AtualizarLivro() {
+		setTitle("Atualizar Livro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

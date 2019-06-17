@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import dados.RepositorioLivros;
 import dados.RepositorioLivrosArray;
+import negocio.entidades.Devolucao;
+import negocio.entidades.Emprestimo;
+import negocio.entidades.Item;
 import negocio.entidades.Livro;
 import negocio.exception.livro.LivroJaExisteException;
 import negocio.exception.livro.LivroNaoEncontradoException;
@@ -31,6 +34,25 @@ public class ControleLivros {
 			throw e;
 		}
 	}
+	
+	public void atualizarEstoqueEmprestimo(Emprestimo emprestimo) {
+		Item[] itens = emprestimo.getItens();
+		for(int i = 0; i<=itens.length; i++ ) {
+			if(itens[i] != null) {
+				livros.atualizarEstoqueEmprestimo(itens[i]);
+			}
+		}
+	}
+	
+	public void atualizarEstoqueDevolucao(Devolucao devolucao) {
+		Item[] itens = devolucao.getItens();
+		for(int i = 0; i<=itens.length; i++ ) {
+			if(itens[i] != null) {
+				livros.atualizarEstoqueDevolucao(itens[i]);
+			}
+		}
+	}
+	
 	
 	public void remover(int id) throws LivroNaoEncontradoException{
 		Livro livro = livros.consultar(id);

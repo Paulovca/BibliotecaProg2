@@ -49,6 +49,7 @@ public class Biblioteca extends JFrame {
 	}
 
 	private Biblioteca() {
+		setTitle("Biblioteca");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 329);
 		contentPane = new JPanel();
