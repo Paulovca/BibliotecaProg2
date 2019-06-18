@@ -91,10 +91,12 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 				public void actionPerformed(ActionEvent e) {
 					try {
 						Fachada.getInstance()
-								.removerEmprestimo(((Emprestimo) comboBoxEmprestimos.getSelectedItem()).getId());
+								.removerEmprestimo(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getId());
 						JOptionPane.showMessageDialog(null, "Emprestimo removido!");
 					} catch (EmprestimoNaoEncontradoException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (ArrayIndexOutOfBoundsException e2) {
+						JOptionPane.showMessageDialog(null, "Remoção inválida!");
 					}
 				}
 			});
@@ -194,17 +196,17 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 	private void carregarComboBox(String cpf) {
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
-		for(int i = 0; i<=emprestimos.size();i++){
+		for(int i = 0; i<emprestimos.size();i++){
 			if (emprestimos.get(i) != null) {
-				comboBoxEmprestimos.addItem(emprestimos.get(i).toString());
 				emprestimosVetor[i] = emprestimos.get(i);
+				comboBoxEmprestimos.addItem(emprestimos.get(i).toString());
 			}
 		}
 
 	}
 
 	private void carregarComboBoxItens() {
-		Item[] itens = ((Emprestimo) comboBoxEmprestimos.getSelectedItem()).getItens();
+		Item[] itens = emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getItens();
 		for (Item itm : itens) {
 			if (itm != null) {
 				comboBoxItens.addItem(itm.toString());
@@ -216,9 +218,9 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				lblCpfdoaluno.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getAluno().getCpf());
-				lblNomedofuncionario.setText(((Emprestimo) comboBoxEmprestimos.getSelectedItem()).getFuncionario().getNome());
-				lblDatadadevolucao.setText(((Emprestimo) comboBoxEmprestimos.getSelectedItem()).getDataDevolucao().toString());
-				lblDatadoemprestimo.setText(((Emprestimo) comboBoxEmprestimos.getSelectedItem()).getDataEmpretimo().toString());
+				lblNomedofuncionario.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getFuncionario().getNome());
+				lblDatadadevolucao.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getDataDevolucao().toString());
+				lblDatadoemprestimo.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getDataEmpretimo().toString());
 		}
 
 	}

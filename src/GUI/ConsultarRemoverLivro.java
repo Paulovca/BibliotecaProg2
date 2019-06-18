@@ -127,7 +127,7 @@ public class ConsultarRemoverLivro extends JFrame {
 					lblEstoquedelivros.setText(String.valueOf(Fachada.getInstance().consultarLivro(Integer.parseInt(textFieldIdDoLivro.getText())).getEstoque()));
 					lblIddolivro.setText(String.valueOf(Fachada.getInstance().consultarLivro(Integer.parseInt(textFieldIdDoLivro.getText())).getId()));
 				} catch (NumberFormatException e1) {
-					JOptionPane.showMessageDialog(null, "Digite um número inteiro!");
+				//	JOptionPane.showMessageDialog(null, "Digite um número inteiro!");
 				} catch (LivroNaoEncontradoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -145,7 +145,7 @@ public class ConsultarRemoverLivro extends JFrame {
 							Fachada.getInstance().removerLivros(Integer.parseInt(lblIddolivro.getText()));
 							JOptionPane.showMessageDialog(null, "Livro removido!");
 						} catch (NumberFormatException e) {
-							JOptionPane.showMessageDialog(null, e.getMessage());
+						//	JOptionPane.showMessageDialog(null, e.getMessage());
 						} catch (LivroNaoEncontradoException e) {
 							JOptionPane.showMessageDialog(null, e.getMessage());
 						}

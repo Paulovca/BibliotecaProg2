@@ -94,8 +94,8 @@ public class CadastroLivro extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()),Integer.parseInt(textFieldId.getText()));
 				try {
+					Livro livro = new Livro(textFieldTitulo.getText(),textFieldAutor.getText(),Integer.parseInt(textFieldEstoque.getText()),Integer.parseInt(textFieldId.getText()));
 					Fachada.getInstance().cadastrar(livro);
 					JOptionPane.showMessageDialog(null, "Livro cadastrado!");
 					dispose();
@@ -106,7 +106,6 @@ public class CadastroLivro extends JFrame {
 				} catch (LivroNuloException e) {
 					JOptionPane.showMessageDialog(null, e.getMessage());
 				} catch (NumberFormatException e) {
-					JOptionPane.showMessageDialog(null,"Insira um número inteiro!");
 				}
 			}
 		});

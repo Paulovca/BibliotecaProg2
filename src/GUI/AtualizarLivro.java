@@ -109,8 +109,8 @@ public class AtualizarLivro extends JFrame {
 		JButton btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Livro livro = new Livro(textFieldTituloAtt.getText(),textFieldAutorAtt.getText(),Integer.parseInt(textFieldEstoqueAtt.getText()),Integer.parseInt(lblIddolivro.getText()));
 				try {
+					Livro livro = new Livro(textFieldTituloAtt.getText(),textFieldAutorAtt.getText(),Integer.parseInt(textFieldEstoqueAtt.getText()),Integer.parseInt(lblIddolivro.getText()));
 					Fachada.getInstance().atualizar(livro);
 					JOptionPane.showMessageDialog(null, "Livro atualizado!");
 					dispose();
@@ -118,6 +118,7 @@ public class AtualizarLivro extends JFrame {
 					Biblioteca.getInstance().setVisible(true);
 				} catch (LivroNaoEncontradoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (NumberFormatException e2) {
 				}
 			}
 		});

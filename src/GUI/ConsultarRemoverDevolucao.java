@@ -32,6 +32,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private JLabel lblDatadadevolucao;
 	private JLabel lblValordamulta;
 	private JComboBox<String> comboBoxItens;
+	private Devolucao[] devolucoesVetor = new Devolucao[100];
 	
 	/**
 	 * Launch the application.
@@ -190,10 +191,12 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private void carregarComboBox(String cpf){
 		ArrayList<Devolucao> devolucoes = new ArrayList<Devolucao>();
 		devolucoes = Fachada.getInstance().procurarDevolucoes(cpf);
-		for(Devolucao dvl : devolucoes){
-			comboBoxDevolucoes.addItem(dvl.toString());
+		for(int i = 0; i<devolucoes.size();i++){
+			if (devolucoes.get(i) != null) {
+				devolucoesVetor[i] = devolucoes.get(i);
+				comboBoxDevolucoes.addItem(devolucoes.get(i).toString());
+			}
 		}
-		
 	}
 	
 	private void carregarComboBoxItens() {
@@ -206,10 +209,10 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	private class AcaoSelecaoCombo implements ActionListener{ 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			lblCpfdoaluno.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getAluno().getCpf());
-			lblNomedofuncionario.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getFuncionario().getNome());
-			lblDatadadevolucao.setText(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getDataDevolucao().toString());
-			lblValordamulta.setText(String.valueOf(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getMulta()));
+			lblCpfdoaluno.setText(devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getAluno().getCpf());
+			lblNomedofuncionario.setText(devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getFuncionario().getNome());
+			lblDatadadevolucao.setText(devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getDataDevolucao().toString());
+			lblValordamulta.setText(String.valueOf(devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getMulta()));
 		}
 		
 	}

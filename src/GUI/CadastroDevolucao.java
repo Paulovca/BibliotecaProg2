@@ -37,6 +37,7 @@ public class CadastroDevolucao extends JFrame {
 	private JLabel lblDatadoemprestimo;
 	private JComboBox<String> comboBoxItens;
 	private JLabel lblValordamulta;
+	private Emprestimo[] emprestimosVetor = new Emprestimo[100];
 	
 	/**
 	 * Launch the application.
@@ -195,14 +196,17 @@ public class CadastroDevolucao extends JFrame {
 	private void carregarComboBox(String cpf){
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
-		for(Emprestimo emp : emprestimos){
-			comboBoxEmprestimos.addItem(emp.toString());
+		for(int i = 0; i<emprestimos.size();i++){
+			if (emprestimos.get(i) != null) {
+				emprestimosVetor[i] = emprestimos.get(i);
+				comboBoxEmprestimos.addItem(emprestimos.get(i).toString());
+			}
 		}
 		
 	}
 	
 	private void carregarComboBoxItens() {
-		Item[] itens = ((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens();
+		Item[] itens = emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getItens();
 		for(Item itm : itens) {
 			if(itm != null) {
 				comboBoxItens.addItem(itm.getLivro().getTitulo());
@@ -213,10 +217,10 @@ public class CadastroDevolucao extends JFrame {
 	private class AcaoSelecaoCombo implements ActionListener{ 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			lblNomeDoFuncionario.setText(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getFuncionario().getNome());
-			lblDatadoemprestimo.setText(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getDataEmpretimo().toString());
-			Devolucao devolucao = new Devolucao(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getAluno(),((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens(),Login.funcionarioAtivo);
-			lblValordamulta.setText(String.valueOf(Fachada.getInstance().devolver(((Emprestimo)comboBoxEmprestimos.getSelectedItem()), devolucao)));
+			lblNomeDoFuncionario.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getFuncionario().getNome());
+			lblDatadoemprestimo.setText(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getDataEmpretimo().toString());
+			Devolucao devolucao = new Devolucao(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getAluno(),emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getItens(),Login.funcionarioAtivo);
+			lblValordamulta.setText(String.valueOf(Fachada.getInstance().devolver(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())], devolucao)));
 		}
 		
 	}
