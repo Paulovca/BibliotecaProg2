@@ -98,10 +98,12 @@ public class CadastroEmprestimo extends JFrame {
 		btnAdicionarItem = new JButton("Adicionar Item");
 		btnAdicionarItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(vezes == 0) {
-					itensArray.add(CadastroItem.itemCriado);
-					comboBox.addItem(CadastroItem.itemCriado.getLivro().getTitulo());
-					vezes++;
+				if(CadastroItem.itemCriado != null) {
+					if(vezes == 0) {
+						itensArray.add(CadastroItem.itemCriado);
+						comboBox.addItem(CadastroItem.itemCriado.getLivro().getTitulo());
+						vezes++;
+					}
 				}
 			}
 		});

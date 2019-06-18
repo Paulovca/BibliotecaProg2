@@ -109,7 +109,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblAluno);
 
 		lblCpfdoaluno = new JLabel("CpfDoAluno");
-		lblCpfdoaluno.setBounds(53, 139, 299, 14);
+		lblCpfdoaluno.setBounds(61, 139, 299, 14);
 		contentPane.add(lblCpfdoaluno);
 
 		JLabel lblFuncionrio = new JLabel("Funcion\u00E1rio:");
@@ -117,7 +117,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblFuncionrio);
 
 		lblNomedofuncionario = new JLabel("NomeDoFuncionario");
-		lblNomedofuncionario.setBounds(79, 164, 292, 14);
+		lblNomedofuncionario.setBounds(96, 164, 292, 14);
 		contentPane.add(lblNomedofuncionario);
 
 		JLabel lblDataDeEmprstimo = new JLabel("Data de Empr\u00E9stimo:");
@@ -125,7 +125,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblDataDeEmprstimo);
 
 		lblDatadoemprestimo = new JLabel("DataDoEmprestimo");
-		lblDatadoemprestimo.setBounds(119, 189, 189, 14);
+		lblDatadoemprestimo.setBounds(136, 189, 189, 14);
 		contentPane.add(lblDatadoemprestimo);
 
 		JLabel lblItens = new JLabel("Itens:");
@@ -137,7 +137,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		contentPane.add(lblDataDaDevoluo);
 
 		lblDatadadevolucao = new JLabel("DataDaDevolucao");
-		lblDatadadevolucao.setBounds(119, 214, 191, 14);
+		lblDatadadevolucao.setBounds(134, 214, 191, 14);
 		contentPane.add(lblDatadadevolucao);
 
 		comboBoxItens = new JComboBox<String>();
