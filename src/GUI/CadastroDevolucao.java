@@ -97,10 +97,10 @@ public class CadastroDevolucao extends JFrame {
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Devolucao devolucao = new Devolucao(((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getAluno(),((Emprestimo)comboBoxEmprestimos.getSelectedItem()).getItens(),Login.funcionarioAtivo);
+				Devolucao devolucao = new Devolucao(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getAluno(),emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getItens(),Login.funcionarioAtivo);
 				try {
 					Fachada.getInstance().cadastrar(devolucao);
-					JOptionPane.showMessageDialog(null, "Devolução cadatrada!");
+					JOptionPane.showMessageDialog(null, "Devolução cadastrada!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);
@@ -189,7 +189,12 @@ public class CadastroDevolucao extends JFrame {
 		JButton btnCarregarItens = new JButton("Carregar itens");
 		btnCarregarItens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				carregarComboBoxItens();
+				try {
+					carregarComboBoxItens();
+					btnCarregarItens.setVisible(false);
+				} catch (ArrayIndexOutOfBoundsException e1) {
+					JOptionPane.showMessageDialog(null, "Carregamento inválido!");
+				}
 			}
 		});
 		btnCarregarItens.setBounds(314, 138, 110, 23);

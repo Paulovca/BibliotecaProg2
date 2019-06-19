@@ -89,13 +89,15 @@ public class ConsultarRemoverDevolucao extends JFrame {
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
-					Fachada.getInstance().removerDevolucao(((Devolucao)comboBoxDevolucoes.getSelectedItem()).getId());
-					JOptionPane.showMessageDialog(null, "Devolução removida com sucesso!");
+					Fachada.getInstance().removerDevolucao(devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getId());
+					JOptionPane.showMessageDialog(null, "Devolução removida!");
 					dispose();
 					instance = null;
 					Biblioteca.getInstance().setVisible(true);
 					} catch(DevolucaoNaoEncontradaException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
+					} catch (ArrayIndexOutOfBoundsException e2) {
+						JOptionPane.showMessageDialog(null, "Remoção inválida!");
 					}
 				}
 			});
@@ -183,7 +185,12 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		JButton btnCarregarItens = new JButton("Carregar itens");
 		btnCarregarItens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				carregarComboBoxItens();
+				try {
+					carregarComboBoxItens();
+					btnCarregarItens.setVisible(false);
+				} catch (ArrayIndexOutOfBoundsException e1) {
+					JOptionPane.showMessageDialog(null, "Carregamento inválido!");
+				}
 			}
 		});
 		btnCarregarItens.setBounds(315, 235, 109, 23);
@@ -205,9 +212,11 @@ public class ConsultarRemoverDevolucao extends JFrame {
 	}
 	
 	private void carregarComboBoxItens() {
-		Item[] itens = ((Emprestimo)comboBoxItens.getSelectedItem()).getItens();
+		Item[] itens = devolucoesVetor[(comboBoxDevolucoes.getSelectedIndex())].getItens();
 		for(Item itm : itens) {
-			comboBoxItens.addItem(itm.toString());
+			if(itm != null) {
+				comboBoxItens.addItem(itm.toString());
+			}
 		}
 	}
 	

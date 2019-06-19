@@ -152,7 +152,7 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 
 	@Override
 	public ArrayList<Devolucao> listar() {
-		lerDoArquivo();
+		RepositorioDevolucoesArray.getInstance();
 		ArrayList<Devolucao> devolucao = new ArrayList<Devolucao>();
 		for (Devolucao dvl : devolucoes) {
 			if (dvl != null) {

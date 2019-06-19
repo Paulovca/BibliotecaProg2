@@ -184,7 +184,13 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		JButton btnCarregarItens = new JButton("Carregar Itens");
 		btnCarregarItens.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				carregarComboBoxItens();
+				try {
+					carregarComboBoxItens();
+					btnCarregarItens.setVisible(false);
+				} catch (ArrayIndexOutOfBoundsException e) {
+					JOptionPane.showMessageDialog(null, "Carregamento inválido!");
+				}
+				
 			}
 		});
 		btnCarregarItens.setBounds(312, 235, 112, 23);

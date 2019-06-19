@@ -137,6 +137,7 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	
 	@Override
 	public void atualizarEstoqueEmprestimo(Item item) {
+		RepositorioLivrosArray.getInstance();
 		for(int i = 0; i<=indice;i++) {
 			if(livros[i] != null) {
 				if(livros[i].getId() == item.getId()) {
@@ -144,10 +145,12 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 				}
 			}
 		}
+		instance.salvarArquivo();
 	}
 
 	@Override
 	public void atualizarEstoqueDevolucao(Item item) {
+		RepositorioLivrosArray.getInstance();
 		for(int i = 0; i<=indice;i++) {
 			if(livros[i] != null) {
 				if(livros[i].getId() == item.getId()) {
@@ -155,6 +158,7 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 				}
 			}
 		}
+		instance.salvarArquivo();
 	}
 
 }
