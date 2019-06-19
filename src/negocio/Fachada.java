@@ -17,6 +17,7 @@ import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
 import negocio.exception.aluno.AlunoNuloException;
 import negocio.exception.aluno.CpfJaExisteException;
+import negocio.exception.devolucao.AlunoSemDevolucaoException;
 import negocio.exception.devolucao.DevolucaoJaExisteException;
 import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
 import negocio.exception.devolucao.DevolucaoNulaException;
@@ -99,7 +100,7 @@ public class Fachada {
 		return devolucoes.consultar(id);
 	}
 	
-	public ArrayList<Devolucao> procurarDevolucoes(String cpf) {
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf) throws AlunoSemDevolucaoException {
 		return devolucoes.procurarDevolucoes(cpf);
 	}
 	

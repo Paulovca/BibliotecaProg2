@@ -6,6 +6,7 @@ import dados.RepositorioDevolucoes;
 import dados.RepositorioDevolucoesArray;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
+import negocio.exception.devolucao.AlunoSemDevolucaoException;
 import negocio.exception.devolucao.DevolucaoJaExisteException;
 import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
 import negocio.exception.devolucao.DevolucaoNulaException;
@@ -63,8 +64,13 @@ public class ControleDevolucoes {
 		return devolucao;
 	}
 	
-	public ArrayList<Devolucao> procurarDevolucoes(String cpf){
-		return devolucoes.procurarDevolucoes(cpf);
+	public ArrayList<Devolucao> procurarDevolucoes(String cpf) throws AlunoSemDevolucaoException{
+		ArrayList<Devolucao> devolucao = devolucoes.procurarDevolucoes(cpf);
+		if( devolucao == null) {
+			AlunoSemDevolucaoException e = new AlunoSemDevolucaoException(cpf);
+			throw e;
+		}
+		return devolucao;
 	}
 	
 	public ArrayList<Devolucao> listar(){

@@ -12,6 +12,7 @@ import negocio.Fachada;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
 import negocio.entidades.Item;
+import negocio.exception.devolucao.AlunoSemDevolucaoException;
 import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -169,7 +170,11 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				carregarComboBox(textFieldCpfDoAluno.getText());
+				try {
+					carregarComboBox(textFieldCpfDoAluno.getText());
+				} catch (AlunoSemDevolucaoException e) {
+					JOptionPane.showMessageDialog(null, e.getMessage());
+				}
 			}
 		});
 		btnConsultar.setBounds(335, 35, 89, 23);
@@ -188,7 +193,7 @@ public class ConsultarRemoverDevolucao extends JFrame {
 		comboBoxDevolucoes.addActionListener(acaoSelecao);
 	}
 	
-	private void carregarComboBox(String cpf){
+	private void carregarComboBox(String cpf) throws AlunoSemDevolucaoException{
 		ArrayList<Devolucao> devolucoes = new ArrayList<Devolucao>();
 		devolucoes = Fachada.getInstance().procurarDevolucoes(cpf);
 		for(int i = 0; i<devolucoes.size();i++){
