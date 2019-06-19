@@ -12,6 +12,7 @@ import negocio.Fachada;
 import negocio.entidades.Devolucao;
 import negocio.entidades.Emprestimo;
 import negocio.entidades.Item;
+import negocio.exception.emprestimo.AlunoSemEmprestimoException;
 import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -90,8 +91,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 			btnRemover.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					try {
-						Fachada.getInstance()
-								.removerEmprestimo(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getId());
+						Fachada.getInstance().removerEmprestimo(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getId());
 						JOptionPane.showMessageDialog(null, "Emprestimo removido!");
 					} catch (EmprestimoNaoEncontradoException e1) {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
@@ -171,7 +171,11 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				carregarComboBox(textFieldCpfDoAluno.getText());
+				try {
+					carregarComboBox(textFieldCpfDoAluno.getText());
+				} catch (AlunoSemEmprestimoException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				}
 			}
 		});
 		btnConsultar.setBounds(335, 35, 89, 23);
@@ -193,7 +197,7 @@ public class ConsultarRemoverEmprestimo extends JFrame {
 		
 	}
 
-	private void carregarComboBox(String cpf) {
+	private void carregarComboBox(String cpf) throws AlunoSemEmprestimoException{
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
 		for(int i = 0; i<emprestimos.size();i++){

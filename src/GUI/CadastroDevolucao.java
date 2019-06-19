@@ -13,6 +13,8 @@ import negocio.entidades.Livro;
 import negocio.exception.aluno.AlunoNaoEncontradoException;
 import negocio.exception.devolucao.DevolucaoJaExisteException;
 import negocio.exception.devolucao.DevolucaoNulaException;
+import negocio.exception.emprestimo.AlunoSemEmprestimoException;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -146,7 +148,11 @@ public class CadastroDevolucao extends JFrame {
 		btnConsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					carregarComboBox(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getCpf());
+					try {
+						carregarComboBox(Fachada.getInstance().consultar(textFieldCpfDoAluno.getText()).getCpf());
+					} catch (AlunoSemEmprestimoException e1) {
+						JOptionPane.showMessageDialog(null, e1.getMessage());
+					}
 				} catch (AlunoNaoEncontradoException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
@@ -193,7 +199,7 @@ public class CadastroDevolucao extends JFrame {
 		comboBoxEmprestimos.addActionListener(acaoSelecao);
 	}
 	
-	private void carregarComboBox(String cpf){
+	private void carregarComboBox(String cpf) throws AlunoSemEmprestimoException{
 		ArrayList<Emprestimo> emprestimos = new ArrayList<Emprestimo>();
 		emprestimos = Fachada.getInstance().procurarEmprestimos(cpf);
 		for(int i = 0; i<emprestimos.size();i++){

@@ -20,6 +20,7 @@ import negocio.exception.aluno.CpfJaExisteException;
 import negocio.exception.devolucao.DevolucaoJaExisteException;
 import negocio.exception.devolucao.DevolucaoNaoEncontradaException;
 import negocio.exception.devolucao.DevolucaoNulaException;
+import negocio.exception.emprestimo.AlunoSemEmprestimoException;
 import negocio.exception.emprestimo.EmprestimoJaExisteException;
 import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
 import negocio.exception.emprestimo.EmprestimoNuloException;
@@ -124,7 +125,7 @@ public class Fachada {
 		return emprestimos.Listar();
 	}
 	
-	public ArrayList<Emprestimo> procurarEmprestimos(String cpf){
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf)throws AlunoSemEmprestimoException{
 		return emprestimos.procurarEmprestimos(cpf);
 	}
 	

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import dados.RepositorioEmprestimos;
 import dados.RepositorioEmprestimosArray;
 import negocio.entidades.Emprestimo;
+import negocio.exception.emprestimo.AlunoSemEmprestimoException;
 import negocio.exception.emprestimo.EmprestimoJaExisteException;
 import negocio.exception.emprestimo.EmprestimoNaoEncontradoException;
 import negocio.exception.emprestimo.EmprestimoNuloException;
@@ -53,8 +54,13 @@ public class ControleEmprestimos {
 		return emprestimo;
 	}
 	
-	public ArrayList<Emprestimo> procurarEmprestimos(String cpf) {
-		return emprestimos.procurarEmprestimos(cpf);
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf) throws AlunoSemEmprestimoException{
+		ArrayList<Emprestimo> emprestimo = emprestimos.procurarEmprestimos(cpf);
+		if( emprestimo == null) {
+			AlunoSemEmprestimoException e = new AlunoSemEmprestimoException(cpf);
+			throw e;
+		}
+		return emprestimo;
 	}
 	
 	public ArrayList<Emprestimo> Listar(){
