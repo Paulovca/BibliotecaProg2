@@ -22,15 +22,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Window.Type;
+import javax.swing.JPasswordField;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldCpf;
-	private JTextField textFieldSenha;
 	private static Login instance;
 	
 	static Funcionario funcionarioAtivo;
+	private JTextField textFieldSenha;
 	/**
 	 * Launch the application.
 	 */
@@ -68,22 +69,6 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public static Login getInstance() {
-		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//		Funcionario god = new Funcionario("One for all","12345678910","123");
-//		try {
-//			Fachada.getInstance().cadastrar(god);
-//		} catch (CpfJaExisteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (FuncionarioNuloException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		if(instance == null) {
 			instance = new Login();
 		}
@@ -100,6 +85,11 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		textFieldSenha = new JTextField();
+		textFieldSenha.setBounds(170, 177, 100, 26);
+		contentPane.add(textFieldSenha);
+		textFieldSenha.setColumns(10);
+		
 		JLabel lblCpf = new JLabel("Cpf:");
 		lblCpf.setBounds(126, 146, 46, 14);
 		contentPane.add(lblCpf);
@@ -113,16 +103,11 @@ public class Login extends JFrame {
 		lblNewLabel.setBounds(126, 180, 46, 14);
 		contentPane.add(lblNewLabel);
 		
-		textFieldSenha = new JTextField();
-		textFieldSenha.setBounds(170, 177, 100, 26);
-		contentPane.add(textFieldSenha);
-		textFieldSenha.setColumns(10);
-		
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					try {
-							Fachada.getInstance().consultarFuncionario(textFieldCpf.getText());
+							Fachada.getInstance().validarFuncionario(textFieldCpf.getText(),textFieldSenha.getText());
 							funcionarioAtivo = new Funcionario(Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getNome(), Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getCpf(), Fachada.getInstance().consultarFuncionario(textFieldCpf.getText()).getSenha());
 							setVisible(false);
 							Biblioteca.getInstance().setVisible(true);
@@ -137,10 +122,8 @@ public class Login extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\Biblioteca.png"));
-		lblNewLabel_1.setBounds(70, -38, 340, 236);
+		lblNewLabel_1.setBounds(51, 11, 340, 236);
 		contentPane.add(lblNewLabel_1);
-		
-		
 		
 	}
 }

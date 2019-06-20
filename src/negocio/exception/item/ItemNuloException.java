@@ -2,23 +2,23 @@ package negocio.exception.item;
 
 import negocio.entidades.Livro;
 
-public class ItemNuloException extends Exception{
-	
+public class ItemNuloException extends Exception {
+
 	private Livro livro;
 	private int quantidade;
-	
+
 	public ItemNuloException(Livro livro, int quantidade) {
 		super("Livro e/ou quantidade nulos!");
 		this.livro = livro;
 		this.quantidade = quantidade;
 	}
-	
+
 	public Livro getLivro() {
 		return livro;
 	}
-	
-	public int getQuatidade(){
+
+	public int getQuatidade() {
 		return quantidade;
 	}
-	
+
 }

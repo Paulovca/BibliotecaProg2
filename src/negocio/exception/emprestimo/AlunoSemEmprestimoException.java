@@ -1,6 +1,6 @@
 package negocio.exception.emprestimo;
 
-public class AlunoSemEmprestimoException extends Exception{
+public class AlunoSemEmprestimoException extends Exception {
 	private String cpf;
 
 	public AlunoSemEmprestimoException(String cpf) {

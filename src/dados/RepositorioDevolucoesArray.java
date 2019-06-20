@@ -9,7 +9,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import negocio.entidades.Devolucao;
-import negocio.entidades.Emprestimo;
 
 public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serializable {
 
@@ -81,30 +80,6 @@ public class RepositorioDevolucoesArray implements RepositorioDevolucoes, Serial
 			}
 		}
 	}
-
-//	private void lerDoArquivo() {
-//	    File in = new File("alunos.dat");
-//	    FileInputStream fis = null;
-//	    ObjectInputStream ois = null;
-//	    try {
-//	      fis = new FileInputStream(in);
-//	      ois = new ObjectInputStream(fis);
-//	      Object o = ois.readObject();
-//	      RepositorioDevolucoesArray repTem = (RepositorioDevolucoesArray) o;
-//	      this.devolucoes= repTem.devolucoes;
-//	      this.indice= repTem.indice;
-//	      Devolucao.setContador(repTem.indice);
-//	    } catch (Exception e) {
-//	    	e.printStackTrace();
-//	    } finally {
-//	      if (ois != null) {
-//	        try {
-//	          ois.close();
-//	        } catch (IOException e) {/* Silent exception */
-//	        }
-//	      }
-//	    }
-//	  }
 
 	@Override
 	public void cadastrar(Devolucao devolucao) {

@@ -1,20 +1,21 @@
 package negocio.entidades;
 
 import java.io.Serializable;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.Arrays;
 
 import dados.RepositorioDevolucoesArray;
 
-public class Devolucao implements Serializable{
-	
+public class Devolucao implements Serializable {
+
 	@Override
 	public String toString() {
-		return ""+ aluno.getNome() + ", " + dataDevolucao + ", " + funcionario.getNome()
-				+ ", livros:" + Arrays.toString(itens) + "]";
+		return "" + aluno.getNome() + ", " + dataDevolucao + ", " + funcionario.getNome() + ", livros:"
+				+ Arrays.toString(itens) + "]";
 	}
-	/**Arrays.toString(itens)
+
+	/**
+	 * Arrays.toString(itens)
 	 * 
 	 */
 	private static final long serialVersionUID = 5897811956750760212L;
@@ -25,9 +26,9 @@ public class Devolucao implements Serializable{
 	private Funcionario funcionario;
 	private LocalDate dataDevolucao;
 	private float multa;
-	
+
 	public Devolucao(Aluno aluno, Item[] itens, Funcionario funcionario) {
-		Devolucao.contador = RepositorioDevolucoesArray.getInstance().listar().size()+1;
+		Devolucao.contador = RepositorioDevolucoesArray.getInstance().listar().size() + 1;
 		this.aluno = aluno;
 		this.itens = itens;
 		this.funcionario = funcionario;
@@ -84,6 +85,7 @@ public class Devolucao implements Serializable{
 	public void setMulta(float multa) {
 		this.multa = multa;
 	}
+
 	public static void setContador(int i) {
 		Devolucao.contador = i;
 	}

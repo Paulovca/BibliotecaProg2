@@ -7,13 +7,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import negocio.entidades.Aluno;
 import negocio.entidades.Item;
 
 public class RepositorioItensArray implements RepositorioItens, Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -21,16 +18,16 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 	private static RepositorioItensArray instance;
 	private Item[] itens;
 	private int indice;
-	
+
 	private final static int TAMANHO = 200;
-	
-	private RepositorioItensArray () {
+
+	private RepositorioItensArray() {
 		itens = new Item[TAMANHO];
 		indice = 0;
 	}
-	
+
 	public static RepositorioItensArray getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = lerDoArquivo();
 		}
 		return instance;
@@ -38,28 +35,28 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 
 	private static RepositorioItensArray lerDoArquivo() {
 		RepositorioItensArray instanciaLocal = null;
-	    File in = new File("itens.dat");
-	    FileInputStream fis = null;
-	    ObjectInputStream ois = null;
-	    try {
-	      fis = new FileInputStream(in);
-	      ois = new ObjectInputStream(fis);
-	      Object o = ois.readObject();
-	      instanciaLocal = (RepositorioItensArray) o;
-	    } catch (Exception e) {
-	      instanciaLocal = new RepositorioItensArray();
-	    } finally {
-	      if (ois != null) {
-	        try {
-	          ois.close();
-	        } catch (IOException e) {/* Silent exception */
-	        }
-	      }
-	    }
+		File in = new File("itens.dat");
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(in);
+			ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			instanciaLocal = (RepositorioItensArray) o;
+		} catch (Exception e) {
+			instanciaLocal = new RepositorioItensArray();
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {/* Silent exception */
+				}
+			}
+		}
 
-	    return instanciaLocal;
-	  }
-	
+		return instanciaLocal;
+	}
+
 	public void salvarArquivo() {
 		if (instance == null) {
 			return;
@@ -78,11 +75,11 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 				try {
 					oos.close();
 				} catch (IOException e) {
-				/* Silent */}
+					/* Silent */}
 			}
 		}
 	}
-	
+
 	@Override
 	public void cadastrar(Item item) {
 		itens[indice] = item;
@@ -91,27 +88,27 @@ public class RepositorioItensArray implements RepositorioItens, Serializable {
 
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i <= indice ; i++) {
-			if(itens[i] != null) {
-				if(itens[i].getId() == id) {
+		for (int i = 0; i <= indice; i++) {
+			if (itens[i] != null) {
+				if (itens[i].getId() == id) {
 					itens[i] = itens[indice];
 					itens[indice] = null;
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public Item consultar(int id) {
 		Item item = null;
-		for(int i = 0; i<= indice ; i++) {
-			if(itens[i] != null) {
-				if(itens[i].getId() == id) {
+		for (int i = 0; i <= indice; i++) {
+			if (itens[i] != null) {
+				if (itens[i].getId() == id) {
 					item = itens[i];
 				}
 			}
 		}
 		return item;
 	}
-	
+
 }

@@ -1,7 +1,7 @@
 package negocio.exception.emprestimo;
 
-public class EmprestimoJaExisteException extends Exception{
-	
+public class EmprestimoJaExisteException extends Exception {
+
 	private int id;
 
 	public EmprestimoJaExisteException(int id) {
@@ -12,5 +12,5 @@ public class EmprestimoJaExisteException extends Exception{
 	public int getId() {
 		return id;
 	}
-	
+
 }

@@ -8,13 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import negocio.entidades.Aluno;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
 
-public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
-	
+public class RepositorioLivrosArray implements RepositorioLivros, Serializable {
+
 	/**
 	 * 
 	 */
@@ -22,16 +20,16 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	private static RepositorioLivrosArray instance;
 	private Livro[] livros;
 	private int indice;
-	
+
 	private final static int TAMANHO = 200;
-	
+
 	private RepositorioLivrosArray() {
 		livros = new Livro[TAMANHO];
 		indice = 0;
 	}
-	
+
 	public static RepositorioLivrosArray getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = lerDoArquivo();
 		}
 		return instance;
@@ -39,28 +37,28 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 
 	private static RepositorioLivrosArray lerDoArquivo() {
 		RepositorioLivrosArray instanciaLocal = null;
-	    File in = new File("livros.dat");
-	    FileInputStream fis = null;
-	    ObjectInputStream ois = null;
-	    try {
-	      fis = new FileInputStream(in);
-	      ois = new ObjectInputStream(fis);
-	      Object o = ois.readObject();
-	      instanciaLocal = (RepositorioLivrosArray) o;
-	    } catch (Exception e) {
-	      instanciaLocal = new RepositorioLivrosArray();
-	    } finally {
-	      if (ois != null) {
-	        try {
-	          ois.close();
-	        } catch (IOException e) {/* Silent exception */
-	        }
-	      }
-	    }
+		File in = new File("livros.dat");
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(in);
+			ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			instanciaLocal = (RepositorioLivrosArray) o;
+		} catch (Exception e) {
+			instanciaLocal = new RepositorioLivrosArray();
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {/* Silent exception */
+				}
+			}
+		}
 
-	    return instanciaLocal;
-	  }
-	
+		return instanciaLocal;
+	}
+
 	public void salvarArquivo() {
 		if (instance == null) {
 			return;
@@ -79,11 +77,11 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 				try {
 					oos.close();
 				} catch (IOException e) {
-				/* Silent */}
+					/* Silent */}
 			}
 		}
 	}
-	
+
 	@Override
 	public void cadastrar(Livro livro) {
 		livros[indice] = livro;
@@ -92,55 +90,55 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 
 	@Override
 	public void remover(int id) {
-		for(int i = 0; i <= indice ; i++) {
-			if(livros[i] != null) {
-				if(livros[i].getId() == id) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i] != null) {
+				if (livros[i].getId() == id) {
 					livros[i] = livros[indice];
 					livros[indice] = null;
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public void atualizar(Livro livro) {
-		for(int i = 0; i <= indice ; i++) {
-			if(livros[i].getId() == livro.getId()) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i].getId() == livro.getId()) {
 				livros[i] = livro;
 			}
 		}
 	}
-	
+
 	@Override
 	public Livro consultar(int id) {
 		Livro livro = null;
-		for(int i = 0; i<= indice ; i++) {
-			if(livros[i] != null) {
-				if(livros[i].getId() == id) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i] != null) {
+				if (livros[i].getId() == id) {
 					livro = livros[i];
 				}
 			}
 		}
 		return livro;
 	}
-	
+
 	@Override
 	public ArrayList<Livro> listar() {
 		ArrayList<Livro> livro = new ArrayList<Livro>();
-		for(Livro lvr : livros) {
-			if(lvr != null) {
+		for (Livro lvr : livros) {
+			if (lvr != null) {
 				livro.add(lvr);
 			}
 		}
 		return livro;
 	}
-	
+
 	@Override
 	public void atualizarEstoqueEmprestimo(Item item) {
 		RepositorioLivrosArray.getInstance();
-		for(int i = 0; i<=indice;i++) {
-			if(livros[i] != null) {
-				if(livros[i].getId() == item.getLivro().getId()) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i] != null) {
+				if (livros[i].getId() == item.getLivro().getId()) {
 					livros[i].setEstoque(livros[i].getEstoque() - item.getQuantidade());
 				}
 			}
@@ -151,9 +149,9 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	@Override
 	public void atualizarEstoqueDevolucao(Item item) {
 		RepositorioLivrosArray.getInstance();
-		for(int i = 0; i<=indice;i++) {
-			if(livros[i] != null) {
-				if(livros[i].getId() == item.getLivro().getId()) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i] != null) {
+				if (livros[i].getId() == item.getLivro().getId()) {
 					livros[i].setEstoque(livros[i].getEstoque() + item.getQuantidade());
 				}
 			}
@@ -165,10 +163,10 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 	public boolean consultarEstoque(Item item) {
 		RepositorioLivrosArray.getInstance();
 		boolean retorno = false;
-		for(int i = 0; i<=indice;i++) {
-			if(livros[i] != null) {
-				if(livros[i].getId() == item.getLivro().getId()) {
-					if(livros[i].getEstoque()>= item.getQuantidade()) {
+		for (int i = 0; i <= indice; i++) {
+			if (livros[i] != null) {
+				if (livros[i].getId() == item.getLivro().getId()) {
+					if (livros[i].getEstoque() >= item.getQuantidade()) {
 						retorno = true;
 					}
 				}

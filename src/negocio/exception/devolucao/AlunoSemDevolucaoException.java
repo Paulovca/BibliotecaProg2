@@ -1,6 +1,6 @@
 package negocio.exception.devolucao;
 
-public class AlunoSemDevolucaoException extends Exception{
+public class AlunoSemDevolucaoException extends Exception {
 	private String cpf;
 
 	public AlunoSemDevolucaoException(String cpf) {

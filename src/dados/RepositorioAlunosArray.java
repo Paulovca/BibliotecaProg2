@@ -12,25 +12,25 @@ import java.util.ArrayList;
 import negocio.entidades.Aluno;
 
 public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
-	
+
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = -1690443057364996772L;
-	
+
 	private static RepositorioAlunosArray instance;
 	private Aluno[] alunos;
 	private int indice;
-	
+
 	private final static int TAMANHO = 200;
-	
-	private RepositorioAlunosArray () {
+
+	private RepositorioAlunosArray() {
 		alunos = new Aluno[TAMANHO];
 		indice = 0;
 	}
-	
+
 	public static RepositorioAlunosArray getInstance() {
-		if(instance == null) {
+		if (instance == null) {
 			instance = lerDoArquivo();
 		}
 		return instance;
@@ -38,28 +38,28 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 
 	private static RepositorioAlunosArray lerDoArquivo() {
 		RepositorioAlunosArray instanciaLocal = null;
-	    File in = new File("alunos.dat");
-	    FileInputStream fis = null;
-	    ObjectInputStream ois = null;
-	    try {
-	      fis = new FileInputStream(in);
-	      ois = new ObjectInputStream(fis);
-	      Object o = ois.readObject();
-	      instanciaLocal = (RepositorioAlunosArray) o;
-	    } catch (Exception e) {
-	      instanciaLocal = new RepositorioAlunosArray();
-	    } finally {
-	      if (ois != null) {
-	        try {
-	          ois.close();
-	        } catch (IOException e) {/* Silent exception */
-	        }
-	      }
-	    }
+		File in = new File("alunos.dat");
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(in);
+			ois = new ObjectInputStream(fis);
+			Object o = ois.readObject();
+			instanciaLocal = (RepositorioAlunosArray) o;
+		} catch (Exception e) {
+			instanciaLocal = new RepositorioAlunosArray();
+		} finally {
+			if (ois != null) {
+				try {
+					ois.close();
+				} catch (IOException e) {/* Silent exception */
+				}
+			}
+		}
 
-	    return instanciaLocal;
-	  }
-	
+		return instanciaLocal;
+	}
+
 	public void salvarArquivo() {
 		if (instance == null) {
 			return;
@@ -78,60 +78,34 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 				try {
 					oos.close();
 				} catch (IOException e) {
-				/* Silent */}
+					/* Silent */}
 			}
 		}
 	}
-	
-//	private void lerDoArquivo() {
-//
-//	    File in = new File("alunos.dat");
-//	    FileInputStream fis = null;
-//	    ObjectInputStream ois = null;
-//	    try {
-//	      fis = new FileInputStream(in);
-//	      ois = new ObjectInputStream(fis);
-//	      Object o = ois.readObject();
-//	      RepositorioAlunosArray repTem = (RepositorioAlunosArray) o;
-//	      this.alunos= repTem.alunos;
-//	      this.indice= repTem.indice;
-//	      
-//	    } catch (Exception e) {
-//	    	e.printStackTrace();
-//	    } finally {
-//	      if (ois != null) {
-//	        try {
-//	          ois.close();
-//	        } catch (IOException e) {/* Silent exception */
-//	        }
-//	      }
-//	    }
-//	  }
-	
 
 	@Override
 	public void cadastrar(Aluno aluno) {
 		alunos[indice] = aluno;
 		indice++;
 	}
-	
+
 	@Override
 	public void remover(String cpf) {
-		for(int i = 0; i <= indice ; i++) {
-			if(alunos[i] != null) {
-				if(alunos[i].getCpf().equals(cpf)) {
+		for (int i = 0; i <= indice; i++) {
+			if (alunos[i] != null) {
+				if (alunos[i].getCpf().equals(cpf)) {
 					alunos[i] = alunos[indice];
 					alunos[indice] = null;
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public void atualizar(Aluno aluno) {
-		for(int i = 0; i <=indice ; i++) {
-			if(alunos[i] != null) {
-				if(alunos[i].getCpf().equals(aluno.getCpf())) {
+		for (int i = 0; i <= indice; i++) {
+			if (alunos[i] != null) {
+				if (alunos[i].getCpf().equals(aluno.getCpf())) {
 					alunos[i] = aluno;
 				}
 			}
@@ -141,10 +115,10 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	@Override
 	public Aluno consultar(String cpf) {
 		Aluno aluno = null;
-		for(int i = 0; i<= indice ; i++) {
-			if(alunos[i] != null) {
-				if(alunos[i].getCpf().equals(cpf)) {
-						aluno = alunos[i];
+		for (int i = 0; i <= indice; i++) {
+			if (alunos[i] != null) {
+				if (alunos[i].getCpf().equals(cpf)) {
+					aluno = alunos[i];
 				}
 			}
 		}
@@ -154,8 +128,8 @@ public class RepositorioAlunosArray implements RepositorioAlunos, Serializable {
 	@Override
 	public ArrayList<Aluno> listar() {
 		ArrayList<Aluno> aluno = new ArrayList<Aluno>();
-		for(Aluno aln : alunos) {
-			if(aln!=null) {
+		for (Aluno aln : alunos) {
+			if (aln != null) {
 				aluno.add(aln);
 			}
 		}

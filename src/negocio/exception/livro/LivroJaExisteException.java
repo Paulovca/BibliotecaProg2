@@ -1,10 +1,10 @@
 package negocio.exception.livro;
 
-public class LivroJaExisteException extends Exception{
-	
+public class LivroJaExisteException extends Exception {
+
 	private int id;
 	private String titulo;
-	
+
 	public LivroJaExisteException(int id, String titulo) {
 		super("Livro já existente!");
 		this.id = id;
@@ -18,5 +18,5 @@ public class LivroJaExisteException extends Exception{
 	public String getTitulo() {
 		return titulo;
 	}
-	
+
 }

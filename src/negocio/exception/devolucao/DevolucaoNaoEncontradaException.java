@@ -1,7 +1,7 @@
 package negocio.exception.devolucao;
 
-public class DevolucaoNaoEncontradaException extends Exception{
-	
+public class DevolucaoNaoEncontradaException extends Exception {
+
 	private int id;
 
 	public DevolucaoNaoEncontradaException(int id) {
@@ -12,5 +12,5 @@ public class DevolucaoNaoEncontradaException extends Exception{
 	public int getId() {
 		return id;
 	}
-	
+
 }

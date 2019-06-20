@@ -1,6 +1,6 @@
 package negocio.exception.funcionario;
 
-public class FuncionarioNuloException extends Exception{
+public class FuncionarioNuloException extends Exception {
 	private String nome;
 	private String cpf;
 	private String senha;
@@ -19,7 +19,7 @@ public class FuncionarioNuloException extends Exception{
 	public String getCpf() {
 		return cpf;
 	}
-	
+
 	public String getSenha() {
 		return senha;
 	}

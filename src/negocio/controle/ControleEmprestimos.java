@@ -1,8 +1,6 @@
 package negocio.controle;
 
-import java.awt.List;
 import java.util.ArrayList;
-
 import dados.RepositorioEmprestimos;
 import dados.RepositorioEmprestimosArray;
 import negocio.entidades.Emprestimo;

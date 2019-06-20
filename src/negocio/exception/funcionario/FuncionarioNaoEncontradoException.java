@@ -1,9 +1,9 @@
 package negocio.exception.funcionario;
 
-public class FuncionarioNaoEncontradoException extends Exception{
-	
+public class FuncionarioNaoEncontradoException extends Exception {
+
 	private String cpf;
-	
+
 	public FuncionarioNaoEncontradoException(String cpf) {
 		super("Funcionário não encontrado!");
 		this.cpf = cpf;
@@ -12,5 +12,5 @@ public class FuncionarioNaoEncontradoException extends Exception{
 	public String getCpf() {
 		return cpf;
 	}
-	
+
 }

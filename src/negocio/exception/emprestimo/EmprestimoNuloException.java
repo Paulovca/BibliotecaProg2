@@ -4,12 +4,12 @@ import negocio.entidades.Aluno;
 import negocio.entidades.Funcionario;
 import negocio.entidades.Item;
 
-public class EmprestimoNuloException extends Exception{
-	
+public class EmprestimoNuloException extends Exception {
+
 	private Aluno aluno;
 	private Funcionario funcionario;
 	private Item[] itens;
-	
+
 	public EmprestimoNuloException(Aluno aluno, Funcionario funcionario, Item[] items) {
 		super("Aluno, Funcionario e/ou Itens nulos!");
 		this.aluno = aluno;
@@ -28,5 +28,5 @@ public class EmprestimoNuloException extends Exception{
 	public Item[] getItens() {
 		return itens;
 	}
-	
+
 }

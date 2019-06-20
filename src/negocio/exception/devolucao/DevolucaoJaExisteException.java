@@ -1,7 +1,7 @@
 package negocio.exception.devolucao;
 
-public class DevolucaoJaExisteException extends Exception{
-	
+public class DevolucaoJaExisteException extends Exception {
+
 	private int id;
 
 	public DevolucaoJaExisteException(int id) {

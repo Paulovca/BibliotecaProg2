@@ -1,11 +1,11 @@
 package negocio.exception.livro;
 
-public class LivroNuloException extends Exception{
-	
+public class LivroNuloException extends Exception {
+
 	private String autor;
 	private String titulo;
 	private int id;
-	
+
 	public LivroNuloException(String autor, String titulo, int id) {
 		super("Autor, Título e/ou Id não preenchidos!");
 		this.autor = autor;
@@ -15,7 +15,7 @@ public class LivroNuloException extends Exception{
 	public int getId() {
 		return id;
 	}
-	
+
 	public String getAutor() {
 		return autor;
 	}
@@ -23,5 +23,5 @@ public class LivroNuloException extends Exception{
 	public String getTitulo() {
 		return titulo;
 	}
-	
+
 }

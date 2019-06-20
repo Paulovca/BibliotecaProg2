@@ -42,9 +42,9 @@ public class Fachada {
 	private ControleFuncionarios funcionarios;
 	private ControleItens itens;
 	private ControleLivros livros;
-	
+
 	private static Fachada instance;
-	
+
 	private Fachada() {
 		alunos = new ControleAlunos();
 		devolucoes = new ControleDevolucoes();
@@ -53,153 +53,156 @@ public class Fachada {
 		itens = new ControleItens();
 		livros = new ControleLivros();
 	}
-	
+
 	public static Fachada getInstance() {
-		if(Fachada.instance == null) {
+		if (Fachada.instance == null) {
 			Fachada.instance = new Fachada();
 		}
 		return instance;
 	}
-	
-	//Alunos--------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	public void cadastrar(Aluno aluno) throws CpfJaExisteException, AlunoNuloException{
+
+	// Alunos--------------------------------------------------------------------------------------------------------------------------------------------------
+
+	public void cadastrar(Aluno aluno) throws CpfJaExisteException, AlunoNuloException {
 		alunos.cadastrar(aluno);
 	}
-	
+
 	public void remover(String cpf) throws AlunoNaoEncontradoException {
 		alunos.remover(cpf);
 	}
-	
+
 	public void atualizar(Aluno aluno) throws AlunoNaoEncontradoException {
 		alunos.atualizar(aluno);
 	}
-	
+
 	public Aluno consultar(String cpf) throws AlunoNaoEncontradoException {
 		return alunos.consultar(cpf);
 	}
-	
+
 	public ArrayList<Aluno> listar() {
 		return alunos.listar();
 	}
-	
-	//Devoluções----------------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	// Devoluções----------------------------------------------------------------------------------------------------------------------------------------------
+
 	public void cadastrar(Devolucao devolucao) throws DevolucaoJaExisteException, DevolucaoNulaException {
 		devolucoes.cadastrar(devolucao);
 	}
-	
+
 	public float devolver(Emprestimo emprestimo, Devolucao devolucao) {
-		return devolucoes.devolver(emprestimo,devolucao);
+		return devolucoes.devolver(emprestimo, devolucao);
 	}
-	
+
 	public void removerDevolucao(int id) throws DevolucaoNaoEncontradaException {
 		devolucoes.remover(id);
 	}
-	
+
 	public Devolucao consultarDevolucao(int id) throws DevolucaoNaoEncontradaException {
 		return devolucoes.consultar(id);
 	}
-	
+
 	public ArrayList<Devolucao> procurarDevolucoes(String cpf) throws AlunoSemDevolucaoException {
 		return devolucoes.procurarDevolucoes(cpf);
 	}
-	
+
 	public ArrayList<Devolucao> listarDevolucao() {
 		return devolucoes.listar();
 	}
-	
-	//Emprestimos---------------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	// Emprestimos---------------------------------------------------------------------------------------------------------------------------------------------
+
 	public void cadastrar(Emprestimo emprestimo) throws EmprestimoJaExisteException, EmprestimoNuloException {
 		emprestimos.cadastrar(emprestimo);
 	}
-	
+
 	public void removerEmprestimo(int id) throws EmprestimoNaoEncontradoException {
 		emprestimos.remover(id);
 	}
-	
+
 	public Emprestimo consultarEmprestimo(int id) throws EmprestimoNaoEncontradoException {
 		return emprestimos.consultar(id);
 	}
-	
-	public ArrayList<Emprestimo> listarEmprestimos(){
+
+	public ArrayList<Emprestimo> listarEmprestimos() {
 		return emprestimos.Listar();
 	}
-	
-	public ArrayList<Emprestimo> procurarEmprestimos(String cpf)throws AlunoSemEmprestimoException{
+
+	public ArrayList<Emprestimo> procurarEmprestimos(String cpf) throws AlunoSemEmprestimoException {
 		return emprestimos.procurarEmprestimos(cpf);
 	}
-	
-	//Funcionarios--------------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	// Funcionarios--------------------------------------------------------------------------------------------------------------------------------------------
+
 	public void cadastrar(Funcionario funcionario) throws CpfJaExisteException, FuncionarioNuloException {
 		funcionarios.cadastrar(funcionario);
 	}
-	
+
 	public void removerFuncionario(String cpf) throws FuncionarioNaoEncontradoException {
 		funcionarios.remover(cpf);
 	}
-	
+
 	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException {
 		funcionarios.atualizar(funcionario);
 	}
-	
+
 	public Funcionario consultarFuncionario(String cpf) throws FuncionarioNaoEncontradoException {
 		return funcionarios.consultar(cpf);
 	}
-	
-	public ArrayList<Funcionario> listarFuncionarios(){
+
+	public ArrayList<Funcionario> listarFuncionarios() {
 		return funcionarios.listar();
 	}
-	
-	//Itens---------------------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	public boolean validarFuncionario(String cpf, String senha) throws FuncionarioNaoEncontradoException {
+		return funcionarios.validarFuncionario(cpf, senha);
+	}
+
+	// Itens---------------------------------------------------------------------------------------------------------------------------------------------------
+
 	public void cadastrar(Item item) throws ItemNuloException {
 		itens.cadastrar(item);
 	}
-	
+
 	public void removerItem(int id) throws ItemNaoEncontradoException {
 		itens.remover(id);
 	}
-	
+
 	public Item consultarItem(int id) throws ItemNaoEncontradoException {
 		return itens.consultar(id);
 	}
-	
-	
-	//Livros--------------------------------------------------------------------------------------------------------------------------------------------------
-	
+
+	// Livros--------------------------------------------------------------------------------------------------------------------------------------------------
+
 	public void cadastrar(Livro livro) throws LivroJaExisteException, LivroNuloException {
 		livros.cadastrar(livro);
 	}
-	
+
 	public void removerLivros(int id) throws LivroNaoEncontradoException {
 		livros.remover(id);
 	}
-	
+
 	public void atualizar(Livro livro) throws LivroNaoEncontradoException {
 		livros.atualizar(livro);
 	}
-	
+
 	public Livro consultarLivro(int id) throws LivroNaoEncontradoException {
 		return livros.consultar(id);
 	}
-	
+
 	public void atualizarEstoqueEmprestimo(Emprestimo emprestimo) {
 		livros.atualizarEstoqueEmprestimo(emprestimo);
 	}
-	
+
 	public void atualizarEstoqueDevolucao(Devolucao devolucao) {
 		livros.atualizarEstoqueDevolucao(devolucao);
 	}
-	
-	public ArrayList<Livro> listarLivros(){
+
+	public ArrayList<Livro> listarLivros() {
 		return livros.listar();
 	}
-	
-	public boolean consultarEstoque (Item item) throws LivroNaoEmprestavelException {
+
+	public boolean consultarEstoque(Item item) throws LivroNaoEmprestavelException {
 		return livros.consultarEstoque(item);
 	}
-	
+
 }
