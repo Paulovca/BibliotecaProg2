@@ -100,6 +100,7 @@ public class CadastroDevolucao extends JFrame {
 				Devolucao devolucao = new Devolucao(emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getAluno(),emprestimosVetor[(comboBoxEmprestimos.getSelectedIndex())].getItens(),Login.funcionarioAtivo);
 				try {
 					Fachada.getInstance().cadastrar(devolucao);
+					Fachada.getInstance().atualizarEstoqueDevolucao(devolucao);
 					JOptionPane.showMessageDialog(null, "Devolução cadastrada!");
 					dispose();
 					instance = null;

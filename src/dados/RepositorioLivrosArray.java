@@ -140,7 +140,7 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 		RepositorioLivrosArray.getInstance();
 		for(int i = 0; i<=indice;i++) {
 			if(livros[i] != null) {
-				if(livros[i].getId() == item.getId()) {
+				if(livros[i].getId() == item.getLivro().getId()) {
 					livros[i].setEstoque(livros[i].getEstoque() - item.getQuantidade());
 				}
 			}
@@ -153,7 +153,7 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 		RepositorioLivrosArray.getInstance();
 		for(int i = 0; i<=indice;i++) {
 			if(livros[i] != null) {
-				if(livros[i].getId() == item.getId()) {
+				if(livros[i].getId() == item.getLivro().getId()) {
 					livros[i].setEstoque(livros[i].getEstoque() + item.getQuantidade());
 				}
 			}
