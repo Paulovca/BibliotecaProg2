@@ -20,6 +20,7 @@ import negocio.Fachada;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
 import negocio.exception.item.ItemNuloException;
+import negocio.exception.livro.LivroNaoEmprestavelException;
 
 public class CadastroItem extends JFrame {
 
@@ -102,12 +103,15 @@ public class CadastroItem extends JFrame {
 				Item item = new Item((Livro) comboBoxLivros.getSelectedItem(), Integer.parseInt(textFieldQuantidade.getText()));
 				itemCriado = item;
 				try {
+					Fachada.getInstance().consultarEstoque(item);
 					Fachada.getInstance().cadastrar(item);
 					JOptionPane.showMessageDialog(null, "Item cadastrado!");
 					CadastroEmprestimo.vezes = 0;
 					setVisible(false);
 					CadastroEmprestimo.getInstance().setVisible(true);
 				} catch (ItemNuloException e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage());
+				} catch (LivroNaoEmprestavelException e1) {
 					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 			}

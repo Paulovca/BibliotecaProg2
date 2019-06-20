@@ -161,4 +161,20 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable{
 		instance.salvarArquivo();
 	}
 
+	@Override
+	public boolean consultarEstoque(Item item) {
+		RepositorioLivrosArray.getInstance();
+		boolean retorno = false;
+		for(int i = 0; i<=indice;i++) {
+			if(livros[i] != null) {
+				if(livros[i].getId() == item.getLivro().getId()) {
+					if(livros[i].getEstoque()>= item.getQuantidade()) {
+						retorno = true;
+					}
+				}
+			}
+		}
+		return retorno;
+	}
+
 }

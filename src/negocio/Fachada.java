@@ -32,6 +32,7 @@ import negocio.exception.item.ItemNuloException;
 import negocio.exception.livro.LivroJaExisteException;
 import negocio.exception.livro.LivroNaoEncontradoException;
 import negocio.exception.livro.LivroNuloException;
+import negocio.exception.livro.LivroNaoEmprestavelException;
 
 public class Fachada {
 
@@ -195,6 +196,10 @@ public class Fachada {
 	
 	public ArrayList<Livro> listarLivros(){
 		return livros.listar();
+	}
+	
+	public boolean consultarEstoque (Item item) throws LivroNaoEmprestavelException {
+		return livros.consultarEstoque(item);
 	}
 	
 }

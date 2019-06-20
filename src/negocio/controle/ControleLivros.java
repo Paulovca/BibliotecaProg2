@@ -9,6 +9,7 @@ import negocio.entidades.Emprestimo;
 import negocio.entidades.Item;
 import negocio.entidades.Livro;
 import negocio.exception.livro.LivroJaExisteException;
+import negocio.exception.livro.LivroNaoEmprestavelException;
 import negocio.exception.livro.LivroNaoEncontradoException;
 import negocio.exception.livro.LivroNuloException;
 
@@ -53,6 +54,14 @@ public class ControleLivros {
 		}
 	}
 	
+	public boolean consultarEstoque(Item item) throws LivroNaoEmprestavelException{
+		boolean retorno = livros.consultarEstoque(item);
+		if( retorno == false) {
+			LivroNaoEmprestavelException e = new LivroNaoEmprestavelException(item);
+			throw e;
+		}
+		return retorno;
+	}
 	
 	public void remover(int id) throws LivroNaoEncontradoException{
 		Livro livro = livros.consultar(id);

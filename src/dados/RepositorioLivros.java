@@ -15,4 +15,5 @@ public interface RepositorioLivros {
 	public void salvarArquivo();
 	public void atualizarEstoqueEmprestimo(Item item);
 	public void atualizarEstoqueDevolucao(Item item);
+	public boolean consultarEstoque(Item item);
 }
