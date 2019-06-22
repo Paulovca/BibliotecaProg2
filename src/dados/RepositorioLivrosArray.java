@@ -104,7 +104,9 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable {
 	public void atualizar(Livro livro) {
 		for (int i = 0; i <= indice; i++) {
 			if (livros[i].getId() == livro.getId()) {
-				livros[i] = livro;
+				if(livros[i] != null) {
+					livros[i] = livro;
+				}
 			}
 		}
 	}
