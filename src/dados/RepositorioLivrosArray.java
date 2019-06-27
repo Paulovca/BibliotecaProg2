@@ -103,8 +103,8 @@ public class RepositorioLivrosArray implements RepositorioLivros, Serializable {
 	@Override
 	public void atualizar(Livro livro) {
 		for (int i = 0; i <= indice; i++) {
-			if (livros[i].getId() == livro.getId()) {
-				if(livros[i] != null) {
+			if(livros[i] != null) {
+				if (livros[i].getId() == livro.getId()) {
 					livros[i] = livro;
 				}
 			}
