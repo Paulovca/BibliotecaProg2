@@ -144,6 +144,9 @@ public class ConsultarRemoverLivro extends JFrame {
 						try {
 							Fachada.getInstance().removerLivros(Integer.parseInt(lblIddolivro.getText()));
 							JOptionPane.showMessageDialog(null, "Livro removido!");
+							dispose();
+							instance = null;
+							Biblioteca.getInstance().setVisible(true);
 						} catch (NumberFormatException e) {
 						//	JOptionPane.showMessageDialog(null, e.getMessage());
 						} catch (LivroNaoEncontradoException e) {
