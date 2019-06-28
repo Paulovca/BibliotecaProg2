@@ -49,6 +49,7 @@ public class Biblioteca extends JFrame {
 	}
 
 	private Biblioteca() {
+		
 		setTitle("Biblioteca");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 329);
@@ -111,6 +112,16 @@ public class Biblioteca extends JFrame {
 		btnConsultarAluno.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnConsultarAluno.setBounds(0, 159, 80, 23);
 		contentPane.add(btnConsultarAluno);
+		
+		JButton btnListarAluno = new JButton("Listar");
+		btnListarAluno.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ListarAluno.getInstance().setVisible(true);
+			}
+		});
+		btnListarAluno.setBounds(0, 193, 80, 23);
+		contentPane.add(btnListarAluno);
 
 		// Livro-----------------------------------------------------------------------------------------------------------------------------
 
@@ -165,6 +176,16 @@ public class Biblioteca extends JFrame {
 		btnConsultarLivro.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnConsultarLivro.setBounds(91, 159, 80, 23);
 		contentPane.add(btnConsultarLivro);
+		
+		JButton btnListarLivro = new JButton("Listar");
+		btnListarLivro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ListarLivro.getInstance().setVisible(true);;
+			}
+		});
+		btnListarLivro.setBounds(91, 193, 80, 23);
+		contentPane.add(btnListarLivro);
 
 		// Funcionario-------------------------------------------------------------------------------------------------------------------------
 
@@ -220,6 +241,16 @@ public class Biblioteca extends JFrame {
 		btnConsultarFuncionario.setBounds(182, 159, 80, 23);
 		contentPane.add(btnConsultarFuncionario);
 		
+		JButton btnListarFuncionario = new JButton("Listar");
+		btnListarFuncionario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ListarFuncionario.getInstance().setVisible(true);
+			}
+		});
+		btnListarFuncionario.setBounds(182, 193, 80, 23);
+		contentPane.add(btnListarFuncionario);
+		
 		// Emprestimo------------------------------------------------------------------------------------------------------------------------
 		
 		JLabel lblEmprstimo = new JLabel("Empr\u00E9stimo");
@@ -262,6 +293,10 @@ public class Biblioteca extends JFrame {
 		btnConsultarEmprestimo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnConsultarEmprestimo.setBounds(273, 159, 80, 23);
 		contentPane.add(btnConsultarEmprestimo);
+		
+		JButton btnListarEmprestimo = new JButton("Listar");
+		btnListarEmprestimo.setBounds(273, 193, 80, 23);
+		contentPane.add(btnListarEmprestimo);
 		
 		//Devolucao--------------------------------------------------------------------------------------------------------------------
 
@@ -306,6 +341,10 @@ public class Biblioteca extends JFrame {
 		btnConsultarDevolucao.setBounds(364, 159, 80, 23);
 		contentPane.add(btnConsultarDevolucao);
 		
+		JButton btnListarDevolucao = new JButton("Listar");
+		btnListarDevolucao.setBounds(364, 193, 80, 23);
+		contentPane.add(btnListarDevolucao);
+		
 		//--------------------------------------------------------------------------------------------------------------------------
 		
 		JButton btnVoltar = new JButton("voltar");
@@ -319,10 +358,6 @@ public class Biblioteca extends JFrame {
 		});
 		btnVoltar.setBounds(10, 256, 89, 23);
 		contentPane.add(btnVoltar);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Pictures\\aaa.png"));
-		lblNewLabel.setBounds(0, -17, 445, 308);
-		contentPane.add(lblNewLabel);
+		
 	}
 }

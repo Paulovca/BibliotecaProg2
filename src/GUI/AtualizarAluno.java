@@ -31,6 +31,7 @@ public class AtualizarAluno extends JFrame {
 				try {
 					AtualizarAluno frame = AtualizarAluno.getInstance();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
