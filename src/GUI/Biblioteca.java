@@ -295,6 +295,12 @@ public class Biblioteca extends JFrame {
 		contentPane.add(btnConsultarEmprestimo);
 		
 		JButton btnListarEmprestimo = new JButton("Listar");
+		btnListarEmprestimo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				ListarEmprestimo.getInstance().setVisible(true);
+			}
+		});
 		btnListarEmprestimo.setBounds(273, 193, 80, 23);
 		contentPane.add(btnListarEmprestimo);
 		
@@ -342,6 +348,12 @@ public class Biblioteca extends JFrame {
 		contentPane.add(btnConsultarDevolucao);
 		
 		JButton btnListarDevolucao = new JButton("Listar");
+		btnListarDevolucao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				ListarDevolucao.getInstance().setVisible(true);
+			}
+		});
 		btnListarDevolucao.setBounds(364, 193, 80, 23);
 		contentPane.add(btnListarDevolucao);
 		
